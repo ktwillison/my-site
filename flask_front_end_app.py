@@ -19,9 +19,9 @@ def index():
 def send_assets(path):
 	return send_from_directory('public_html/', path)
 
-@app.route('/wine/')
-def get_wine_index():
-	return app.make_response(open('public_html/html/wine.html').read())
+# @app.route('/wine/')
+# def get_wine_index():
+# 	return app.make_response(open('public_html/html/wine.html').read())
 
 @app.route('/api/v1.0/data/wine_finder_data/', methods=['GET'])
 # @cross_origin(origin='http://fiddle.jshell.net',headers=['Content-Type','Authorization'])
