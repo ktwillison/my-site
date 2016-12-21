@@ -159,8 +159,8 @@ d3.select(self.frameElement).style("height", wheel_height + "px");
   //       Load data
   // ----------------------------------------------------------------
 
-d3.json("/api/v1.0/data/wine_finder_data/", function(remote_json) {
-// d3.json("https://katewillison.com/api/v1.0/data/wine_finder_data/", function(remote_json) {
+//d3.json("/api/v1.0/data/wine_finder_data/", function(remote_json) {
+d3.json("https://katewillison.com/api/v1.0/data/wine_finder_data/", function(remote_json) {
 
   window.remote_json = remote_json;
 
