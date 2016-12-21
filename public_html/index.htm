@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="/assets/css/app.min.css">
 
 
+
 </style></head>
     <body cz-shortcut-listen="true">
         <section class="main-container">
@@ -63,7 +64,7 @@
                             <article class="content ">
                                 <div class="post">
                                     <div>
-                                        <div id="image-carousel" class="post-image">
+                                        <div class="post-image image-carousel">
                                             <img src="/assets/images/aboutImage.png" class="post-image about-image active">
                                             <img src="/assets/images/postImage.png" class="post-image about-image">
                                         </div>
@@ -90,7 +91,9 @@
 
                             <article class="content">
                                 <div class="post">
-                                    <img src="/assets/images/less-screens.png" class="post-image">
+                                    <a href="https://itunes.apple.com/us/app/less-a-tool-for-flexitarians/id1147139153?mt=8" target="_blank">
+                                        <img src="/assets/images/less-screens.png" class="post-image">
+                                    </a>
                                     
                                     <h3> 
                                         Less – a tool for flexitarians
@@ -105,20 +108,20 @@
 
                             <article class="content">
                                 <div class="post">
-                                    <img src="/assets/images/aroma-wheel.png" class="post-image">
+                                    <a class="show-wine-explorer"><img src="/assets/images/aroma-wheel.png" class="post-image"></a>
                                     
                                     <h3> 
                                         The Wine Explorer
                                     </h3>
                                     <p class="post-text">
-                                        The product of a final project for CME 161: Data Visualization at Stanford, <a id="show-wine-explorer">The Wine Explorer</a> is an interactive tool that leverages D3 and crossfilter.js in order to let users filter wine varietals by aroma, color, region, body, acidity etc. The end product is useful both in blind tasting (wherein you use the wine’s characteristics in order to guess its varietal, age and origin) as well as simply deciding what bottle to buy if you have a particular taste in mind.
+                                        The product of a final project for CME 161: Data Visualization at Stanford, <a class="show-wine-explorer">The Wine Explorer</a> is an interactive tool that leverages D3 and crossfilter.js in order to let users filter wine varietals by aroma, color, region, body, acidity etc. The end product is useful both in blind tasting (wherein you use the wine’s characteristics in order to guess its varietal, age and origin) as well as simply deciding what bottle to buy if you have a particular taste in mind.
                                     </p> 
                                 </div>
                             </article>
 
                              <article class="content">
                                 <div class="post">
-                                    <img src="/assets/images/postImage.png" class="post-image">
+                                    <a class="show-ML-page"><img src="/assets/images/ML-viz.png" class="post-image"></a>
                                     
                                     <h3> 
                                         Machine Learning applied to Blind Tasting
@@ -126,14 +129,18 @@
                                     <p class="post-text">
                                         As a final project for Stanford’s CS 229 course on Machine Learning, our team built a classification model for 23 common wine varietals based on the descriptors in a dataset of 30,000+ professional wine reviews. Our preliminary Naïve Bayes model exhibited high variance, which we chose to counter by simplifying the feature set, stemming the descriptors in each review (so that e.g. ‘jam’ and ‘jammy’ would map to the same feature), and then using (unsupervised) Latent Dirichlet Allocation to build a 20-category topic model in order to select the most relevant features across all categories. The learning curves from a 10-fold cross-validation indicated that the best balance between over and under-fitting the model was achieved by using the top 5,000 relevant features from the LDA analysis. 
                                     <br/><br/>
-                                        The resulting Naïve Bayes model had a 68% testing accuracy for the 23 varietals in our dataset – rather impressive compared to the naïve baseline of 1/23 ≈ 4.3%. Additionally, the varietals present in the categories created by the unsupervised LDA analysis, as well as the salient descriptors for each, gives us a means to approximate varietal proximity, i.e. what wines are similar to each other and in what way (aroma, acidity, etc). All in all, it was a very exciting project to work on, in large part because it involved two of my favorite things: data and wine!
+                                        The resulting Naïve Bayes model had a 68% testing accuracy for the 23 varietals in our dataset – rather impressive compared to the naïve baseline of 1/23 ≈ 4.3%. Additionally, the varietals present in the <a class="show-ML-page">categories created by the unsupervised LDA analysis</a>, as well as the salient descriptors for each, gives us a means to approximate varietal proximity, i.e. what wines are similar to each other and in what way (aroma, acidity, etc). All in all, it was a very exciting project to work on, in large part because it involved two of my favorite things: data and wine! Checkout the <a id="show-ML-pdf">writeup</a> for more juicy details.
                                     </p> 
                                 </div>
                             </article>
 
                             <article class="content">
                                 <div class="post">
-                                    <img src="/assets/images/civis-postits.png" class="post-image">
+                                    <div class="post-image image-carousel">
+                                        <img src="/assets/images/civis-postits.png" class="post-image active">
+                                        <img src="/assets/images/civis-shadowing.png" class="post-image about-image">
+                                        <img src="/assets/images/civis-prototype.png" class="post-image about-image">
+                                    </div>
                                     
                                     <h3> 
                                         Civis onboarding
@@ -170,115 +177,152 @@
 
 
 <!-------------------- Project-specific pages ------------------------>
-                    <div class="block-content content--wine-explorer hidden">
+                    <div class="block-content hidden" id="article-specific-pages">
                         <a class="back-to-home"> <div class="fa fa-arrow-left"></div> back</a>
 
-                        <div class="content">
+                        <div class="hidden" id="ML-pdf-section">
+                            <div class="content">
 
-                            <div class="content--header">
-                                <h1 id="header-about">The Wine Explorer</h1>
-                            </div>
-
-                            <article class="content">
-                                <div class="post" id="resize">
-                                    <p class="post-text">
-                                        The Wine Explorer was created by fellow oenophiles <b>Ben Khoo</b> and <b>Kate Willison</b>, so that their blind-tasting companions might have an easier time identifying varietals based on their unique properties. The visualization below leverages <a href="https://square.github.io/crossfilter/" target="_blank">crossfilter.js</a>, <a href="https://dc-js.github.io/dc.js/" target="_blank">DC.js</a> and <a href="https://leafletjs.com/" target="_blank" >Leaflet</a>, as well as an adaptation of Mike Bostock's <a href="https://bl.ocks.org/mbostock/4063423" target="_blank">Sunburst</a> visualization.
-                                    </p> 
-
-                                    <!-- begin viz -->
-                                    <div class="row" id="data-count">
-                                        <h2>The Wine Explorer</h2>
-                                        <p>
-                                            <a class="filter-count" id="filter-count"></a> selected out of <a class="total-count">61</a> wine varietals |
-                                            <a id="ResetAll">Reset All</a>
-                                        </p>
-                                        
-                                    </div>
-                                      
-                                    <div class="row">
-                                      <h3>Aromas</h3>
-                                      <div id="aroma_wheel" class="chart-container svg-container"></div>
-                                      <div>
-                                        <h4>Selected Aromas:</h4>
-                                        <span id="aroma_selection"></span>
-                                      </div>
-                                    </div>
-
-                                    <div class="row">
-                                      <h3>Regions</h3>
-                                      <div id="map"></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <h3>Color</h3>
-                                        <div id="color_chart"></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <h3>Wine Characteristics</h3>
-                                        <p>Each on a scale of 1-5, 1 being Low and 5 being High.</p>
-
-                                        <div class="chart-container">
-                                          
-                                          <div class="float-chart">
-                                            <h4>Fruit</h4>
-                                            <div id="fruit_chart"></div>
-                                          </div>
-
-                                          <div class="float-chart">
-                                            <h4>Body</h4>
-                                            <div id="body_chart"></div>
-                                          </div>
-
-                                          <div class="float-chart">
-                                            <h4>Acidity</h4>
-                                            <div id="acidity_chart"></div>
-                                          </div>
-
-                                          <div class="float-chart">
-                                            <h4>Alcohol</h4>
-                                            <div id="alcohol_chart"></div>
-                                          </div>
-
-                                          <div class="float-chart">
-                                            <h4>Dryness</h4>
-                                            <div id="dryness_chart"></div>
-                                          </div>
-
-                                          <div class="float-chart">
-                                            <h4>Tannins</h4>
-                                            <div id="tannins_chart"></div>
-                                          </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div>
-                                          <h3>Matching Wine Varietals</h3>
-                                          <table id="wine-data-table">
-                                            <thead>
-                                              <tr class="header">
-                                                <th>Name</th>
-                                                <th>Acidity</th>
-                                                <th>Alcohol</th>
-                                                <th>Body</th>
-                                                <th>Color</th>
-                                                <th>Dryness</th>
-                                                <th>Fruit</th>
-                                                <th>Tannins</th>
-                                              </tr>
-                                            </thead>
-                                          </table>
-                                        </div>
-                                    </div>
-                                    <!-- end viz-->
-
+                                <div class="content--header">
+                                    <h1>LDA Category Overlaps</h1>
                                 </div>
-                            </article>
+
+                                <article class="content">
+                                    <div id="ML-chart"></div>
+                                </article>
+
+                                <div class="content--header" id="ML-pdf-header">
+                                    <h1>Project Writeup</h1>
+                                </div>
+
+                                <article class="content">
+                                    <div class="post">
+                                        <object data='/assets/images/248_Report.pdf' 
+                                            type='application/pdf' 
+                                            width='100%' 
+                                            height='500px'> 
+                                        </object>
+
+                                    </div>
+                                </article>
+                            </div>
                         </div>
 
-                        <div style="text-align: center;"><a class="btn blue back-to-home">HOME</a></div>
+
+                        <div class="hidden" id="wine-explorer-section">
+                            <div class="content">
+
+                                <div class="content--header">
+                                    <h1>The Wine Explorer</h1>
+                                </div>
+
+                                <article class="content">
+                                    <div class="post" id="wine-explorer-size">
+                                        <p class="post-text">
+                                            The Wine Explorer was created by fellow oenophiles <b>Ben Khoo</b> and <b>Kate Willison</b>, so that their blind-tasting companions might have an easier time identifying varietals based on their unique characteristics. Filter wines by selecting the properties you're looking for in the charts below: matching varietals are displayed at the bottom of the page.
+                                        <br/><br/>
+                                            The visualization leverages <a href="https://square.github.io/crossfilter/" target="_blank">crossfilter.js</a>, <a href="https://dc-js.github.io/dc.js/" target="_blank">DC.js</a> and <a href="https://leafletjs.com/" target="_blank" >Leaflet</a>, as well as an adaptation of Mike Bostock's <a href="https://bl.ocks.org/mbostock/4063423" target="_blank">Sunburst</a> visualization.
+                                        </p> 
+
+                                        <!-- begin viz -->
+                                        <div class="row" id="data-count">
+                                            <h2>The Wine Explorer</h2>
+                                            <p>
+                                                <a class="filter-count" id="filter-count"></a> selected out of <a class="total-count">61</a> wine varietals |
+                                                <a id="ResetAll">Reset All</a>
+                                            </p>
+                                            
+                                        </div>
+                                          
+                                        <div class="row">
+                                          <h3>Aromas</h3>
+                                          <div id="aroma_wheel" class="chart-container svg-container"></div>
+                                          <div>
+                                            <h4>Selected Aromas:</h4>
+                                            <span id="aroma_selection"></span>
+                                          </div>
+                                        </div>
+
+                                        <div class="row">
+                                          <h3>Regions</h3>
+                                          <div style="width:100%; max-width:500px; height:300px; display:inline-block;"
+                                              <div id="map" class="chart"></div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <h3>Color</h3>
+                                            <div id="color_chart" class="chart"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <h3>Wine Characteristics</h3>
+                                            <p>Each on a scale of 1-5, 1 being Low and 5 being High.</p>
+
+                                            <div class="chart-container">
+                                              
+                                              <div class="float-chart">
+                                                <h4>Fruit</h4>
+                                                <div id="fruit_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h4>Body</h4>
+                                                <div id="body_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h4>Acidity</h4>
+                                                <div id="acidity_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h4>Alcohol</h4>
+                                                <div id="alcohol_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h4>Dryness</h4>
+                                                <div id="dryness_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h4>Tannins</h4>
+                                                <div id="tannins_chart" class="chart"></div>
+                                              </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div>
+                                              <h3>Matching Wine Varietals</h3>
+                                              <table id="wine-data-table">
+                                                <thead>
+                                                  <tr class="header">
+                                                    <th>Name</th>
+                                                    <th>Acidity</th>
+                                                    <th>Alcohol</th>
+                                                    <th>Body</th>
+                                                    <th>Color</th>
+                                                    <th>Dryness</th>
+                                                    <th>Fruit</th>
+                                                    <th>Tannins</th>
+                                                  </tr>
+                                                </thead>
+                                              </table>
+                                            </div>
+                                        </div>
+                                        <!-- end viz-->
+
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 25px;">
+                            <a class="btn blue back-to-home">HOME</a>
+                        </div>
 
                     </div>
                     </div>
@@ -295,6 +339,7 @@
         <script src="/assets/js/app.min.js"></script>
 
         <!-- Visualization Dependencies -->
+        <!-- Wine explorer -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet-src.js'></script>
@@ -302,9 +347,17 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/dc/1.7.1/dc.js'></script>
         <script src='https://rawgit.com/crossfilter/crossfilter/master/crossfilter.min.js'></script>
 
+        <!-- ML viz -->
+        <script src="https://rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
+        <script src="https://rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+        <script src="https://rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
+        <script src="/assets/js/ML-viz.js"></script>
+
+
         <!-- Visualization style dependencies -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/dc/1.7.5/dc.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/ML-viz.css">
         
         <!-- Scripts: -->
         <script src='/assets/js/wine.js'></script>

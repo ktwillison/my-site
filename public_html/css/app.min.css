@@ -1150,14 +1150,14 @@ article {
 }
 
 
-#image-carousel {
+.image-carousel {
     position:relative;
 }
-#image-carousel img {
+.image-carousel img {
     position:absolute;
     z-index:1
 }
-#image-carousel img.active{
+.image-carousel img.active{
     z-index:3
 }
 
@@ -1179,6 +1179,32 @@ a.morelink {
 
 #aroma_wheel {
     max-width: 500px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.dc-chart .axis text {
+    font-size: 12px;
+}
+
+.resize {
+    width: 100%;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
 }
 
 .chart-container {

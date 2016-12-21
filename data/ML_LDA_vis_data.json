@@ -1,0 +1,184 @@
+{
+   "nodes" : [
+{
+         "name" : "Barbera",
+         "id" : "barbera_score"
+},
+{
+         "name" : "Cabernet Franc",
+         "id" : "cabernet_franc_score"
+},
+{
+         "name" : "Charbono",
+         "id" : "charbono_score"
+},
+{
+         "name" : "Dolcetto",
+         "id" : "dolcetto_score"
+},
+{
+         "name" : "Gamay",
+         "id" : "gamay_score"
+},
+{
+         "name" : "Gewurztraminer",
+         "id" : "gewurztraminer_score"
+},
+{
+         "name" : "Gruner Veltliner",
+         "id" : "gruner_veltliner_score"
+},
+{
+         "name" : "Nebbiolo",
+         "id" : "nebbiolo_score"
+},
+{
+         "name" : "Petite Sirah",
+         "id" : "petite_sirah_score"
+},
+{
+         "name" : "Pineau dAunis",
+         "id" : "pineau_daunis_score"
+},
+{
+         "name" : "Pinot Gris",
+         "id" : "pinot_gris_score"
+},
+{
+         "name" : "Rhone Blends",
+         "id" : "rhone_blends_score"
+},
+{
+         "name" : "Riesling",
+         "id" : "riesling_score"
+},
+{
+         "name" : "Sauvignon Blanc",
+         "id" : "sauvignon_blanc_score"
+},
+{
+         "name" : "Semillon",
+         "id" : "semillon_score"
+},
+{
+         "name" : "coming aged blend full-bodied drink fruit richness effort textured palate ",
+         "id" : "topic_15"
+},
+{
+         "name" : "fruit anticipated maturity glass flowers finish spices red mint gorgeous ",
+         "id" : "topic_16"
+},
+{
+         "name" : "palate sense finish juicy slate mineral alcohol nose stone lime ",
+         "id" : "topic_17"
+},
+{
+         "name" : "oak planted grapes aged soils fruit barrels fermented fermentation sourced ",
+         "id" : "topic_18"
+},
+{
+         "name" : "vine cellars unique makes yeasts create natural fermentations planted ",
+         "id" : "topic_19"
+},
+{
+         "name" : "finish notes black fruit dark blackberry plum currant licorice drink ",
+         "id" : "topic_20"
+},
+{
+         "name" : "eden top world back cases quality work famous tasting ",
+         "id" : "topic_21"
+},
+{
+         "name" : "fruit palate flavours medium long nose acid fruits colour good ",
+         "id" : "topic_22"
+},
+{
+         "name" : "full-bodied color black dense rich sweet drink notes oak blend ",
+         "id" : "topic_23"
+},
+{
+         "name" : "honey finish acidity sweet apricot flavors rich botrytis long orange ",
+         "id" : "topic_24"
+}   ],
+   "links" : [
+{
+"source" : 11,
+"value" : 0.135959052693948,
+"target" : 15},
+{
+"source" : 0,
+"value" : 0.107308272158453,
+"target" : 16},
+{
+"source" : 3,
+"value" : 0.141959895656985,
+"target" : 16},
+{
+"source" : 7,
+"value" : 0.106406812377967,
+"target" : 16},
+{
+"source" : 4,
+"value" : 0.150098809420454,
+"target" : 17},
+{
+"source" : 6,
+"value" : 0.133376291941261,
+"target" : 17},
+{
+"source" : 12,
+"value" : 0.156700670591788,
+"target" : 17},
+{
+"source" : 4,
+"value" : 0.105800536769358,
+"target" : 18},
+{
+"source" : 9,
+"value" : 0.158704462166571,
+"target" : 18},
+{
+"source" : 2,
+"value" : 0.295533196144768,
+"target" : 19},
+{
+"source" : 8,
+"value" : 0.172223776254567,
+"target" : 19},
+{
+"source" : 1,
+"value" : 0.10646308446082,
+"target" : 20},
+{
+"source" : 11,
+"value" : 0.192449944410016,
+"target" : 20},
+{
+"source" : 0,
+"value" : 0.111245697935869,
+"target" : 21},
+{
+"source" : 13,
+"value" : 0.111848075685578,
+"target" : 22},
+{
+"source" : 2,
+"value" : 0.103878066888122,
+"target" : 23},
+{
+"source" : 8,
+"value" : 0.105320920837882,
+"target" : 23},
+{
+"source" : 5,
+"value" : 0.141310483684978,
+"target" : 24},
+{
+"source" : 10,
+"value" : 0.13314737100758,
+"target" : 24},
+{
+"source" : 14,
+"value" : 0.323482165516334,
+"target" : 24}
+]}

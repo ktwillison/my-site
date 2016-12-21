@@ -23,10 +23,10 @@ def send_assets(path):
 # def get_wine_index():
 # 	return app.make_response(open('public_html/html/wine.html').read())
 
-@app.route('/api/v1.0/data/wine_finder_data/', methods=['GET'])
+@app.route('/api/v1.0/data/<filename>/', methods=['GET'])
 @cross_origin(origin='http://www.katewillison.com/', headers=['Content-Type','Authorization'])
-def get_wine_finder_data():
-	with open('data/wine_finder_data.json') as data_file:
+def get_data(filename):
+	with open('data/' + filename + '.json') as data_file:
 		return json.dumps(json.load(data_file))
 
 
