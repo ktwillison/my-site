@@ -87,7 +87,6 @@ var wheel_width = 500,
 
 var svg = d3.select("#aroma_wheel").insert("svg",":first-child") // .append("svg") // 
   .attr("width", "100%")
-  .attr("max-width", "300px")
   .attr("preserveAspectRatio", "xMinYMin meet")
   .attr("viewBox","0 0 " + wheel_width + " " + wheel_height)
   //class to make it responsive
