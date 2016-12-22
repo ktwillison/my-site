@@ -1112,30 +1112,87 @@ img.logo-img {
     color: #00CCD7;
     font-weight: 100;
     letter-spacing: 3px;
-}
-
-.content--header > h1 {
-    overflow: hidden;
-    text-align: center;
+    overflow: visible;
+    display: inline-block;
+    max-width: 60%;
 }
 .content--header > h1:before,
 .content--header > h1:after {
-    background-color: #00CCD7;
     content: "";
     display: inline-block;
-    height: 2px;
-    position: relative;
     vertical-align: middle;
-    width: 10%;
+    width: 20%;
+    /*position: relative;*/
+    /*background-color: #00CCD7;*/
+    /*height: 2px;*/
+    margin: 0 .5em 0 -55%;
+    border-bottom: 2px solid;
 }
-.content--header > h1:before {
+
+.content--header > h1:after {
+  margin: 0 -55% 0 .5em;
+}
+.content--header > h1 > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*.content--header > h1:before {
     right: 0.9em;
     margin-left: -50%;
 }
 .content--header > h1:after {
     left: 0.9em;
     margin-right: -50%;
+}*/
+
+
+
+
+
+h1.test {
+    position: relative;
+    z-index: 1;
+    
+    &:before {
+        border-top: 2px solid #dfdfdf;
+        content:"";
+        margin: 0 auto; /* this centers the line to the full width specified */
+        position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+        top: 50%; left: 0; right: 0; bottom: 0;
+        width: 95%;
+        z-index: -1;
+    }
+
+    span { 
+        /* to hide the lines from behind the text, you have to set the background color the same as the container */ 
+        background: #fff; 
+        padding: 0 15px; 
+    }
 }
+
+h1.test:before { 
+    /* this is just to undo the :before styling from above */
+    border-top: none; 
+}
+
+h1.test:after {
+    border-bottom: 1px solid blue;
+    -webkit-box-shadow: 0 1px 0 0 red;
+    -moz-box-shadow: 0 1px 0 0 red;
+    box-shadow: 0 1px 0 0 red;
+    content: "";
+    margin: 0 auto; /* this centers the line to the full width specified */
+    position: absolute;
+    top: 45%; left: 0; right: 0;
+    width: 95%;
+    z-index: -1;
+}
+
+
+
+
+
 
 article {
     display: block;
