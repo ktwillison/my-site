@@ -344,7 +344,6 @@ function renderWineExplorer() {
       var dataTable = dc.dataTable('#wine-data-table')
         .dimension(allDim)
         .group(function(d) { return null; })
-        // .on("filtered", createColorSwatches)
         .columns([
             function(d) { return d.name; },
             function(d) { return getNameForId(remote_json.colors, d.color); },
