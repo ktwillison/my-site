@@ -22,6 +22,7 @@ function renderWineExplorer() {
 
   if (!wineExplorerRendered) {
     
+    // Map setup
     // Add Map to the visualization
     var wineMap = L.map('map');
     var countryMarkers = new L.FeatureGroup();
@@ -33,6 +34,7 @@ function renderWineExplorer() {
       "attribution": "Created for CME161"
     }).addTo(wineMap);
 
+    // Define color scale & legend
     function getChoroColor(d) {
       return d > 25 ? '#800026' :
         d > 20 ? '#BD0026' :
@@ -45,8 +47,8 @@ function renderWineExplorer() {
     };
 
     var colorScale = d3.scale.linear()
-    .domain([0, 27])
-    .range(["blue", "red"]);
+      .domain([0, 27])
+      .range(["blue", "red"]);
 
     var CholoStyle = function(d) {
       return {
@@ -79,7 +81,6 @@ function renderWineExplorer() {
 
       return div;
     };
-
     legend.addTo(wineMap);
 
 
@@ -167,7 +168,7 @@ function renderWineExplorer() {
     d3.json("/api/v1.0/data/wine_finder_data/", function(remote_json) {
       window.remote_json = remote_json;
 
-      // Helper access functions
+      // Return color name from given id
       function getNameForId(array, id) {
         for (var i = 0; i < array.length; i++) {
           if (array[i].id === id) {
@@ -282,90 +283,35 @@ function renderWineExplorer() {
         });
       }  
       
-      var fruit_chart = dc.barChart("#fruit_chart")
-        .width(chart_WL)
-        .height(chart_WL)
-        //.width(250)
-        //.height(200)
-        .dimension(fruit)
-        .group(fruit_sum)
-        .centerBar(true)
-        .x(d3.scale.linear().domain([0.5, 5.5]))
-        .xUnits(dc.units.fp.precision(1))
-        .yAxisLabel('Count')
-        .renderlet( setBarColors );
-      fruit_chart.xAxis().ticks(5);
+      // var xAxis = d3.svg.axis().scale(x).orient("bottom").tickFormat(d3.time.format("%H"))
 
-      var body_chart = dc.barChart("#body_chart")
-        .width(250)
-        .height(200)
-        .width(chart_WL)
-        .height(chart_WL)
-        .dimension(body)
-        .group(body_sum)
-        .centerBar(true)
-        .x(d3.scale.linear().domain([0.5, 5.5]))
-        .xUnits(dc.units.fp.precision(1))
-        .yAxisLabel('Count')
-        .renderlet( setBarColors );
-      body_chart.xAxis().ticks(5);
+      var xAxisLabels = {0:"", 1:"L", 2:"M-", 3:"M", 4:"M+", 5:"H"};
 
-      var dryness_chart = dc.barChart("#dryness_chart")
-        .width(250)
-        .height(200)
-        .width(chart_WL)
-        .height(chart_WL)
-        .dimension(dryness)
-        .group(dryness_sum)
-        .centerBar(true)
-        .x(d3.scale.linear().domain([0.5, 5.5]))
-        .xUnits(dc.units.fp.precision(1))
-        .yAxisLabel('Count')
-        .renderlet( setBarColors );
-      dryness_chart.xAxis().ticks(5);
+      // Chart creator-helper
+      function createChart(elementID, dimension, group) {
+        var newChart = dc.barChart("#".concat(elementID))
+          .width(chart_WL)
+          .height(chart_WL)
+          .dimension(dimension)
+          .group(group)
+          .centerBar(true)
+          .x(d3.scale.linear().domain([0.5, 5.5]))
+          .xUnits(dc.units.fp.precision(1))
+          .yAxisLabel('Count')
+          .renderlet( setBarColors );
+        newChart.xAxis().ticks(5);
+        newChart.xAxis().tickFormat(function (v) { return xAxisLabels[v]; });
+        return newChart
+      };
 
-      var acidity_chart = dc.barChart("#acidity_chart")
-        .width(250)
-        .height(200)
-        .width(chart_WL)
-        .height(chart_WL)
-        .dimension(acidity)
-        .group(acidity_sum)
-        .centerBar(true)
-        .x(d3.scale.linear().domain([0.5, 5.5]))
-        .xUnits(dc.units.fp.precision(1))
-        .yAxisLabel('Count')
-        .renderlet( setBarColors );
-      acidity_chart.xAxis().ticks(5);
+      var body_chart = createChart("body_chart", body, body_sum);
+      var acidity_chart = createChart("acidity_chart", acidity, acidity_sum);
+      var alcohol_chart = createChart("alcohol_chart", alcohol, alcohol_sum);
+      var fruit_chart = createChart("fruit_chart", fruit, fruit_sum);
+      var dryness_chart = createChart("dryness_chart", dryness, dryness_sum);
+      var tannins_chart = createChart("tannins_chart", tannins, tannins_sum);
 
-      var alcohol_chart = dc.barChart("#alcohol_chart")
-        .width(250)
-        .height(200)
-        .width(chart_WL)
-        .height(chart_WL)
-        .dimension(alcohol)
-        .group(alcohol_sum)
-        .centerBar(true)
-        .x(d3.scale.linear().domain([0.5, 5.5]))
-        .xUnits(dc.units.fp.precision(1))
-        .yAxisLabel('Count')
-        .renderlet( setBarColors );
-      alcohol_chart.xAxis().ticks(5);
-
-      var tannins_chart = dc.barChart("#tannins_chart")
-        .width(250)
-        .height(200)
-        .width(chart_WL)
-        .height(chart_WL)
-        .dimension(tannins)
-        .group(tannins_sum)
-        .centerBar(true)
-        .x(d3.scale.linear().domain([0.5, 5.5]))
-        .xUnits(dc.units.fp.precision(1))
-        .yAxisLabel('Count')
-        .renderlet( setBarColors );
-      tannins_chart.xAxis().ticks(5);
-
+      // Add pie chart
       var sum = 0;
       var color_chart = dc.pieChart("#color_chart")
         .width(200)
@@ -397,26 +343,47 @@ function renderWineExplorer() {
 
       var dataTable = dc.dataTable('#wine-data-table')
         .dimension(allDim)
-        .group(function(d) {
-          return null;
-        })
-
-      .columns([
-          function(d) { return d.name; },
-          function(d) { return d.acidity; },
-          function(d) { return d.alcohol; },
-          function(d) { return d.body; },
-          function(d) { return getNameForId(remote_json.colors, d.color); },
-          function(d) { return d.dryness; },
-          function(d) { return d.fruit; },
-          function(d) { return d.tannins; }
+        .group(function(d) { return null; })
+        // .on("filtered", createColorSwatches)
+        .columns([
+            function(d) { return d.name; },
+            function(d) { return getNameForId(remote_json.colors, d.color); },
+            function(d) { return xAxisLabels[d.body]; },
+            function(d) { return xAxisLabels[d.acidity]; },
+            function(d) { return xAxisLabels[d.alcohol]; },
+            function(d) { return xAxisLabels[d.fruit]; },
+            function(d) { return xAxisLabels[d.dryness]; },
+            function(d) { return xAxisLabels[d.tannins]; }
         ])
         .renderlet(function(table) {
           // remove unnecessary row rendered
           table.select('tr.dc-table-group').remove();
           updateCount(allDim.top(Infinity));
           drawMap(country_sum, remote_json.countries, countryMarkers);
+          createColorSwatches();
         });
+
+      var swatchColors = {
+        'straw': "#F2D780",
+        'gold': "#F7C938",
+        'green': "#DEE0A1",
+        'garnet': "#943543",
+        'ruby': "#791925",
+        'purple': "#66023C"
+      }
+
+      function createColorSwatches() {
+        $(".dc-table-column._1").each(function(index, thisCell) {
+          var color = thisCell.innerText || thisCell.textContent;
+          var div = document.createElement("div"); 
+          div.style.width = "10px"; 
+          div.style.height = "10px"; 
+          div.style.background = swatchColors[color];
+          div.style.display = "inline-block";
+          thisCell.innerHTML = '';
+          thisCell.append(div);
+        });
+      }
 
       // ----------------------------------------------------------------
       //       Chart helper functions

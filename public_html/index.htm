@@ -146,7 +146,7 @@
                                         Civis onboarding
                                     </h3>
                                     <p class="post-text">
-                                        In the summer of 2015, Civis Analytics was on the verge of launching their new data science platform. Originally a custom-built solution used to target voter outreach efforts in Obama’s 2008 and then 2012 campaigns, the analytical workflow they had created was increasingly more broadly applied to both public and private sector data challenges, and its web application front-end meant that the tool could now be used by data scientists and less skilled analysts alike. The challenge we were presented with (myself as the Product Manager, and my fellow intern <a href="http://deanarutherford.com/" target="_blank">Deana Rutherford</a> as the UI Designer) was to create an onboarding experience that would serve to orient data scientists to the tools they expected to find, as well as to introduce analysts to a potentially unfamiliar data science workflow and its associated tools. 
+                                        In the summer of 2015, <a href="https://civisanalytics.com/" target="_blank">Civis Analytics</a> was on the verge of launching their new data science platform. Originally a custom-built solution used to target voter outreach efforts in Obama’s 2008 and then 2012 campaigns, the analytical workflow they had created was increasingly more broadly applied to both public and private sector data challenges, and its web application front-end meant that the tool could now be used by data scientists and less skilled analysts alike. The challenge we were presented with (myself as the Product Manager, and my fellow intern <a href="http://deanarutherford.com/" target="_blank">Deana Rutherford</a> as the UI Designer) was to create an onboarding experience that would serve to orient data scientists to the tools they expected to find, as well as to introduce analysts to a potentially unfamiliar data science workflow and its associated tools. 
                                     <br/><br/>
                                         Our process started by shadowing a handful of new users through a few different tasks, e.g. importing a dataset, selecting a chunk of data using SQL on the platform, and building a model. As you might expect, this gave us a ton of insight into the new user experience, and a lot of little UI ‘bugs’ to squash in parallel with the larger onboarding experience. In true d.School style, we then synthesized our observations into a rainbow of say/do/think/feel post-it notes centered around the different areas of the platform, and the connections between them (or lack thereof). Armed with these observations, we set off into a week-long Google design sprint, where we sketched, prototyped, tested and iterated our way through a few designs before creating a final spec and high-fidelity <a href="https://collaborate.uxpin.com/b3a168afd97b100acb1d9656c5984af371a3a98e#/pages/26155002" target="_blank">clickable prototype</a> to hand over to the dev team. At the end of the summer, we gave a presentation about the new user experience and our proposed onboarding walkthrough, and synthesized our findings into a digestible “customer journey map” for Civis to use in feature prioritization going forward.
                                     </p> 
@@ -256,16 +256,12 @@
                                         </div>
 
                                         <div class="row">
-                                            <h3>Wine Characteristics</h3>
-                                            <p>Each on a scale of 1-5, 1 being Low and 5 being High.</p>
+                                            <h3>Wine Characteristics<br/>
+                                                <small>Each on a scale from Low to High</small>
+                                            </h3>
 
                                             <div class="chart-container">
                                               
-                                              <div class="float-chart">
-                                                <h4>Fruit</h4>
-                                                <div id="fruit_chart" class="chart"></div>
-                                              </div>
-
                                               <div class="float-chart">
                                                 <h4>Body</h4>
                                                 <div id="body_chart" class="chart"></div>
@@ -282,12 +278,18 @@
                                               </div>
 
                                               <div class="float-chart">
-                                                <h4>Dryness</h4>
+                                                <h4>Fruit</h4>
+                                                <div id="fruit_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h4>Dryness<br/><small>(White)</small></h4>
+                                                
                                                 <div id="dryness_chart" class="chart"></div>
                                               </div>
 
                                               <div class="float-chart">
-                                                <h4>Tannins</h4>
+                                                <h4>Tannins<br/><small>(Red)</small></h4>
                                                 <div id="tannins_chart" class="chart"></div>
                                               </div>
 
@@ -301,12 +303,12 @@
                                                 <thead>
                                                   <tr class="header">
                                                     <th>Name</th>
+                                                    <th>Color</th>
+                                                    <th>Body</th>
                                                     <th>Acidity</th>
                                                     <th>Alcohol</th>
-                                                    <th>Body</th>
-                                                    <th>Color</th>
-                                                    <th>Dryness</th>
                                                     <th>Fruit</th>
+                                                    <th>Dryness</th>
                                                     <th>Tannins</th>
                                                   </tr>
                                                 </thead>
