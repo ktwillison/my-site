@@ -343,7 +343,10 @@ function renderWineExplorer() {
 
       var dataTable = dc.dataTable('#wine-data-table')
         .dimension(allDim)
-        .group(function(d) { return null; })
+        .size(100)
+        .group(function(d) { return ''; })
+        .sortBy(function(d){ return d.name; })
+        .order(d3.descending)
         .columns([
             function(d) { return d.name; },
             function(d) { return getNameForId(remote_json.colors, d.color); },
