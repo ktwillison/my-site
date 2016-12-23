@@ -219,7 +219,7 @@
                                 <article class="content">
                                     <div class="post" id="wine-explorer-size">
                                         <p class="post-text">
-                                            The Wine Explorer was created by fellow oenophiles <b>Ben Khoo</b> and <b>Kate Willison</b>, so that their blind-tasting companions might have an easier time identifying varietals based on their unique characteristics. Filter wines by selecting the properties you're looking for in the charts below: matching varietals are displayed at the bottom of the page.
+                                            <em>The Wine Explorer</em> was created by fellow oenophiles <b>Ben Khoo</b> and <b>Kate Willison</b>, so that their blind-tasting companions might have an easier time identifying varietals based on their unique characteristics. Filter wines by selecting the properties you're looking for in the charts below: matching varietals are displayed at the bottom of the page.
                                         <br/><br/>
                                             The visualization leverages <a href="https://square.github.io/crossfilter/" target="_blank">crossfilter.js</a>, <a href="https://dc-js.github.io/dc.js/" target="_blank">DC.js</a> and <a href="https://leafletjs.com/" target="_blank" >Leaflet</a>, as well as an adaptation of Mike Bostock's <a href="https://bl.ocks.org/mbostock/4063423" target="_blank">Sunburst</a> visualization.
                                         </p> 
@@ -229,7 +229,7 @@
                                             <h2>The Wine Explorer</h2>
                                             <p>
                                                 <a class="filter-count" id="filter-count"></a> selected out of <a class="total-count">61</a> wine varietals |
-                                                <a id="ResetAll">Reset All</a>
+                                                <a class="reset_wine_filters">Reset Filters</a>
                                             </p>
                                             
                                         </div>
@@ -244,8 +244,12 @@
                                         </div>
 
                                         <div class="row">
-                                          <h3>Regions</h3>
-                                          <div style="width:100%; max-width:500px; height:300px; display:inline-block;">
+                                          <h3 style="margin-bottom: 0px;">Regions</h3>
+                                          <div id="region_hover">&nbsp</div>
+                                          <div style="margin-bottom: 10px;">
+                                            <a class="reset_wine_filters">Reset Filters</a>
+                                          </div>
+                                          <div style="width:100%; max-width:500px; height:250px; display:inline-block;">
                                               <div id="map" class="chart"></div>
                                           </div>
                                         </div>
@@ -299,6 +303,9 @@
                                         <div class="row">
                                             <div>
                                               <h3>Matching Wine Varietals</h3>
+                                              <div style="margin-bottom: 10px;">
+                                                <a class="reset_wine_filters">Reset Filters</a>
+                                              </div>
                                               <table id="wine-data-table">
                                                 <thead>
                                                   <tr class="header">
