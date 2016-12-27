@@ -75,7 +75,7 @@
                                     <p class="post-text">
                                         Hi there! I’m Kate. Born and raised in the heart of Silicon Valley, California, it comes as no surprise that many of my favorite things are the best of what my home state has to offer: great hiking, great wine, and great user-centric mobile and web applications. I enjoy analyzing a dataset almost as much as I enjoy analyzing a good glass of Old-Vine Zinfandel, and where those two passions intersect is most definitely my happy place (see the ‘Projects’ section below). Apart from that I love to travel – not so much for relaxing as for adventuring, learning new languages and experiencing new cultures.
                                     <br/><br/>
-                                        In both my studies and my work I’ve aime d to balance crucial technical know-how with a strong user sensibility. I started learning humans and machines from the bottom up in my undergraduate years at UPenn, focusing on cognitive neuroscience and test-driven development. In my graduate education at Stanford, I built on this foundation by honing my design thinking skills at the Stanford d.School, as well as my technical toolkit through courses in machine learning, systems engineering, and iOS & web development. After earning my MS, I skipped town and decided to travel over-land from Stockholm to Saigon, through Estonia, Russia, Mongolia, China and Vietnam by train, bus, boat, and motorcycle. 4 months and 19,628 kilometers later, I’m heading back to Europe in search of my next adventure!
+                                        In both my studies and my work I’ve aimed to balance crucial technical know-how with a strong user sensibility. I started learning humans and machines from the bottom up in my undergraduate years at UPenn, focusing on cognitive neuroscience and test-driven development. In my graduate education at Stanford, I built on this foundation by honing my design thinking skills at the Stanford d.School, as well as my technical toolkit through courses in machine learning, systems engineering, and iOS & web development. After earning my MS, I skipped town and decided to travel over-land from Stockholm to Saigon, through Estonia, Russia, Mongolia, China and Vietnam by train, bus, boat, and motorcycle. 4 months and 19,628 kilometers later, I’m heading back to Europe in search of my next adventure!
 
                                     </p> 
                                 </div>
@@ -148,7 +148,7 @@
                                     <p class="post-text">
                                         In the summer of 2015, <a href="https://civisanalytics.com/" target="_blank">Civis Analytics</a> was on the verge of launching their new data science platform. Originally a custom-built solution used to target voter outreach efforts in Obama’s 2008 and then 2012 campaigns, the analytical workflow they had created was increasingly more broadly applied to both public and private sector data challenges, and its web application front-end meant that the tool could now be used by data scientists and less skilled analysts alike. The challenge we were presented with (myself as the Product Manager, and my fellow intern <a href="http://deanarutherford.com/" target="_blank">Deana Rutherford</a> as the UI Designer) was to create an onboarding experience that would serve to orient data scientists to the tools they expected to find, as well as to introduce analysts to a potentially unfamiliar data science workflow and its associated tools. 
                                     <br/><br/>
-                                        Our process started by shadowing a handful of new users through a few different tasks, e.g. importing a dataset, selecting a chunk of data using SQL on the platform, and building a model. As you might expect, this gave us a ton of insight into the new user experience, and a lot of little UI ‘bugs’ to squash in parallel with the larger onboarding experience. In true d.School style, we then synthesized our observations into a rainbow of say/do/think/feel post-it notes centered around the different areas of the platform, and the connections between them (or lack thereof). Armed with these observations, we set off into a week-long Google design sprint, where we sketched, prototyped, tested and iterated our way through a few designs before creating a final spec and high-fidelity <a href="https://collaborate.uxpin.com/b3a168afd97b100acb1d9656c5984af371a3a98e#/pages/26155002" target="_blank">clickable prototype</a> to hand over to the dev team. At the end of the summer, we gave a presentation about the new user experience and our proposed onboarding walkthrough, and synthesized our findings into a digestible “customer journey map” for Civis to use in feature prioritization going forward.
+                                        Our process started by shadowing a handful of new users through a few different tasks, e.g. importing a dataset, selecting a chunk of data using SQL on the platform, and building a model. As you might expect, this gave us a ton of insight into the new user experience, and a lot of little UI ‘bugs’ to squash in parallel with crafting the larger onboarding experience. In true d.School style, we then synthesized our observations into a rainbow of say/do/think/feel post-it notes centered around the different areas of the platform, and the connections between them (or lack thereof). Armed with these observations, we set off into a week-long Google design sprint, where we sketched, prototyped, tested and iterated our way through a few designs before creating a final spec and high-fidelity <a href="https://collaborate.uxpin.com/b3a168afd97b100acb1d9656c5984af371a3a98e#/pages/26155002" target="_blank">clickable prototype</a> to hand over to the dev team. At the end of the summer, we gave a presentation about the new user experience and our proposed onboarding walkthrough, and synthesized our findings into a digestible “customer journey map” for Civis to use in feature prioritization going forward.
                                     </p> 
                                 </div>
                             </article>
@@ -340,6 +340,35 @@
         </section>
 
         <!-- Initialize JS Plugins/Shims -->
+        <script src="/libraries/analytics.js"></script>
+        <script src="/libraries/jquery.js"></script>
+        <script src="/libraries/CSSRulePlugin.min.js"></script>
+        <script src="/libraries/TweenMax.min.js"></script>
+        <script src="/libraries/jquery.shorten.1.0.js"></script>
+        <script src="/assets/js/app.min.js"></script>
+
+        <!-- Visualization Dependencies -->
+        <!-- Wine explorer -->
+        <script src='/libraries/d3.min.js'></script>
+        <script src='/libraries/underscore-min.js'></script>
+        <script src='/libraries/leaflet-src.js'></script>
+        <script src='/libraries/leaflet.js'></script>
+        <script src='/libraries/dc.js'></script>
+        <script src='/libraries/crossfilter.min.js'></script>
+
+        <!-- ML viz -->
+        <script src="/libraries/sankey.js"></script>
+        <script src="/libraries/d3.chart.min.js"></script>
+        <script src="/libraries/d3.chart.sankey.min.js"></script>
+        <script src="/assets/js/ML-viz.js"></script>
+
+
+        <!-- Visualization style dependencies -->
+        <link href="/assets/css/dc.css" rel="stylesheet">
+        <link href="/assets/css/leaflet.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/ML-viz.css">
+
+    <!-- Backup
         <script src="/assets/js/analytics.js"></script>
         <script src="/assets/js/jquery.js"></script>
         <script src="/assets/js/CSSRulePlugin.min.js"></script>
@@ -347,8 +376,6 @@
         <script src="https://viralpatel.net/blogs/demo/jquery/jquery.shorten.1.0.js"></script>
         <script src="/assets/js/app.min.js"></script>
 
-        <!-- Visualization Dependencies -->
-        <!-- Wine explorer -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet-src.js'></script>
@@ -356,29 +383,29 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/dc/1.7.1/dc.js'></script>
         <script src='https://rawgit.com/crossfilter/crossfilter/master/crossfilter.min.js'></script>
 
-        <!-- ML viz -->
+
         <script src="https://rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
         <script src="https://rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
         <script src="https://rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
         <script src="/assets/js/ML-viz.js"></script>
 
-
-        <!-- Visualization style dependencies -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/dc/1.7.5/dc.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" rel="stylesheet">
         <link rel="stylesheet" href="/assets/css/ML-viz.css">
+    -->
         
         <!-- Scripts: -->
         <script src='/assets/js/wine.js'></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- Google Analytics code -->
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-53370316-1','auto');ga('send','pageview');
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-86148936-3', 'auto');
+          ga('send', 'pageview');
         </script>
 
 </body></html>

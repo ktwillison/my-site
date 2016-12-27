@@ -209,8 +209,8 @@ function renderWineExplorer() {
 			// -------------------------------
 			// ----------Add aroma wheel
 			// -------------------------------
-			var root = remote_json.aroma_map;
-			var path = svg.datum(root).selectAll("path")
+			var aroma_map_root = remote_json.aroma_map;
+			var path = svg.datum(aroma_map_root).selectAll("path")
 				.data(partition.nodes)
 				.enter().append("path")
 				.attr("display", function(d) {
@@ -237,8 +237,8 @@ function renderWineExplorer() {
 			
 				// Chart color helper
 			function getChildAromaId(d) {
-					while (d.children) { d = d.children[0]; }
-					return d.aroma_id;
+				while (d.children) { d = d.children[0]; }
+				return d.aroma_id;
 			}
 			
 			function setBarColors(chart){
@@ -326,7 +326,7 @@ function renderWineExplorer() {
 			var xAxisLabels = {0:"", 1:"L", 2:"M-", 3:"M", 4:"M+", 5:"H"};
 
 			// Chart creator-helper
-			function createChart(elementID, dimension, group) {
+			function create_chart(elementID, dimension, group) {
 				var newChart = dc.barChart("#".concat(elementID))
 					.width(chart_WL)
 					.height(chart_WL)
@@ -342,12 +342,12 @@ function renderWineExplorer() {
 				return newChart
 			};
 
-			var body_chart = createChart("body_chart", body, body_sum);
-			var acidity_chart = createChart("acidity_chart", acidity, acidity_sum);
-			var alcohol_chart = createChart("alcohol_chart", alcohol, alcohol_sum);
-			var fruit_chart = createChart("fruit_chart", fruit, fruit_sum);
-			var dryness_chart = createChart("dryness_chart", dryness, dryness_sum);
-			var tannins_chart = createChart("tannins_chart", tannins, tannins_sum);
+			var body_chart = create_chart("body_chart", body, body_sum);
+			var acidity_chart = create_chart("acidity_chart", acidity, acidity_sum);
+			var alcohol_chart = create_chart("alcohol_chart", alcohol, alcohol_sum);
+			var fruit_chart = create_chart("fruit_chart", fruit, fruit_sum);
+			var dryness_chart = create_chart("dryness_chart", dryness, dryness_sum);
+			var tannins_chart = create_chart("tannins_chart", tannins, tannins_sum);
 
 
 			// -------------------------------
@@ -375,6 +375,12 @@ function renderWineExplorer() {
 					updateCount(allDim.top(Infinity));
 					drawMap(country_sum, remote_json.countries, countryMarkers);
 					createColorSwatches();
+					
+					// Add filtering when a user clicks on rows
+					$('#wine-data-table .dc-table-row').click(function() {
+						var varietal_text = $(this).find("td._0").text()
+						set_varietal_selection(varietal_text);
+					});
 				});
 
 			var swatchColors = {
@@ -406,9 +412,8 @@ function renderWineExplorer() {
 			// --------------------------------------
 			// --------- Aroma selection helpers
 			// --------------------------------------
-			// Update node selection in view
-			function set_node_selection_view(d, selection) {
-				set_node_selection(d, selection);
+			// Update node selection in view from svg properties
+			function sync_node_selection_view() {
 				update_selected_aroma_text();
 				svg.selectAll("path")
 					.style("opacity", function(d) {
@@ -419,7 +424,8 @@ function renderWineExplorer() {
 					})    
 			}
 
-			// Toggle wedge selection from selected root node
+			// Toggle wedge selection (using svg properties) from selected aroma_map_root node,
+			// update selected_aroma_ids to reflect the result of the data toggle
 			function set_node_selection(d, selection) {
 				d.selected = selection;
 				var index = selected_aroma_ids.indexOf(d.aroma_id);
@@ -434,7 +440,15 @@ function renderWineExplorer() {
 				}
 			}
 
-			// Update selected aroma text
+			// Update selected aromas in view (svg properties) from selected_aroma_ids array
+			function select_aromas_from_array(arr) {
+				selected_aroma_ids = arr;
+				svg.selectAll("path").each(function(d) {
+					d.selected = (selected_aroma_ids.indexOf(d.aroma_id) > -1);
+				});
+			}
+
+			// Update selected aroma text from svg properties
 			function update_selected_aroma_text() {
 				var aroma_text = update_selected_aroma_text_helper(svg.data()[0]);
 				d3.select("#aroma_selection").text(aroma_text);
@@ -484,6 +498,19 @@ function renderWineExplorer() {
 				}
 				updateCountryFilter();
 			}
+
+			// --------------------------------------
+			// --------- Table selection helpers
+			// --------------------------------------
+			var selected_varietal = null;
+			function set_varietal_selection(d) {
+				if (selected_varietal == d) {
+					selected_varietal = null;
+				} else {
+					selected_varietal = d;
+				}
+				update_varietal_filter();
+			}
 			
 // ----------------------------------------------------------------
 //       Filter helper functions
@@ -511,19 +538,41 @@ function renderWineExplorer() {
 			// Update aroma filter on click
 			var selected_aroma_ids = [];
 			function wheel_click(d) {
-				set_node_selection_view(d, !d.selected);
+				set_node_selection(d, !d.selected);			// svg data
 				if(selected_aroma_ids.length === 0) {
-					resetAromaSelection();
+					reset_aroma_selection();
 				} else {
-					aromas.filterFunction(function(d) { return selected_aroma_ids.indexOf(d) > -1; }); 
+					sync_aroma_selection();
+					// aromas.filterFunction(function(d) { return selected_aroma_ids.indexOf(d) > -1; }); 
 				}
+				// sync_node_selection_view();					// view
+				// sync_aroma_filter();						// Crossfilter
 				dc.redrawAll();
 			}
 			
-			function resetAromaSelection() {
-				aromas.filter(null);
-				set_node_selection_view(svg.data()[0], false);
+			function reset_aroma_selection() {
+				set_node_selection(svg.data()[0], false);   // svg data
+				sync_node_selection_view();					// view
+				aromas.filter(null);						// crossfilter
 			}
+
+			// assumes that the svg data properties & selected_aroma_ids have been set
+			function sync_aroma_selection() {
+				sync_node_selection_view();					// view
+				aromas.filterFunction(function(d) { 		// crossfilter
+					return selected_aroma_ids.indexOf(d) > -1; 
+				}); 
+			}
+
+			// update crossfilter to reflect selected_aroma_ids 
+			// function sync_aroma_filter(){
+			// 	if(selected_aroma_ids.length === 0) {
+			// 		reset_aroma_selection();
+			// 	} else {
+			// 		sync_aroma_selection();
+			// 		// aromas.filterFunction(function(d) { return selected_aroma_ids.indexOf(d) > -1; }); 
+			// 	}
+			// }
 
 
 			// --------------------------------------
@@ -548,6 +597,44 @@ function renderWineExplorer() {
 				update_selected_country_text()
 			}
 
+			// --------------------------------------
+			// --------- Table filters
+			// --------------------------------------
+
+			// Update map filter on click
+			function update_varietal_filter() {
+				if (selected_varietal === null) {
+					reset_aroma_selection();
+					reset_varietal_selection();
+
+				} else {
+					// filter crossfilter data
+					name.filterFunction(function(d) { 
+						return selected_varietal == d; 
+					}); 
+
+					// select this varietal's aromas
+					varietal_data = remote_json.varietals.filter(function(d) { 
+						return selected_varietal == d.name; 
+					}); 
+					select_aromas_from_array(varietal_data[0].aromas);	
+
+					// sync wheel view with data model
+					sync_aroma_selection();
+				}
+				dc.redrawAll();
+			}
+
+			function reset_varietal_selection() {
+				name.filter(null);
+				selected_varietal = null;
+			}
+
+
+			// --------------------------------------
+			// --------- Overall filters
+			// --------------------------------------
+
 			var filterAll = function() {
 				color_chart.filter(null);
 				fruit_chart.filter(null);
@@ -558,7 +645,8 @@ function renderWineExplorer() {
 				tannins_chart.filter(null);
 				dataTable.filter(null);
 				resetCountrySelection();
-				resetAromaSelection();
+				reset_aroma_selection();
+				reset_varietal_selection();
 			};
 
 			// add reset all event when text is clicked

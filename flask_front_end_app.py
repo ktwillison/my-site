@@ -19,6 +19,10 @@ def index():
 def send_assets(path):
 	return send_from_directory('public_html/', path)
 
+@app.route('/libraries/<path:path>')
+def send_library(path):
+	return send_from_directory('public_html/libraries/', path)
+
 # @app.route('/wine/')
 # def get_wine_index():
 # 	return app.make_response(open('public_html/html/wine.html').read())
