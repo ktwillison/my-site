@@ -551,6 +551,7 @@ function renderWineExplorer() {
 			}
 			
 			function reset_aroma_selection() {
+				selected_aroma_ids = [];
 				set_node_selection(svg.data()[0], false);   // svg data
 				sync_node_selection_view();					// view
 				aromas.filter(null);						// crossfilter
