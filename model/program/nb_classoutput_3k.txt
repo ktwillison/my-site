@@ -1,0 +1,1103 @@
+
+-------------------- Trial 0  --------------------
+
+Trial 0 Training NaiveBayesTrainer with 8372 instances
+Trial 0 Training NaiveBayesTrainer finished
+Trial 0 Trainer NaiveBayesTrainer training data accuracy = 0.8076923076923077
+Trial 0 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.689247311827957 most-frequent-tag baseline=0.0935483870967742
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  46   .   .   .   1   .   .   1   .   .   .   .   .   .   .   .   .   5   2   .   .   .   .  |55
+  1                Cabernet_Franc   .   3   2   .   .   .   .   .   .   2   .   1   .   .   2   1   3   .   .   .   .   .   .  |14
+  2 Cabernet_Sauvignon_and_Blends   .   .  16   .   .   .   .   .   2   6   .   2   .   .   3   1   3   .   .   2   1   .   1  |37
+  3                    Chardonnay   .   .   .  49   1   .   .   .   .   .   .   .   .   .   .   .   .   5   1   .   .   .   .  |56
+  4                  Chenin_Blanc   1   .   .   2  11   .   .   .   .   .   .   .   .   .   .   .   .   1   1   .   .   .   .  |16
+  5                Gewurztraminer   1   .   .   1   .   1   .   .   .   .   .   .   .   1   .   .   .   1   5   .   .   .   1  |11
+  6                      Grenache   .   .   .   .   .   .  13   .   .   3   .   1   .   .   5   5   2   .   .   4   1   .   1  |35
+  7              Gruner_Veltliner   1   .   .   1   .   .   .   4   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .  |7
+  8                        Malbec   .   .   .   .   .   .   .   .   8   3   .   .   .   .   1   .   .   .   .   2   1   .   .  |15
+  9                        Merlot   .   1   6   .   .   .   .   .   2  45   .   2   .   .   3   1   2   .   .   .   .   .   2  |64
+ 10                     Mourvedre   .   .   .   .   .   .   2   .   .   .   2   .   1   .   1   3   2   1   .   2   1   .   2  |17
+ 11                      Nebbiolo   .   .   1   .   .   .   .   .   .   3   .  65   .   .   1   .  12   .   .   .   .   .   .  |82
+ 12                  Petite_Sirah   .   .   .   .   .   .   1   .   .   2   .   1   5   .   .   .   .   .   1   2   .   .   3  |15
+ 13                    Pinot_Gris   1   .   .   1   .   2   .   .   .   .   .   .   .   1   .   .   .   3   6   .   .   .   .  |14
+ 14                    Pinot_Noir   .   .   2   .   .   .   3   .   .   .   .   .   .   .  76   1   1   .   .   2   .   .   2  |87
+ 15                  Rhone_Blends   .   1   .   2   .   .   1   .   .   3   2   1   .   .   1  49   .   2   .   5   .   .   .  |67
+ 16                    Sangiovese   .   1   1   .   .   .   .   .   .   2   .   4   .   .   4   .  58   .   .   .   .   .   .  |70
+ 17               Sauvignon_Blanc   .   .   .   6   .   .   .   1   .   .   .   .   .   .   .   .   .  30   2   .   .   .   .  |39
+ 18                      Semillon   .   .   1   2   .   .   .   .   .   .   .   .   .   1   .   .   .   4  55   .   .   .   .  |63
+ 19                  Shiraz/Syrah   .   .   1   .   .   .   1   .   1   1   .   .   .   .   3   8   3   1   .  50   .   .   1  |70
+ 20                   Tempranillo   .   .   .   .   .   .   1   .   .   1   .   1   .   .   1   1   4   .   .   5  30   .   1  |45
+ 21                      Viognier   .   .   .  11   1   .   .   .   .   .   .   .   .   .   .   .   1   .   1   .   .   1   .  |15
+ 22                     Zinfandel   .   .   1   .   1   .   1   .   .   2   .   .   .   .   2   1   1   .   .   3   1   .  23  |36
+
+Trial 0 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.92
+Trial 0 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.5
+Trial 0 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.5161290322580645
+Trial 0 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.6533333333333333
+Trial 0 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 0.7333333333333333
+Trial 0 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 0.3333333333333333
+Trial 0 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.5652173913043478
+Trial 0 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 0.6666666666666666
+Trial 0 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.6153846153846154
+Trial 0 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.6164383561643836
+Trial 0 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.5
+Trial 0 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.8333333333333334
+Trial 0 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.8333333333333334
+Trial 0 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.3333333333333333
+Trial 0 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.7378640776699029
+Trial 0 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.6901408450704225
+Trial 0 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.6304347826086957
+Trial 0 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.5555555555555556
+Trial 0 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.7432432432432432
+Trial 0 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.6493506493506493
+Trial 0 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.8571428571428571
+Trial 0 Trainer NaiveBayesTrainer test data precision(Viognier) = 1.0
+Trial 0 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.6216216216216216
+Trial 0 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.8363636363636363
+Trial 0 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.21428571428571427
+Trial 0 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.43243243243243246
+Trial 0 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.875
+Trial 0 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.6875
+Trial 0 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.09090909090909091
+Trial 0 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.37142857142857144
+Trial 0 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.5714285714285714
+Trial 0 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.5333333333333333
+Trial 0 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.703125
+Trial 0 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.11764705882352941
+Trial 0 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.7926829268292683
+Trial 0 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.3333333333333333
+Trial 0 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.07142857142857142
+Trial 0 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.8735632183908046
+Trial 0 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.7313432835820896
+Trial 0 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.8285714285714286
+Trial 0 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.7692307692307693
+Trial 0 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.873015873015873
+Trial 0 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.7142857142857143
+Trial 0 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.6666666666666666
+Trial 0 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.06666666666666667
+Trial 0 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.6388888888888888
+Trial 0 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.8761904761904761
+Trial 0 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.3
+Trial 0 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.47058823529411764
+Trial 0 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.7480916030534351
+Trial 0 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.7096774193548386
+Trial 0 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.14285714285714288
+Trial 0 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.4482758620689655
+Trial 0 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.6153846153846153
+Trial 0 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.5714285714285715
+Trial 0 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.656934306569343
+Trial 0 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.19047619047619047
+Trial 0 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.8125000000000001
+Trial 0 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.47619047619047616
+Trial 0 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.11764705882352941
+Trial 0 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.8
+Trial 0 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.7101449275362318
+Trial 0 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.7160493827160495
+Trial 0 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.6451612903225806
+Trial 0 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.8029197080291971
+Trial 0 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.6802721088435373
+Trial 0 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.75
+Trial 0 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.125
+Trial 0 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.6301369863013699
+Trial 0 Trainer NaiveBayesTrainer test data accuracy = 0.689247311827957
+
+-------------------- Trial 1  --------------------
+
+Trial 1 Training NaiveBayesTrainer with 8372 instances
+Trial 1 Training NaiveBayesTrainer finished
+Trial 1 Trainer NaiveBayesTrainer training data accuracy = 0.814022933588151
+Trial 1 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6741935483870968 most-frequent-tag baseline=0.09462365591397849
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  42   .   .   3   1   .   .   1   .   .   .   .   .   1   .   .   .   7   3   .   .   .   .  |58
+  1                Cabernet_Franc   .   1   .   .   .   .   .   1   .   5   .   1   .   .   1   2   2   .   .   1   .   .   1  |15
+  2 Cabernet_Sauvignon_and_Blends   .   .  17   .   .   .   1   .   .   7   .   .   .   .   3   .   5   .   .   3   .   .   2  |38
+  3                    Chardonnay   3   .   .  47   1   .   .   .   .   .   .   .   .   .   .   .   .   5   1   .   .   1   .  |58
+  4                  Chenin_Blanc   1   .   .   3   2   .   .   .   .   .   .   .   .   .   .   .   .   1   3   .   .   .   .  |10
+  5                Gewurztraminer   1   .   .   .   .   3   .   .   .   .   .   1   .   .   .   .   .   .   2   .   .   .   .  |7
+  6                      Grenache   .   1   .   .   .   .  14   .   .   3   .   .   .   .   8  11   .   .   .   1   1   .   1  |40
+  7              Gruner_Veltliner   3   .   .   1   .   .   .   5   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  |9
+  8                        Malbec   .   .   .   .   .   .   .   .   8   .   .   .   .   .   3   .   .   .   .   4   .   .   1  |16
+  9                        Merlot   .   .   1   .   .   .   .   .   .  42   .   2   .   .   1   .   3   .   .   .   .   .   2  |51
+ 10                     Mourvedre   .   .   1   .   .   .   .   .   .   2   4   1   .   .   1   3   2   .   .   1   .   .   1  |16
+ 11                      Nebbiolo   .   .   .   .   .   .   1   .   .   5   .  63   .   .   1   .  14   .   1   .   2   .   .  |87
+ 12                  Petite_Sirah   .   .   1   .   .   .   .   .   .   3   .   1   7   .   .   .   .   1   .   6   1   .   1  |21
+ 13                    Pinot_Gris   1   .   .   2   .   .   .   .   .   .   .   .   .   2   .   .   .   3   2   .   .   .   .  |10
+ 14                    Pinot_Noir   .   .   .   .   .   .   3   .   .   2   .   5   .   .  62   2   3   .   .   7   2   .   2  |88
+ 15                  Rhone_Blends   1   1   1   .   .   .   .   .   1   .   .   1   1   .   3  65   .   1   .   4   .   .   1  |80
+ 16                    Sangiovese   .   .   .   .   .   .   .   .   .   4   .  10   .   .   1   1  56   .   .   2   1   .   .  |75
+ 17               Sauvignon_Blanc   2   .   .   4   .   .   .   .   .   .   .   .   .   .   .   .   .  26   1   .   .   .   .  |33
+ 18                      Semillon   2   .   .   2   .   .   .   .   .   .   .   .   .   1   .   .   .   4  50   .   .   .   .  |59
+ 19                  Shiraz/Syrah   .   .   .   .   .   .   .   .   .   5   .   .   1   .   5   6   1   .   .  51   .   .   2  |71
+ 20                   Tempranillo   .   .   1   .   .   .   2   .   .   3   .   .   .   .   3   2   .   .   .   .  35   .   .  |46
+ 21                      Viognier   1   .   .   3   .   .   .   .   .   .   .   .   .   .   .   .   .   .   2   .   .   .   .  |6
+ 22                     Zinfandel   .   .   1   .   .   .   1   .   .   1   .   .   1   .   3   .   1   .   .   3   .   .  25  |36
+
+Trial 1 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.7368421052631579
+Trial 1 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.3333333333333333
+Trial 1 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.7391304347826086
+Trial 1 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.7230769230769231
+Trial 1 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 0.5
+Trial 1 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 1.0
+Trial 1 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.6363636363636364
+Trial 1 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 0.7142857142857143
+Trial 1 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.8888888888888888
+Trial 1 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.5121951219512195
+Trial 1 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 1.0
+Trial 1 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.7411764705882353
+Trial 1 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.7
+Trial 1 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.5
+Trial 1 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.6526315789473685
+Trial 1 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.7065217391304348
+Trial 1 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.6436781609195402
+Trial 1 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.5416666666666666
+Trial 1 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.7692307692307693
+Trial 1 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.6144578313253012
+Trial 1 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.8333333333333334
+Trial 1 Trainer NaiveBayesTrainer test data precision(Viognier) = 0.0
+Trial 1 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.6410256410256411
+Trial 1 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.7241379310344828
+Trial 1 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.06666666666666667
+Trial 1 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.4473684210526316
+Trial 1 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.8103448275862069
+Trial 1 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.2
+Trial 1 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.42857142857142855
+Trial 1 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.35
+Trial 1 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.5555555555555556
+Trial 1 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.5
+Trial 1 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.8235294117647058
+Trial 1 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.25
+Trial 1 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.7241379310344828
+Trial 1 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.3333333333333333
+Trial 1 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.2
+Trial 1 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.7045454545454546
+Trial 1 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.8125
+Trial 1 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.7466666666666667
+Trial 1 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.7878787878787878
+Trial 1 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.847457627118644
+Trial 1 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.7183098591549296
+Trial 1 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.7608695652173914
+Trial 1 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.0
+Trial 1 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.6944444444444444
+Trial 1 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.7304347826086957
+Trial 1 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.1111111111111111
+Trial 1 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.5573770491803278
+Trial 1 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.7642276422764227
+Trial 1 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.28571428571428575
+Trial 1 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.6
+Trial 1 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.45161290322580644
+Trial 1 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.6250000000000001
+Trial 1 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.64
+Trial 1 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.6315789473684211
+Trial 1 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.4
+Trial 1 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.7325581395348838
+Trial 1 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.45161290322580644
+Trial 1 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.28571428571428575
+Trial 1 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.6775956284153006
+Trial 1 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.7558139534883721
+Trial 1 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.6913580246913581
+Trial 1 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.6419753086419753
+Trial 1 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.8064516129032259
+Trial 1 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.6623376623376623
+Trial 1 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.7954545454545455
+Trial 1 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.0
+Trial 1 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.6666666666666666
+Trial 1 Trainer NaiveBayesTrainer test data accuracy = 0.6741935483870968
+
+-------------------- Trial 2  --------------------
+
+Trial 2 Training NaiveBayesTrainer with 8372 instances
+Trial 2 Training NaiveBayesTrainer finished
+Trial 2 Trainer NaiveBayesTrainer training data accuracy = 0.8134257047300526
+Trial 2 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6946236559139785 most-frequent-tag baseline=0.08924731182795699
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  39   .   .   .   .   .   .   1   .   .   .   .   .   .   .   .   .   5   .   .   .   .   .  |45
+  1                Cabernet_Franc   .   .   2   .   .   .   1   .   .   7   .   3   .   .   2   3   3   .   .   1   .   .   .  |22
+  2 Cabernet_Sauvignon_and_Blends   .   .  20   .   .   .   .   .   2   8   .   .   1   .   4   .   3   .   .   1   .   .   2  |41
+  3                    Chardonnay   .   .   .  47   .   .   .   .   .   .   .   .   .   .   .   1   .   4   2   .   .   .   .  |54
+  4                  Chenin_Blanc   .   .   .   1   8   .   .   .   .   .   .   .   .   .   .   .   .   2   2   .   .   .   .  |13
+  5                Gewurztraminer   3   .   .   1   .   3   .   .   .   .   .   .   .   1   .   .   .   .   4   .   .   .   .  |12
+  6                      Grenache   .   .   .   .   .   .  12   .   .   2   .   1   .   1   3   7   .   .   1   1   1   .   2  |31
+  7              Gruner_Veltliner   2   .   .   .   .   .   .   5   .   .   .   .   .   .   .   1   .   1   2   .   1   .   .  |12
+  8                        Malbec   .   .   1   .   .   .   .   .  10   5   .   .   .   .   .   .   .   .   .   2   1   .   .  |19
+  9                        Merlot   .   1   6   .   .   .   .   .   .  37   .   3   .   .   .   .   1   .   .   1   1   .   1  |51
+ 10                     Mourvedre   .   .   .   .   .   .   .   .   .   .   .   .   1   .   .   1   1   .   .   2   .   .   2  |7
+ 11                      Nebbiolo   .   .   1   .   .   .   .   .   .   .   .  65   .   .   .   .  14   .   1   .   .   .   .  |81
+ 12                  Petite_Sirah   .   .   .   .   .   .   .   .   .   1   .   1  10   .   .   .   .   .   .   2   1   .   2  |17
+ 13                    Pinot_Gris   3   .   .   2   .   .   .   .   .   .   .   .   .   2   .   .   .   .   5   .   .   .   .  |12
+ 14                    Pinot_Noir   1   .   .   3   .   .   1   .   .   .   .   1   .   .  69   .   5   .   .   2   .   .   1  |83
+ 15                  Rhone_Blends   .   1   .   1   .   .   1   .   1   5   1   1   1   .   3  40   1   .   .   5   3   .   .  |64
+ 16                    Sangiovese   .   .   1   .   .   .   .   .   .   5   .   8   .   .   1   1  56   .   .   1   .   .   .  |73
+ 17               Sauvignon_Blanc   .   .   .   4   .   .   .   .   .   .   .   .   .   1   .   .   .  29   .   .   .   .   .  |34
+ 18                      Semillon   .   .   .   2   .   .   .   .   .   .   .   .   .   .   .   .   .   1  70   .   .   .   .  |73
+ 19                  Shiraz/Syrah   .   .   .   .   .   .   5   .   .   1   .   .   1   .   3   4   2   1   .  51   .   .   2  |70
+ 20                   Tempranillo   .   .   .   .   .   .   1   .   .   7   .   3   .   .   2   2   1   .   .   2  38   .   .  |56
+ 21                      Viognier   1   .   .   6   .   .   .   .   .   .   .   .   .   1   .   .   1   1   1   .   .   5   .  |16
+ 22                     Zinfandel   .   .   .   .   .   .   .   .   .   2   .   .   1   .   2   .   3   .   .   6   .   .  30  |44
+
+Trial 2 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.7959183673469388
+Trial 2 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.0
+Trial 2 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.6451612903225806
+Trial 2 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.7014925373134329
+Trial 2 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 1.0
+Trial 2 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 1.0
+Trial 2 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.5714285714285714
+Trial 2 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 0.8333333333333334
+Trial 2 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.7692307692307693
+Trial 2 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.4625
+Trial 2 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.0
+Trial 2 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.7558139534883721
+Trial 2 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.6666666666666666
+Trial 2 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.3333333333333333
+Trial 2 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.7752808988764045
+Trial 2 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.6666666666666666
+Trial 2 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.6153846153846154
+Trial 2 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.6590909090909091
+Trial 2 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.7954545454545454
+Trial 2 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.6623376623376623
+Trial 2 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.8260869565217391
+Trial 2 Trainer NaiveBayesTrainer test data precision(Viognier) = 1.0
+Trial 2 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.7142857142857143
+Trial 2 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.8666666666666667
+Trial 2 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.0
+Trial 2 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.4878048780487805
+Trial 2 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.8703703703703703
+Trial 2 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.6153846153846154
+Trial 2 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.25
+Trial 2 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.3870967741935484
+Trial 2 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.4166666666666667
+Trial 2 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.5263157894736842
+Trial 2 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.7254901960784313
+Trial 2 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.0
+Trial 2 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.8024691358024691
+Trial 2 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.5882352941176471
+Trial 2 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.16666666666666666
+Trial 2 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.8313253012048193
+Trial 2 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.625
+Trial 2 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.7671232876712328
+Trial 2 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.8529411764705882
+Trial 2 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.958904109589041
+Trial 2 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.7285714285714285
+Trial 2 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.6785714285714286
+Trial 2 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.3125
+Trial 2 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.6818181818181818
+Trial 2 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.8297872340425533
+Trial 2 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.0
+Trial 2 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.5555555555555556
+Trial 2 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.7768595041322315
+Trial 2 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.761904761904762
+Trial 2 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.4
+Trial 2 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.4615384615384615
+Trial 2 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.5555555555555556
+Trial 2 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.625
+Trial 2 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.5648854961832062
+Trial 2 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.0
+Trial 2 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.7784431137724551
+Trial 2 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.625
+Trial 2 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.2222222222222222
+Trial 2 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.8023255813953489
+Trial 2 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.6451612903225806
+Trial 2 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.6829268292682927
+Trial 2 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.7435897435897436
+Trial 2 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.8695652173913044
+Trial 2 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.6938775510204082
+Trial 2 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.7450980392156864
+Trial 2 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.47619047619047616
+Trial 2 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.6976744186046512
+Trial 2 Trainer NaiveBayesTrainer test data accuracy = 0.6946236559139785
+
+-------------------- Trial 3  --------------------
+
+Trial 3 Training NaiveBayesTrainer with 8372 instances
+Trial 3 Training NaiveBayesTrainer finished
+Trial 3 Trainer NaiveBayesTrainer training data accuracy = 0.8099617773530817
+Trial 3 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6752688172043011 most-frequent-tag baseline=0.08709677419354839
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  42   .   .   1   .   .   .   1   .   .   .   .   .   .   .   .   .   4   2   .   .   .   .  |50
+  1                Cabernet_Franc   .   2   .   .   .   .   1   .   .   2   .   1   .   .   .   .   .   .   .   2   .   .   2  |10
+  2 Cabernet_Sauvignon_and_Blends   .   1  12   1   .   .   .   .   .   8   .   .   .   .   1   2   3   .   .   1   1   .   2  |32
+  3                    Chardonnay   2   .   .  51   1   .   .   .   .   .   .   .   .   .   .   .   .   7   3   .   .   2   .  |66
+  4                  Chenin_Blanc   4   .   .   6  10   .   .   .   .   .   .   .   .   .   .   .   .   1   3   .   .   .   .  |24
+  5                Gewurztraminer   3   .   .   .   .   3   .   .   .   .   .   .   .   1   .   .   .   .   4   .   .   .   .  |11
+  6                      Grenache   .   .   .   .   .   .  11   .   .   3   2   .   .   .   8   3   1   .   .   3   .   .   2  |33
+  7              Gruner_Veltliner   6   .   .   .   .   .   .   3   .   .   .   .   .   .   .   1   .   1   .   .   .   .   .  |11
+  8                        Malbec   .   .   .   .   .   .   .   .   4   3   .   .   .   .   .   .   1   .   .   1   2   .   .  |11
+  9                        Merlot   .   1   9   .   .   .   .   .   1  46   .   .   .   .   1   .   7   .   .   4   1   .   2  |72
+ 10                     Mourvedre   .   .   1   .   .   .   2   .   .   1   2   1   1   .   .   .   4   .   .   3   .   .   1  |16
+ 11                      Nebbiolo   .   .   .   .   .   .   .   .   .   5   .  61   .   .   2   .  11   .   1   .   1   .   .  |81
+ 12                  Petite_Sirah   .   .   .   .   .   .   .   .   .   .   .   1   6   .   1   1   1   .   .   1   .   .   1  |12
+ 13                    Pinot_Gris   3   .   .   1   .   .   .   .   .   .   .   .   .   4   .   .   .   3   5   .   .   .   .  |16
+ 14                    Pinot_Noir   .   .   1   1   .   .   2   .   .   2   .   2   .   .  57   1   1   .   .   5   .   .   1  |73
+ 15                  Rhone_Blends   .   .   .   1   .   .   1   .   .   2   .   .   .   1   4  41   1   .   .   4   1   .   1  |57
+ 16                    Sangiovese   .   .   .   .   .   .   2   .   2   2   .  10   .   .   .   .  64   .   .   .   .   .   .  |80
+ 17               Sauvignon_Blanc   1   .   .   3   1   .   .   .   .   .   .   .   .   .   .   .   .  35   1   .   .   .   .  |41
+ 18                      Semillon   .   .   .   2   .   .   .   .   .   .   .   .   .   .   .   .   .   8  59   .   .   .   .  |69
+ 19                  Shiraz/Syrah   .   .   .   .   .   .   3   .   1   4   .   .   1   .   4   2   5   .   .  51   .   .   1  |72
+ 20                   Tempranillo   .   .   .   .   .   .   .   .   .   3   .   .   .   .   4   1   2   .   .   2  34   .   .  |46
+ 21                      Viognier   1   .   .   5   .   .   .   .   .   .   .   .   .   .   .   .   .   1   1   .   .   5   .  |13
+ 22                     Zinfandel   .   .   1   .   .   .   .   .   .   1   .   .   1   .   1   2   .   .   .   3   .   .  25  |34
+
+Trial 3 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.6774193548387096
+Trial 3 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.5
+Trial 3 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.5
+Trial 3 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.7083333333333334
+Trial 3 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 0.8333333333333334
+Trial 3 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 1.0
+Trial 3 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.5
+Trial 3 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 0.75
+Trial 3 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.5
+Trial 3 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.5609756097560976
+Trial 3 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.5
+Trial 3 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.8026315789473685
+Trial 3 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.6666666666666666
+Trial 3 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.6666666666666666
+Trial 3 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.6867469879518072
+Trial 3 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.7592592592592593
+Trial 3 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.6336633663366337
+Trial 3 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.5833333333333334
+Trial 3 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.7468354430379747
+Trial 3 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.6375
+Trial 3 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.85
+Trial 3 Trainer NaiveBayesTrainer test data precision(Viognier) = 0.7142857142857143
+Trial 3 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.6578947368421053
+Trial 3 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.84
+Trial 3 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.2
+Trial 3 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.375
+Trial 3 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.7727272727272727
+Trial 3 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.4166666666666667
+Trial 3 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.2727272727272727
+Trial 3 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.3333333333333333
+Trial 3 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.2727272727272727
+Trial 3 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.36363636363636365
+Trial 3 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.6388888888888888
+Trial 3 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.125
+Trial 3 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.7530864197530864
+Trial 3 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.5
+Trial 3 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.25
+Trial 3 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.7808219178082192
+Trial 3 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.7192982456140351
+Trial 3 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.8
+Trial 3 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.8536585365853658
+Trial 3 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.855072463768116
+Trial 3 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.7083333333333334
+Trial 3 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.7391304347826086
+Trial 3 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.38461538461538464
+Trial 3 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.7352941176470589
+Trial 3 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.75
+Trial 3 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.28571428571428575
+Trial 3 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.42857142857142855
+Trial 3 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.7391304347826088
+Trial 3 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.5555555555555556
+Trial 3 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.42857142857142855
+Trial 3 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.4
+Trial 3 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.39999999999999997
+Trial 3 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.4210526315789474
+Trial 3 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.5974025974025975
+Trial 3 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.2
+Trial 3 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.7770700636942676
+Trial 3 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.5714285714285715
+Trial 3 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.36363636363636365
+Trial 3 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.7307692307692306
+Trial 3 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.7387387387387387
+Trial 3 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.707182320441989
+Trial 3 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.6930693069306931
+Trial 3 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.7972972972972974
+Trial 3 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.6710526315789473
+Trial 3 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.7906976744186046
+Trial 3 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.5
+Trial 3 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.6944444444444445
+Trial 3 Trainer NaiveBayesTrainer test data accuracy = 0.6752688172043011
+
+-------------------- Trial 4  --------------------
+
+Trial 4 Training NaiveBayesTrainer with 8372 instances
+Trial 4 Training NaiveBayesTrainer finished
+Trial 4 Trainer NaiveBayesTrainer training data accuracy = 0.8082895365504061
+Trial 4 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6870967741935484 most-frequent-tag baseline=0.09247311827956989
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  43   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   5   2   .   .   .   .  |51
+  1                Cabernet_Franc   .   2   1   .   .   .   .   .   .   4   .   .   1   .   1   1   2   .   .   .   .   .   1  |13
+  2 Cabernet_Sauvignon_and_Blends   .   .  19   .   .   .   .   .   .   7   .   3   .   .   1   3   8   .   .   1   .   .   1  |43
+  3                    Chardonnay   1   .   .  55   1   .   .   .   .   .   .   .   .   .   .   .   .   9   5   .   .   .   .  |71
+  4                  Chenin_Blanc   .   .   .   2   6   .   .   .   .   .   .   .   .   .   .   .   .   .   4   .   .   .   .  |12
+  5                Gewurztraminer   2   .   .   .   .   3   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  |5
+  6                      Grenache   .   .   .   .   .   .  10   .   .   .   .   1   .   .   3   5   .   .   .   4   .   .   .  |23
+  7              Gruner_Veltliner   2   .   .   2   1   .   .   5   .   .   .   .   .   1   .   .   .   2   1   .   1   .   .  |15
+  8                        Malbec   .   .   .   .   .   .   .   .  10   4   .   .   .   .   1   1   .   .   .   3   1   .   .  |20
+  9                        Merlot   .   .   6   .   .   .   .   .   .  37   .   .   .   .   3   1   6   .   .   .   2   .   2  |57
+ 10                     Mourvedre   .   .   .   .   .   .   1   .   .   1   3   2   1   .   .   2   1   1   .   3   3   .   1  |19
+ 11                      Nebbiolo   .   .   .   .   .   .   .   .   .   3   .  54   .   .   2   .  13   .   1   .   1   .   .  |74
+ 12                  Petite_Sirah   .   .   2   .   .   .   .   .   .   .   .   1   3   .   1   .   .   .   .   .   .   .   2  |9
+ 13                    Pinot_Gris   2   .   .   3   .   2   .   .   .   .   .   .   .   4   .   .   .   3   1   .   .   .   .  |15
+ 14                    Pinot_Noir   .   .   2   1   .   .   4   .   .   .   .   3   1   .  54   1   4   .   .   2   .   .   3  |75
+ 15                  Rhone_Blends   1   .   .   .   .   .   3   .   1   1   .   .   .   .   1  50   .   .   .   6   1   .   2  |66
+ 16                    Sangiovese   .   .   1   .   .   .   .   .   .   3   .   5   .   .   2   1  71   .   .   .   1   .   .  |84
+ 17               Sauvignon_Blanc   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .  41   2   .   .   .   .  |44
+ 18                      Semillon   .   .   .   1   .   .   .   .   .   .   .   .   .   1   .   .   .   3  51   .   .   .   .  |56
+ 19                  Shiraz/Syrah   .   .   1   .   .   .   5   .   1   6   .   .   .   .   2   3   2   1   .  61   1   .   3  |86
+ 20                   Tempranillo   .   .   .   .   .   .   .   .   .   2   1   2   .   .   3   3   .   .   1   5  32   .   1  |50
+ 21                      Viognier   1   .   .   4   .   .   .   .   .   .   .   .   .   .   .   .   .   .   2   .   .   2   .  |9
+ 22                     Zinfandel   .   .   1   .   .   .   1   .   .   2   .   .   1   .   3   .   .   .   .   2   .   .  23  |33
+
+Trial 4 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.8269230769230769
+Trial 4 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 1.0
+Trial 4 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.5757575757575758
+Trial 4 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.7971014492753623
+Trial 4 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 0.6666666666666666
+Trial 4 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 0.6
+Trial 4 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.4166666666666667
+Trial 4 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 1.0
+Trial 4 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.8333333333333334
+Trial 4 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.5285714285714286
+Trial 4 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.75
+Trial 4 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.7605633802816901
+Trial 4 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.42857142857142855
+Trial 4 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.6666666666666666
+Trial 4 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.7012987012987013
+Trial 4 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.704225352112676
+Trial 4 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.6635514018691588
+Trial 4 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.6307692307692307
+Trial 4 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.7285714285714285
+Trial 4 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.7011494252873564
+Trial 4 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.7441860465116279
+Trial 4 Trainer NaiveBayesTrainer test data precision(Viognier) = 1.0
+Trial 4 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.5897435897435898
+Trial 4 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.8431372549019608
+Trial 4 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.15384615384615385
+Trial 4 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.4418604651162791
+Trial 4 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.7746478873239436
+Trial 4 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.5
+Trial 4 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.6
+Trial 4 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.43478260869565216
+Trial 4 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.3333333333333333
+Trial 4 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.5
+Trial 4 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.6491228070175439
+Trial 4 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.15789473684210525
+Trial 4 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.7297297297297297
+Trial 4 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.3333333333333333
+Trial 4 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.26666666666666666
+Trial 4 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.72
+Trial 4 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.7575757575757576
+Trial 4 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.8452380952380952
+Trial 4 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.9318181818181818
+Trial 4 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.9107142857142857
+Trial 4 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.7093023255813954
+Trial 4 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.64
+Trial 4 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.2222222222222222
+Trial 4 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.696969696969697
+Trial 4 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.8349514563106797
+Trial 4 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.2666666666666667
+Trial 4 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.5
+Trial 4 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.7857142857142857
+Trial 4 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.5714285714285715
+Trial 4 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.6
+Trial 4 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.425531914893617
+Trial 4 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.5
+Trial 4 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.625
+Trial 4 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.5826771653543307
+Trial 4 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.2608695652173913
+Trial 4 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.7448275862068966
+Trial 4 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.375
+Trial 4 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.3809523809523809
+Trial 4 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.7105263157894737
+Trial 4 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.7299270072992701
+Trial 4 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.7434554973821988
+Trial 4 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.7522935779816513
+Trial 4 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.8095238095238095
+Trial 4 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.7052023121387283
+Trial 4 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.6881720430107526
+Trial 4 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.3636363636363636
+Trial 4 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.638888888888889
+Trial 4 Trainer NaiveBayesTrainer test data accuracy = 0.6870967741935484
+
+-------------------- Trial 5  --------------------
+
+Trial 5 Training NaiveBayesTrainer with 8372 instances
+Trial 5 Training NaiveBayesTrainer finished
+Trial 5 Trainer NaiveBayesTrainer training data accuracy = 0.8147396082178691
+Trial 5 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6688172043010753 most-frequent-tag baseline=0.1
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  40   .   .   3   1   .   .   .   .   .   .   .   .   .   .   .   .   2   4   .   .   .   .  |50
+  1                Cabernet_Franc   .   5   2   .   .   .   .   .   .   .   .   2   .   .   2   .   2   .   .   .   2   .   .  |15
+  2 Cabernet_Sauvignon_and_Blends   .   .  20   .   .   .   .   .   1   8   .   .   .   .   2   .   1   .   .   2   .   .   1  |35
+  3                    Chardonnay   2   .   .  45   .   .   .   .   .   .   .   .   .   .   .   1   .   4   3   .   .   .   .  |55
+  4                  Chenin_Blanc   .   .   .   1   9   .   .   .   .   .   .   .   .   .   .   .   .   2   5   .   .   .   .  |17
+  5                Gewurztraminer   1   .   .   1   1   3   .   .   .   .   .   .   .   .   .   .   .   .   6   .   .   .   .  |12
+  6                      Grenache   .   .   .   .   .   .  22   .   .   2   2   1   .   .   5   4   3   .   1   7   1   .   .  |48
+  7              Gruner_Veltliner   3   .   .   .   .   .   .   3   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .  |7
+  8                        Malbec   .   .   .   .   .   .   .   .  13   4   .   1   .   .   .   .   .   .   .   1   .   .   .  |19
+  9                        Merlot   .   1   1   .   .   .   .   .   1  36   .   .   .   .   4   1   3   .   .   1   .   .   .  |48
+ 10                     Mourvedre   .   .   .   .   .   .   1   .   .   1   2   .   .   .   .   2   4   .   .   4   2   .   .  |16
+ 11                      Nebbiolo   .   .   .   .   .   .   2   .   .   4   .  54   .   .   3   .  15   .   .   .   .   .   .  |78
+ 12                  Petite_Sirah   .   .   1   .   .   .   .   .   .   .   .   .   5   .   1   .   .   1   .   2   .   .   1  |11
+ 13                    Pinot_Gris   5   .   .   4   .   1   .   .   .   .   .   .   .   3   .   .   .   1   6   .   .   .   .  |20
+ 14                    Pinot_Noir   .   .   .   2   .   .   1   .   .   .   .   3   .   .  56   3   2   .   .   4   .   .   1  |72
+ 15                  Rhone_Blends   .   1   .   .   .   .   2   .   .   6   .   2   .   .   3  54   .   .   .  10   .   .   1  |79
+ 16                    Sangiovese   .   .   2   .   .   .   .   .   .  10   1   4   .   .   3   1  72   .   .   .   .   .   .  |93
+ 17               Sauvignon_Blanc   4   .   .   4   .   .   .   .   .   .   .   .   .   .   .   .   .  28   2   .   .   .   .  |38
+ 18                      Semillon   .   .   .   4   .   .   .   .   .   1   .   .   .   1   .   .   .   6  41   .   .   .   .  |53
+ 19                  Shiraz/Syrah   .   .   .   .   .   .   1   .   1   7   .   .   2   .   1   3   2   .   .  49   .   .   4  |70
+ 20                   Tempranillo   .   .   .   .   .   .   .   .   .   6   .   1   .   .   2   2   2   .   .   3  31   .   1  |48
+ 21                      Viognier   .   .   .   3   .   .   .   .   .   .   .   .   .   .   1   .   .   2   1   .   .   5   .  |12
+ 22                     Zinfandel   .   .   1   .   .   .   3   .   .   2   .   .   .   .   1   .   .   .   .   1   .   .  26  |34
+
+Trial 5 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.7272727272727273
+Trial 5 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.7142857142857143
+Trial 5 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.7407407407407407
+Trial 5 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.6716417910447762
+Trial 5 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 0.8181818181818182
+Trial 5 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 0.75
+Trial 5 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.6875
+Trial 5 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 1.0
+Trial 5 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.8125
+Trial 5 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.41379310344827586
+Trial 5 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.4
+Trial 5 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.7941176470588235
+Trial 5 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.7142857142857143
+Trial 5 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.75
+Trial 5 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.6666666666666666
+Trial 5 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.7605633802816901
+Trial 5 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.6792452830188679
+Trial 5 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.5957446808510638
+Trial 5 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.5942028985507246
+Trial 5 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.5833333333333334
+Trial 5 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.8611111111111112
+Trial 5 Trainer NaiveBayesTrainer test data precision(Viognier) = 1.0
+Trial 5 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.7428571428571429
+Trial 5 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.8
+Trial 5 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.3333333333333333
+Trial 5 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.5714285714285714
+Trial 5 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.8181818181818182
+Trial 5 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.5294117647058824
+Trial 5 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.25
+Trial 5 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.4583333333333333
+Trial 5 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.42857142857142855
+Trial 5 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.6842105263157895
+Trial 5 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.75
+Trial 5 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.125
+Trial 5 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.6923076923076923
+Trial 5 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.45454545454545453
+Trial 5 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.15
+Trial 5 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.7777777777777778
+Trial 5 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.6835443037974683
+Trial 5 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.7741935483870968
+Trial 5 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.7368421052631579
+Trial 5 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.7735849056603774
+Trial 5 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.7
+Trial 5 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.6458333333333334
+Trial 5 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.4166666666666667
+Trial 5 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.7647058823529411
+Trial 5 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.761904761904762
+Trial 5 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.4545454545454545
+Trial 5 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.6451612903225806
+Trial 5 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.7377049180327869
+Trial 5 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.6428571428571428
+Trial 5 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.375
+Trial 5 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.5499999999999999
+Trial 5 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.6
+Trial 5 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.742857142857143
+Trial 5 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.5333333333333333
+Trial 5 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.19047619047619047
+Trial 5 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.7397260273972601
+Trial 5 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.5555555555555556
+Trial 5 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.24999999999999997
+Trial 5 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.717948717948718
+Trial 5 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.72
+Trial 5 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.7236180904522612
+Trial 5 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.6588235294117647
+Trial 5 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.6721311475409837
+Trial 5 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.6363636363636365
+Trial 5 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.738095238095238
+Trial 5 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.5882352941176471
+Trial 5 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.7536231884057971
+Trial 5 Trainer NaiveBayesTrainer test data accuracy = 0.6688172043010753
+
+-------------------- Trial 6  --------------------
+
+Trial 6 Training NaiveBayesTrainer with 8372 instances
+Trial 6 Training NaiveBayesTrainer finished
+Trial 6 Trainer NaiveBayesTrainer training data accuracy = 0.8110367892976589
+Trial 6 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6913978494623656 most-frequent-tag baseline=0.0956989247311828
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  29   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   3   2   .   .   .   .  |35
+  1                Cabernet_Franc   .   3   .   .   .   .   .   .   .   2   .   2   .   .   3   2   2   .   .   .   .   .   .  |14
+  2 Cabernet_Sauvignon_and_Blends   .   1  19   .   .   .   1   .   1   4   .   .   .   .   .   .   3   .   .   4   1   .   1  |35
+  3                    Chardonnay   1   .   .  36   .   .   .   .   .   .   .   .   .   .   .   .   .   1   2   .   .   .   .  |40
+  4                  Chenin_Blanc   1   .   .   4   6   .   .   .   .   .   .   .   .   .   .   .   .   5   1   .   .   .   .  |17
+  5                Gewurztraminer   4   .   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   4   .   .   .   .  |9
+  6                      Grenache   .   .   .   .   .   .  12   .   .   6   1   1   .   .   .   4   2   .   .   3   1   .   1  |31
+  7              Gruner_Veltliner   4   .   .   1   .   .   .   3   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .  |9
+  8                        Malbec   .   .   .   .   .   .   .   .   8   2   .   .   .   .   3   .   .   .   .   .   2   .   1  |16
+  9                        Merlot   .   1   3   .   .   .   .   .   .  39   .   1   1   .   3   .   7   .   .   1   2   .   2  |60
+ 10                     Mourvedre   .   .   .   .   .   .   .   .   .   .   6   .   .   .   2   1   2   .   .   1   1   .   1  |14
+ 11                      Nebbiolo   .   .   .   .   .   .   .   .   .   6   .  52   .   .   2   .  14   .   1   .   .   .   .  |75
+ 12                  Petite_Sirah   .   .   1   .   .   .   .   .   .   2   .   1   7   .   1   1   .   .   .   5   .   .   .  |18
+ 13                    Pinot_Gris   4   .   .   1   .   .   .   .   .   .   .   .   .   4   .   .   .   3   2   .   .   1   .  |15
+ 14                    Pinot_Noir   .   .   1   1   .   .   2   .   1   .   .   1   .   .  78   2   1   .   .   2   .   .   .  |89
+ 15                  Rhone_Blends   2   2   1   1   .   .   6   .   .   3   .   1   .   .   3  58   2   .   .   7   .   .   1  |87
+ 16                    Sangiovese   .   .   1   .   .   .   .   .   .   4   .   3   .   .   1   .  60   .   .   .   .   .   1  |70
+ 17               Sauvignon_Blanc   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .  29   2   .   .   1   .  |33
+ 18                      Semillon   1   .   .   3   .   .   .   .   .   1   .   .   .   .   .   .   .   4  65   .   1   .   .  |75
+ 19                  Shiraz/Syrah   .   1   1   .   .   .   1   .   .   5   .   .   1   .   5   7   2   1   .  57   .   .   2  |83
+ 20                   Tempranillo   .   .   .   .   .   .   .   .   .   4   .   3   .   .   3   1   3   .   .   3  32   .   1  |50
+ 21                      Viognier   .   .   .   6   .   .   .   .   .   .   .   .   .   1   .   .   .   .   1   .   .   5   .  |13
+ 22                     Zinfandel   .   .   .   .   .   .   .   .   .   2   .   1   1   .   1   1   .   .   .   2   .   .  34  |42
+
+Trial 6 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.6304347826086957
+Trial 6 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.375
+Trial 6 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.7037037037037037
+Trial 6 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.6545454545454545
+Trial 6 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 1.0
+Trial 6 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 1.0
+Trial 6 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.5454545454545454
+Trial 6 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 1.0
+Trial 6 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.8
+Trial 6 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.4875
+Trial 6 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.8571428571428571
+Trial 6 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.7878787878787878
+Trial 6 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.7
+Trial 6 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.8
+Trial 6 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.7428571428571429
+Trial 6 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.7532467532467533
+Trial 6 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.6122448979591837
+Trial 6 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.6170212765957447
+Trial 6 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.8125
+Trial 6 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.6705882352941176
+Trial 6 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.8
+Trial 6 Trainer NaiveBayesTrainer test data precision(Viognier) = 0.7142857142857143
+Trial 6 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.7555555555555555
+Trial 6 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.8285714285714286
+Trial 6 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.21428571428571427
+Trial 6 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.5428571428571428
+Trial 6 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.9
+Trial 6 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.35294117647058826
+Trial 6 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.1111111111111111
+Trial 6 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.3870967741935484
+Trial 6 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.3333333333333333
+Trial 6 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.5
+Trial 6 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.65
+Trial 6 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.42857142857142855
+Trial 6 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.6933333333333334
+Trial 6 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.3888888888888889
+Trial 6 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.26666666666666666
+Trial 6 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.8764044943820225
+Trial 6 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.6666666666666666
+Trial 6 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.8571428571428571
+Trial 6 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.8787878787878788
+Trial 6 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.8666666666666667
+Trial 6 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.6867469879518072
+Trial 6 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.64
+Trial 6 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.38461538461538464
+Trial 6 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.8095238095238095
+Trial 6 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.7160493827160495
+Trial 6 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.2727272727272727
+Trial 6 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.6129032258064516
+Trial 6 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.7578947368421052
+Trial 6 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.5217391304347826
+Trial 6 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.19999999999999998
+Trial 6 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.45283018867924524
+Trial 6 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.5
+Trial 6 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.6153846153846154
+Trial 6 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.5571428571428572
+Trial 6 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.5714285714285714
+Trial 6 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.7375886524822695
+Trial 6 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.5
+Trial 6 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.4
+Trial 6 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.8041237113402062
+Trial 6 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.7073170731707318
+Trial 6 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.7142857142857143
+Trial 6 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.7250000000000001
+Trial 6 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.8387096774193549
+Trial 6 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.6785714285714286
+Trial 6 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.7111111111111111
+Trial 6 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.5
+Trial 6 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.7816091954022989
+Trial 6 Trainer NaiveBayesTrainer test data accuracy = 0.6913978494623656
+
+-------------------- Trial 7  --------------------
+
+Trial 7 Training NaiveBayesTrainer with 8372 instances
+Trial 7 Training NaiveBayesTrainer finished
+Trial 7 Trainer NaiveBayesTrainer training data accuracy = 0.8097228858098423
+Trial 7 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6419354838709678 most-frequent-tag baseline=0.1032258064516129
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  27   .   .   1   .   .   .   .   .   .   .   .   .   1   .   .   .   8   3   .   .   .   .  |40
+  1                Cabernet_Franc   .   2   2   .   .   .   .   .   .   4   .   1   1   .   1   2   2   .   .   2   .   .   .  |17
+  2 Cabernet_Sauvignon_and_Blends   .   .  21   .   .   .   .   .   .   9   .   1   .   .   2   .   4   .   .   1   1   .   1  |40
+  3                    Chardonnay   2   .   .  48   .   .   .   .   .   .   .   .   .   .   2   1   .   3   2   .   .   .   .  |58
+  4                  Chenin_Blanc   2   .   .   5  11   .   .   .   .   .   .   .   .   .   .   .   .   1   3   .   .   .   .  |22
+  5                Gewurztraminer   2   .   .   .   .   3   .   .   .   .   .   .   .   .   .   .   .   .   2   .   .   .   1  |8
+  6                      Grenache   .   .   .   .   .   .  19   .   .   4   1   1   .   .   4   6   2   .   .   5   3   .   .  |45
+  7              Gruner_Veltliner   8   .   .   .   .   .   .   1   .   .   .   .   .   .   .   .   .   .   1   .   .   .   .  |10
+  8                        Malbec   .   1   .   .   .   .   .   .   7   2   .   .   .   .   .   1   1   .   .   2   3   .   .  |17
+  9                        Merlot   .   .   4   .   .   .   .   .   1  39   .   1   .   .   2   1   2   .   .   .   2   .   4  |56
+ 10                     Mourvedre   .   .   .   .   .   .   1   .   .   .   .   1   .   .   1   5   4   .   .   3   .   .   4  |19
+ 11                      Nebbiolo   .   .   .   .   .   .   2   .   .   3   .  40   .   .   .   .  17   .   .   .   1   .   .  |63
+ 12                  Petite_Sirah   .   .   .   .   .   .   .   .   .   .   .   1   4   .   .   1   .   .   .   3   .   .   3  |12
+ 13                    Pinot_Gris   2   .   .   3   .   1   .   1   .   .   .   .   .   1   .   .   .   1   5   .   .   .   .  |14
+ 14                    Pinot_Noir   1   .   .   2   .   .   .   .   .   4   .   .   .   .  64   1   1   .   .   3   .   .   3  |79
+ 15                  Rhone_Blends   .   1   .   .   .   .   4   .   .   7   .   1   .   .   3  61   1   .   .  11   4   .   3  |96
+ 16                    Sangiovese   .   1   .   .   .   .   .   .   .   7   .   3   .   .   2   .  49   .   .   .   1   .   .  |63
+ 17               Sauvignon_Blanc   .   .   .   7   .   .   .   .   .   .   .   .   .   .   .   .   .  26   4   .   .   1   .  |38
+ 18                      Semillon   .   .   .   3   1   .   .   .   .   .   .   .   .   .   .   .   .   2  56   .   .   .   .  |62
+ 19                  Shiraz/Syrah   .   .   2   .   .   .   1   .   .   1   1   .   .   .   7   3   4   .   .  48   .   .   3  |70
+ 20                   Tempranillo   .   .   .   .   .   .   2   .   .   8   .   2   .   .   .   .   .   .   .   3  40   .   1  |56
+ 21                      Viognier   .   .   .   7   .   .   .   .   .   .   .   .   .   .   .   .   .   .   1   .   .   3   .  |11
+ 22                     Zinfandel   .   .   .   .   .   .   .   .   .   1   .   .   2   .   1   1   .   .   .   2   .   .  27  |34
+
+Trial 7 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.6136363636363636
+Trial 7 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.4
+Trial 7 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.7241379310344828
+Trial 7 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.631578947368421
+Trial 7 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 0.9166666666666666
+Trial 7 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 0.75
+Trial 7 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.6551724137931034
+Trial 7 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 0.5
+Trial 7 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.875
+Trial 7 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.43820224719101125
+Trial 7 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.0
+Trial 7 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.7692307692307693
+Trial 7 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.5714285714285714
+Trial 7 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.5
+Trial 7 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.7191011235955056
+Trial 7 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.7349397590361446
+Trial 7 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.5632183908045977
+Trial 7 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.6341463414634146
+Trial 7 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.7272727272727273
+Trial 7 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.5783132530120482
+Trial 7 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.7272727272727273
+Trial 7 Trainer NaiveBayesTrainer test data precision(Viognier) = 0.75
+Trial 7 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.54
+Trial 7 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.675
+Trial 7 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.11764705882352941
+Trial 7 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.525
+Trial 7 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.8275862068965517
+Trial 7 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.5
+Trial 7 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.375
+Trial 7 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.4222222222222222
+Trial 7 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.1
+Trial 7 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.4117647058823529
+Trial 7 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.6964285714285714
+Trial 7 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.0
+Trial 7 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.6349206349206349
+Trial 7 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.3333333333333333
+Trial 7 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.07142857142857142
+Trial 7 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.810126582278481
+Trial 7 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.6354166666666666
+Trial 7 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.7777777777777778
+Trial 7 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.6842105263157895
+Trial 7 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.9032258064516129
+Trial 7 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.6857142857142857
+Trial 7 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.7142857142857143
+Trial 7 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.2727272727272727
+Trial 7 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.7941176470588235
+Trial 7 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.6428571428571429
+Trial 7 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.1818181818181818
+Trial 7 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.6086956521739131
+Trial 7 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.716417910447761
+Trial 7 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.6470588235294118
+Trial 7 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.5
+Trial 7 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.5135135135135135
+Trial 7 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.16666666666666669
+Trial 7 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.56
+Trial 7 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.5379310344827587
+Trial 7 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.0
+Trial 7 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.6956521739130435
+Trial 7 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.4210526315789474
+Trial 7 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.125
+Trial 7 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.761904761904762
+Trial 7 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.6815642458100558
+Trial 7 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.6533333333333333
+Trial 7 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.6582278481012659
+Trial 7 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.8057553956834532
+Trial 7 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.6274509803921569
+Trial 7 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.7207207207207208
+Trial 7 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.39999999999999997
+Trial 7 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.6428571428571429
+Trial 7 Trainer NaiveBayesTrainer test data accuracy = 0.6419354838709678
+
+-------------------- Trial 8  --------------------
+
+Trial 8 Training NaiveBayesTrainer with 8372 instances
+Trial 8 Training NaiveBayesTrainer finished
+Trial 8 Trainer NaiveBayesTrainer training data accuracy = 0.8112756808408982
+Trial 8 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6698924731182796 most-frequent-tag baseline=0.1010752688172043
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  43   .   .   5   1   .   .   .   .   .   .   .   .   .   .   .   .   2   1   .   .   .   .  |52
+  1                Cabernet_Franc   .   4   .   .   .   1   .   .   .   6   .   1   .   .   5   .   3   .   .   .   .   .   .  |20
+  2 Cabernet_Sauvignon_and_Blends   .   .  10   .   .   .   .   .   1  11   .   1   .   .   .   1   3   .   .   1   .   .   .  |28
+  3                    Chardonnay   1   1   .  39   .   1   .   .   .   .   .   .   .   .   .   .   .   3   2   .   .   1   .  |48
+  4                  Chenin_Blanc   1   .   .   1   7   .   .   .   .   .   .   .   .   .   .   .   .   1   1   .   .   .   .  |11
+  5                Gewurztraminer   .   .   .   1   .   2   .   .   .   .   .   .   .   1   .   .   .   2   6   .   .   .   .  |12
+  6                      Grenache   .   .   1   .   .   .  12   .   .   6   .   .   1   .   3   6   1   .   .   3   2   .   2  |37
+  7              Gruner_Veltliner   2   .   .   .   .   .   .   5   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .  |8
+  8                        Malbec   .   .   .   .   .   .   .   .   2   1   .   .   .   .   .   .   1   .   .   1   2   .   .  |7
+  9                        Merlot   .   .   3   .   .   .   .   .   .  46   .   2   .   .   1   2   5   .   .   1   2   .   3  |65
+ 10                     Mourvedre   .   .   .   .   .   .   1   .   .   .   2   1   .   .   .   4   3   .   .   3   2   .   .  |16
+ 11                      Nebbiolo   .   .   .   .   .   .   2   .   .   3   .  53   .   .   1   .  13   .   .   .   1   .   .  |73
+ 12                  Petite_Sirah   .   .   2   .   .   .   .   .   .   .   .   1   2   .   1   .   .   .   .   4   .   .   1  |11
+ 13                    Pinot_Gris   4   .   .   2   .   .   .   .   .   .   .   .   .   3   .   .   .   .   5   .   .   .   .  |14
+ 14                    Pinot_Noir   .   .   .   1   .   .   1   .   1   2   .   2   .   .  65   2   2   .   .   2   .   .   4  |82
+ 15                  Rhone_Blends   .   1   .   .   .   .   2   .   .   6   1   .   .   .   7  50   .   .   .   8   2   .   1  |78
+ 16                    Sangiovese   .   .   .   .   .   .   1   .   .   2   .   9   .   .   .   .  56   .   .   .   1   .   1  |70
+ 17               Sauvignon_Blanc   2   .   .   6   .   .   .   .   .   .   .   .   .   .   .   .   .  31   4   .   .   .   .  |43
+ 18                      Semillon   .   .   .   2   .   .   .   .   .   .   .   .   .   1   .   .   .   2  55   .   .   1   .  |61
+ 19                  Shiraz/Syrah   .   .   1   .   .   .   2   .   .  10   .   .   1   .   3   8   5   .   .  61   1   .   2  |94
+ 20                   Tempranillo   .   .   .   .   .   .   .   .   .   4   .   .   .   .   1   1   2   .   .   3  38   .   .  |49
+ 21                      Viognier   .   .   .   4   .   .   .   .   .   .   .   .   .   .   1   .   .   .   1   .   .   4   .  |10
+ 22                     Zinfandel   .   .   .   .   .   .   .   .   .   2   .   .   1   .   1   2   1   .   .   1   .   .  33  |41
+
+Trial 8 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.8113207547169812
+Trial 8 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.6666666666666666
+Trial 8 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.5882352941176471
+Trial 8 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.639344262295082
+Trial 8 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 0.875
+Trial 8 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 0.5
+Trial 8 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.5714285714285714
+Trial 8 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 1.0
+Trial 8 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.5
+Trial 8 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.46464646464646464
+Trial 8 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.6666666666666666
+Trial 8 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.7571428571428571
+Trial 8 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.4
+Trial 8 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.6
+Trial 8 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.7303370786516854
+Trial 8 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.6578947368421053
+Trial 8 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.5894736842105263
+Trial 8 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.7380952380952381
+Trial 8 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.7333333333333333
+Trial 8 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.6931818181818182
+Trial 8 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.7450980392156863
+Trial 8 Trainer NaiveBayesTrainer test data precision(Viognier) = 0.6666666666666666
+Trial 8 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.7021276595744681
+Trial 8 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.8269230769230769
+Trial 8 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.2
+Trial 8 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.35714285714285715
+Trial 8 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.8125
+Trial 8 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.6363636363636364
+Trial 8 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.16666666666666666
+Trial 8 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.32432432432432434
+Trial 8 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.625
+Trial 8 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.2857142857142857
+Trial 8 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.7076923076923077
+Trial 8 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.125
+Trial 8 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.726027397260274
+Trial 8 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.18181818181818182
+Trial 8 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.21428571428571427
+Trial 8 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.7926829268292683
+Trial 8 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.6410256410256411
+Trial 8 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.8
+Trial 8 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.7209302325581395
+Trial 8 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.9016393442622951
+Trial 8 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.648936170212766
+Trial 8 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.7755102040816326
+Trial 8 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.4
+Trial 8 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.8048780487804879
+Trial 8 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.819047619047619
+Trial 8 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.30769230769230765
+Trial 8 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.4444444444444445
+Trial 8 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.7155963302752295
+Trial 8 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.7368421052631579
+Trial 8 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.25
+Trial 8 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.41379310344827586
+Trial 8 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.7692307692307693
+Trial 8 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.36363636363636365
+Trial 8 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.5609756097560976
+Trial 8 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.21052631578947367
+Trial 8 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.7412587412587412
+Trial 8 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.25000000000000006
+Trial 8 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.3157894736842105
+Trial 8 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.760233918128655
+Trial 8 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.6493506493506495
+Trial 8 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.6787878787878788
+Trial 8 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.7294117647058824
+Trial 8 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.8088235294117647
+Trial 8 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.6703296703296703
+Trial 8 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.76
+Trial 8 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.5
+Trial 8 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.7500000000000001
+Trial 8 Trainer NaiveBayesTrainer test data accuracy = 0.6698924731182796
+
+-------------------- Trial 9  --------------------
+
+Trial 9 Training NaiveBayesTrainer with 8372 instances
+Trial 9 Training NaiveBayesTrainer finished
+Trial 9 Trainer NaiveBayesTrainer training data accuracy = 0.8130673674151935
+Trial 9 Trainer NaiveBayesTrainer Test Data Confusion Matrix
+Confusion Matrix, row=true, column=predicted  accuracy=0.6795698924731183 most-frequent-tag baseline=0.08817204301075268
+                            label   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  |total
+  0                      Riesling  45   .   .   1   1   .   .   1   .   .   .   .   .   .   .   .   .   9   3   .   .   .   .  |60
+  1                Cabernet_Franc   .   2   5   .   .   .   .   .   1   2   .   1   1   .   3   2   2   .   .   2   .   .   1  |22
+  2 Cabernet_Sauvignon_and_Blends   .   .  18   .   .   .   .   .   .   6   .   1   .   .   2   .   3   .   .   1   .   .   .  |31
+  3                    Chardonnay   1   .   .  50   1   .   1   .   .   .   .   .   .   .   1   .   .   4   3   .   .   .   .  |61
+  4                  Chenin_Blanc   2   .   .   5   7   .   .   .   .   .   .   .   .   .   .   .   .   3   4   .   .   .   .  |21
+  5                Gewurztraminer   .   .   .   .   .   4   .   .   .   .   .   .   .   1   .   .   .   1   1   .   .   .   .  |7
+  6                      Grenache   .   .   .   .   .   .  17   .   .   6   1   1   .   .   3   5   1   .   .   5   1   .   .  |40
+  7              Gruner_Veltliner   3   1   .   1   .   .   .   3   .   .   .   .   .   .   .   .   .   1   1   .   1   .   .  |11
+  8                        Malbec   .   .   .   .   .   .   .   .   4   2   .   .   .   .   4   .   1   .   .   3   1   .   .  |15
+  9                        Merlot   .   .   7   .   .   .   .   .   .  49   .   4   .   .   2   .   4   .   .   .   .   .   1  |67
+ 10                     Mourvedre   .   .   .   .   .   .   .   .   .   1   1   1   1   .   1   4   .   .   .   3   1   .   .  |13
+ 11                      Nebbiolo   .   .   .   .   .   .   .   .   .   3   .  64   .   .   .   .  13   1   .   .   1   .   .  |82
+ 12                  Petite_Sirah   .   .   .   .   .   .   .   .   .   1   .   .   9   .   .   .   2   .   .   3   .   .   4  |19
+ 13                    Pinot_Gris   3   .   .   2   .   1   .   .   .   .   .   .   .   4   .   .   .   4   2   .   .   1   .  |17
+ 14                    Pinot_Noir   .   .   1   .   .   .   .   .   .   2   .   1   .   .  63   1   1   1   .   2   1   .   1  |74
+ 15                  Rhone_Blends   1   1   1   .   .   .   2   .   .   3   1   2   .   .   3  57   .   2   .   7   1   .   1  |82
+ 16                    Sangiovese   .   1   2   .   .   .   .   .   .   8   .   4   .   .   4   .  49   .   .   .   .   .   .  |68
+ 17               Sauvignon_Blanc   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  39   2   .   .   .   .  |42
+ 18                      Semillon   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   3  55   .   .   .   .  |58
+ 19                  Shiraz/Syrah   .   .   .   .   .   .   2   .   .   4   .   .   .   .   2   5   2   .   .  40   .   .   2  |57
+ 20                   Tempranillo   .   .   .   .   .   .   .   .   .   4   .   2   .   .   4   2   4   .   .   2  29   .   .  |47
+ 21                      Viognier   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   2   .  |3
+ 22                     Zinfandel   .   .   2   .   .   .   1   .   .   3   .   .   2   .   .   1   .   .   .   3   .   .  21  |33
+
+Trial 9 Trainer NaiveBayesTrainer test data precision(Riesling) = 0.8035714285714286
+Trial 9 Trainer NaiveBayesTrainer test data precision(Cabernet_Franc) = 0.4
+Trial 9 Trainer NaiveBayesTrainer test data precision(Cabernet_Sauvignon_and_Blends) = 0.5
+Trial 9 Trainer NaiveBayesTrainer test data precision(Chardonnay) = 0.8333333333333334
+Trial 9 Trainer NaiveBayesTrainer test data precision(Chenin_Blanc) = 0.7777777777777778
+Trial 9 Trainer NaiveBayesTrainer test data precision(Gewurztraminer) = 0.8
+Trial 9 Trainer NaiveBayesTrainer test data precision(Grenache) = 0.7391304347826086
+Trial 9 Trainer NaiveBayesTrainer test data precision(Gruner_Veltliner) = 0.75
+Trial 9 Trainer NaiveBayesTrainer test data precision(Malbec) = 0.8
+Trial 9 Trainer NaiveBayesTrainer test data precision(Merlot) = 0.5212765957446809
+Trial 9 Trainer NaiveBayesTrainer test data precision(Mourvedre) = 0.3333333333333333
+Trial 9 Trainer NaiveBayesTrainer test data precision(Nebbiolo) = 0.7901234567901234
+Trial 9 Trainer NaiveBayesTrainer test data precision(Petite_Sirah) = 0.6923076923076923
+Trial 9 Trainer NaiveBayesTrainer test data precision(Pinot_Gris) = 0.8
+Trial 9 Trainer NaiveBayesTrainer test data precision(Pinot_Noir) = 0.6847826086956522
+Trial 9 Trainer NaiveBayesTrainer test data precision(Rhone_Blends) = 0.7402597402597403
+Trial 9 Trainer NaiveBayesTrainer test data precision(Sangiovese) = 0.5975609756097561
+Trial 9 Trainer NaiveBayesTrainer test data precision(Sauvignon_Blanc) = 0.5735294117647058
+Trial 9 Trainer NaiveBayesTrainer test data precision(Semillon) = 0.7746478873239436
+Trial 9 Trainer NaiveBayesTrainer test data precision(Shiraz/Syrah) = 0.5633802816901409
+Trial 9 Trainer NaiveBayesTrainer test data precision(Tempranillo) = 0.8055555555555556
+Trial 9 Trainer NaiveBayesTrainer test data precision(Viognier) = 0.6666666666666666
+Trial 9 Trainer NaiveBayesTrainer test data precision(Zinfandel) = 0.6774193548387096
+Trial 9 Trainer NaiveBayesTrainer test data recall(Riesling) = 0.75
+Trial 9 Trainer NaiveBayesTrainer test data recall(Cabernet_Franc) = 0.09090909090909091
+Trial 9 Trainer NaiveBayesTrainer test data recall(Cabernet_Sauvignon_and_Blends) = 0.5806451612903226
+Trial 9 Trainer NaiveBayesTrainer test data recall(Chardonnay) = 0.819672131147541
+Trial 9 Trainer NaiveBayesTrainer test data recall(Chenin_Blanc) = 0.3333333333333333
+Trial 9 Trainer NaiveBayesTrainer test data recall(Gewurztraminer) = 0.5714285714285714
+Trial 9 Trainer NaiveBayesTrainer test data recall(Grenache) = 0.425
+Trial 9 Trainer NaiveBayesTrainer test data recall(Gruner_Veltliner) = 0.2727272727272727
+Trial 9 Trainer NaiveBayesTrainer test data recall(Malbec) = 0.26666666666666666
+Trial 9 Trainer NaiveBayesTrainer test data recall(Merlot) = 0.7313432835820896
+Trial 9 Trainer NaiveBayesTrainer test data recall(Mourvedre) = 0.07692307692307693
+Trial 9 Trainer NaiveBayesTrainer test data recall(Nebbiolo) = 0.7804878048780488
+Trial 9 Trainer NaiveBayesTrainer test data recall(Petite_Sirah) = 0.47368421052631576
+Trial 9 Trainer NaiveBayesTrainer test data recall(Pinot_Gris) = 0.23529411764705882
+Trial 9 Trainer NaiveBayesTrainer test data recall(Pinot_Noir) = 0.8513513513513513
+Trial 9 Trainer NaiveBayesTrainer test data recall(Rhone_Blends) = 0.6951219512195121
+Trial 9 Trainer NaiveBayesTrainer test data recall(Sangiovese) = 0.7205882352941176
+Trial 9 Trainer NaiveBayesTrainer test data recall(Sauvignon_Blanc) = 0.9285714285714286
+Trial 9 Trainer NaiveBayesTrainer test data recall(Semillon) = 0.9482758620689655
+Trial 9 Trainer NaiveBayesTrainer test data recall(Shiraz/Syrah) = 0.7017543859649122
+Trial 9 Trainer NaiveBayesTrainer test data recall(Tempranillo) = 0.6170212765957447
+Trial 9 Trainer NaiveBayesTrainer test data recall(Viognier) = 0.6666666666666666
+Trial 9 Trainer NaiveBayesTrainer test data recall(Zinfandel) = 0.6363636363636364
+Trial 9 Trainer NaiveBayesTrainer test data F1(Riesling) = 0.7758620689655172
+Trial 9 Trainer NaiveBayesTrainer test data F1(Cabernet_Franc) = 0.14814814814814814
+Trial 9 Trainer NaiveBayesTrainer test data F1(Cabernet_Sauvignon_and_Blends) = 0.537313432835821
+Trial 9 Trainer NaiveBayesTrainer test data F1(Chardonnay) = 0.8264462809917356
+Trial 9 Trainer NaiveBayesTrainer test data F1(Chenin_Blanc) = 0.4666666666666666
+Trial 9 Trainer NaiveBayesTrainer test data F1(Gewurztraminer) = 0.6666666666666666
+Trial 9 Trainer NaiveBayesTrainer test data F1(Grenache) = 0.5396825396825397
+Trial 9 Trainer NaiveBayesTrainer test data F1(Gruner_Veltliner) = 0.39999999999999997
+Trial 9 Trainer NaiveBayesTrainer test data F1(Malbec) = 0.4
+Trial 9 Trainer NaiveBayesTrainer test data F1(Merlot) = 0.6086956521739131
+Trial 9 Trainer NaiveBayesTrainer test data F1(Mourvedre) = 0.125
+Trial 9 Trainer NaiveBayesTrainer test data F1(Nebbiolo) = 0.7852760736196319
+Trial 9 Trainer NaiveBayesTrainer test data F1(Petite_Sirah) = 0.5625
+Trial 9 Trainer NaiveBayesTrainer test data F1(Pinot_Gris) = 0.3636363636363636
+Trial 9 Trainer NaiveBayesTrainer test data F1(Pinot_Noir) = 0.7590361445783131
+Trial 9 Trainer NaiveBayesTrainer test data F1(Rhone_Blends) = 0.7169811320754716
+Trial 9 Trainer NaiveBayesTrainer test data F1(Sangiovese) = 0.6533333333333333
+Trial 9 Trainer NaiveBayesTrainer test data F1(Sauvignon_Blanc) = 0.7090909090909091
+Trial 9 Trainer NaiveBayesTrainer test data F1(Semillon) = 0.8527131782945736
+Trial 9 Trainer NaiveBayesTrainer test data F1(Shiraz/Syrah) = 0.625
+Trial 9 Trainer NaiveBayesTrainer test data F1(Tempranillo) = 0.6987951807228916
+Trial 9 Trainer NaiveBayesTrainer test data F1(Viognier) = 0.6666666666666666
+Trial 9 Trainer NaiveBayesTrainer test data F1(Zinfandel) = 0.65625
+Trial 9 Trainer NaiveBayesTrainer test data accuracy = 0.6795698924731183
+
+NaiveBayesTrainer
+Summary. train accuracy mean = 0.8113234591495461 stddev = 0.0023088592673821753 stderr = 7.301254081715383E-4
+Summary. test accuracy mean = 0.6772043010752687 stddev = 0.01460783457870252 stderr = 0.004619402895166614
+Summary. test precision(Riesling) mean = 0.754333896117808 stddev = 0.09067328950107913 stderr = 0.028673411776324254
+Summary. test precision(Cabernet_Franc) mean = 0.48892857142857143 stddev = 0.2521652548620392 stderr = 0.07974165521208924
+Summary. test precision(Cabernet_Sauvignon_and_Blends) mean = 0.6232996002717404 stddev = 0.09471071172440104 stderr = 0.02995015678647208
+Summary. test precision(Chardonnay) mean = 0.7013781364919451 stddev = 0.06418748598688864 stderr = 0.020297865299870883
+Summary. test precision(Chenin_Blanc) mean = 0.8120959595959597 stddev = 0.14557840764751623 stderr = 0.046035934630662606
+Summary. test precision(Gewurztraminer) mean = 0.7733333333333333 stddev = 0.22487033300697243 stderr = 0.0711102430502573
+Summary. test precision(Grenache) mean = 0.5888362231222051 stddev = 0.08919772344962104 stderr = 0.02820679682026138
+Summary. test precision(Gruner_Veltliner) mean = 0.8214285714285715 stddev = 0.16632618282450456 stderr = 0.052596957224701237
+Summary. test precision(Malbec) mean = 0.7394337606837607 stddev = 0.13897499344439962 stderr = 0.04394775170912719
+Summary. test precision(Merlot) mean = 0.5006098927473561 stddev = 0.05723015015144826 stderr = 0.01809776253120068
+Summary. test precision(Mourvedre) mean = 0.5007142857142857 stddev = 0.31711220000544016 stderr = 0.10027968258440503
+Summary. test precision(Nebbiolo) mean = 0.7792012234740361 stddev = 0.026120028299917303 stderr = 0.008259878197579434
+Summary. test precision(Petite_Sirah) mean = 0.6373260073260073 stddev = 0.12695945860232014 stderr = 0.040148105968518914
+Summary. test precision(Pinot_Gris) mean = 0.595 stddev = 0.16533635749922376 stderr = 0.052283946973340795
+Summary. test precision(Pinot_Noir) mean = 0.7097566865210838 stddev = 0.03610356648308409 stderr = 0.011416950174186067
+Summary. test precision(Rhone_Blends) mean = 0.7173718231905892 stddev = 0.035888973964784264 stderr = 0.011349090061520186
+Summary. test precision(Sangiovese) mean = 0.6228455558721575 stddev = 0.03304987768767971 stderr = 0.010451288988304691
+Summary. test precision(Sauvignon_Blanc) mean = 0.6128952644185862 stddev = 0.054475919369980176 stderr = 0.01722679828408222
+Summary. test precision(Semillon) mean = 0.7425292276018691 stddev = 0.05654509484868885 stderr = 0.017881129023211085
+Summary. test precision(Shiraz/Syrah) mean = 0.6353592489812427 stddev = 0.04628157054149214 stderr = 0.014635517660086753
+Summary. test precision(Tempranillo) mean = 0.8049786626664638 stddev = 0.04742698252444469 stderr = 0.014997728732624756
+Summary. test precision(Viognier) mean = 0.7511904761904763 stddev = 0.28791070437923133 stderr = 0.09104535885817856
+Summary. test precision(Zinfandel) mean = 0.6642531016344548 stddev = 0.06481798787767327 stderr = 0.0204972475042631
+Summary. test recall(Riesling) mean = 0.7990799994461251 stddev = 0.0588560526655192 stderr = 0.018611918050986494
+Summary. test recall(Cabernet_Franc) mean = 0.15909737321502024 stddev = 0.0894686989528949 stderr = 0.02829248679830696
+Summary. test recall(Cabernet_Sauvignon_and_Blends) mean = 0.4761539929369018 stddev = 0.07434961068621035 stderr = 0.023511411291521917
+Summary. test recall(Chardonnay) mean = 0.8281030514233706 stddev = 0.039758698203109635 stderr = 0.012572804312507027
+Summary. test recall(Chenin_Blanc) mean = 0.4771601192924722 stddev = 0.14458971989239752 stderr = 0.04572328411057322
+Summary. test recall(Gewurztraminer) mean = 0.31164141414141416 stddev = 0.16952682868541666 stderr = 0.05360909031510851
+Summary. test recall(Grenache) mean = 0.3893617941724533 stddev = 0.04291886055116711 stderr = 0.013572135392083767
+Summary. test recall(Gruner_Veltliner) mean = 0.39093434343434347 stddev = 0.15354742332215443 stderr = 0.048555958654806615
+Summary. test recall(Malbec) mean = 0.45716416710224755 stddev = 0.1200547309911433 stderr = 0.03796463938108168
+Summary. test recall(Merlot) mean = 0.7075620466452539 stddev = 0.05265412670417302 stderr = 0.016650696859228164
+Summary. test recall(Mourvedre) mean = 0.140603630116014 stddev = 0.11833993387919589 stderr = 0.037422372921198425
+Summary. test recall(Nebbiolo) mean = 0.7329183005849019 stddev = 0.049023688186259254 stderr = 0.015502651397046813
+Summary. test recall(Petite_Sirah) mean = 0.39205053632298215 stddev = 0.10895397930755751 stderr = 0.034454273475073696
+Summary. test recall(Pinot_Gris) mean = 0.18924369747899156 stddev = 0.06953704079388114 stderr = 0.021989543065670757
+Summary. test recall(Pinot_Noir) mean = 0.8018599024568198 stddev = 0.056001893490212055 stderr = 0.017709353671122655
+Summary. test recall(Rhone_Blends) mean = 0.6967492516147838 stddev = 0.05648012596363113 stderr = 0.017860584057828678
+Summary. test recall(Sangiovese) mean = 0.7917301896749273 stddev = 0.04103117281134396 stderr = 0.01297519611518212
+Summary. test recall(Sauvignon_Blanc) mean = 0.8144869623480087 stddev = 0.08272803662173632 stderr = 0.02616090220785083
+Summary. test recall(Semillon) mean = 0.8838556944315877 stddev = 0.05091264176442899 stderr = 0.01609999096718094
+Summary. test recall(Shiraz/Syrah) mean = 0.7001954490770572 stddev = 0.02121690682320178 stderr = 0.006709375046488505
+Summary. test recall(Tempranillo) mean = 0.687788862353452 stddev = 0.053142111101330824 stderr = 0.016805011074992448
+Summary. test recall(Viognier) mean = 0.3126680264180264 stddev = 0.17948932337687465 stderr = 0.05675950775534287
+Summary. test recall(Zinfandel) mean = 0.7257004353847969 stddev = 0.06231788165755663 stderr = 0.019706644499470814
+Summary. test f1(Riesling) mean = 0.7737084924643495 stddev = 0.06517594680779155 stderr = 0.02061044405706018
+Summary. test f1(Cabernet_Franc) mean = 0.23284234284234281 stddev = 0.11983567656218781 stderr = 0.037895368288376995
+Summary. test f1(Cabernet_Sauvignon_and_Blends) mean = 0.536061031418464 stddev = 0.07032357627833327 stderr = 0.02223826742481203
+Summary. test f1(Chardonnay) mean = 0.7568083646548601 stddev = 0.03197892919145633 stderr = 0.010112625337824881
+Summary. test f1(Chenin_Blanc) mean = 0.5899444462709175 stddev = 0.13619025766700205 stderr = 0.04306714093529359
+Summary. test f1(Gewurztraminer) mean = 0.4163095238095238 stddev = 0.16985725799988086 stderr = 0.05371358123904799
+Summary. test f1(Grenache) mean = 0.4656778487050425 stddev = 0.049168406157100226 stderr = 0.015548415237668343
+Summary. test f1(Gruner_Veltliner) mean = 0.5131837606837608 stddev = 0.15616761251123043 stderr = 0.04938453522860958
+Summary. test f1(Malbec) mean = 0.5564359324885642 stddev = 0.11611323165983399 stderr = 0.03671822785278488
+Summary. test f1(Merlot) mean = 0.5831556999766858 stddev = 0.038306069031851346 stderr = 0.012113442634829129
+Summary. test f1(Mourvedre) mean = 0.2148776833387817 stddev = 0.16290121001629312 stderr = 0.051513885724892114
+Summary. test f1(Nebbiolo) mean = 0.7544900571879449 stddev = 0.03179859828660876 stderr = 0.010055599698641138
+Summary. test f1(Petite_Sirah) mean = 0.4788340137979358 stddev = 0.10512164971557193 stderr = 0.033242384449559875
+Summary. test f1(Pinot_Gris) mean = 0.2824598148669356 stddev = 0.09718860405119154 stderr = 0.0307337351414033
+Summary. test f1(Pinot_Noir) mean = 0.7524464010270008 stddev = 0.04078391116473373 stderr = 0.012897005117052922
+Summary. test f1(Rhone_Blends) mean = 0.7054999017792103 stddev = 0.03459242640673597 stderr = 0.010939085723703987
+Summary. test f1(Sangiovese) mean = 0.6964330404692409 stddev = 0.02829116298333799 stderr = 0.008946451268239232
+Summary. test f1(Sauvignon_Blanc) mean = 0.6956643278776465 stddev = 0.03985222433576885 stderr = 0.012602379872502045
+Summary. test f1(Semillon) mean = 0.8063890573494966 stddev = 0.05031681176116668 stderr = 0.015911572976323497
+Summary. test f1(Shiraz/Syrah) mean = 0.6650457981576177 stddev = 0.02601852577304836 stderr = 0.008227780280262604
+Summary. test f1(Tempranillo) mean = 0.7398144552749549 stddev = 0.034300098286207774 stderr = 0.010846643455205454
+Summary. test f1(Viognier) mean = 0.4119728800611154 stddev = 0.19438684142832507 stderr = 0.061470516607948555
+Summary. test f1(Zinfandel) mean = 0.691215093157126 stddev = 0.05119172010280702 stderr = 0.01618824328666992
