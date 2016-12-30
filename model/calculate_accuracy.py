@@ -18,6 +18,6 @@ def print_accuracy(file, prefix):
 		data_file.close()
 
 
-print_accuracy("pred.txt", "Testing")
-# print_accuracy("test_pred.txt", "Testing")
-# print_accuracy("train_pred.txt", "Training")
+# print_accuracy("pred.txt", "Testing")
+print_accuracy("test_pred.txt", "Testing")
+print_accuracy("train_pred.txt", "Training")

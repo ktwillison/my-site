@@ -8,7 +8,7 @@ from nltk.stem.lancaster import LancasterStemmer
 import random
 
 # Number of words to include in each n-gram
-ngram_number = 1
+# ngram_number = 1
 ngram_output = open('ngram_output.txt', 'w')
 
 # Helper function to split words and build a count-mapping
