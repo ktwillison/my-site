@@ -188,6 +188,26 @@
                             <div class="content">
 
                                 <div class="content--header">
+                                    <h1><span>Test the Model</span></h1>
+                                </div>
+
+                                <article class="content">
+                                    <h3>Predict a wine!</h3>
+                                    <p>
+                                        You can use the form below to test out a version of the model that I built using <a href="http://scikit-learn.org/stable/" target="_blank">scikit-learn</a>: just type in a description of the wine you're looking for and the model will return its three best guesses 🤓
+                                    </p>
+                                    <form id="model-input" autocomplete="off">
+                                        <input type="text" name="input-text" value="">
+                                        <input type="submit" value="Run the model!">
+                                    </form> 
+                                    <div id="model-results-loading" class="hidden">
+                                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <div id="model-result"></div>
+                                </article>
+
+                                <div class="content--header">
                                     <h1><span>LDA Category Overlaps</span></h1>
                                 </div>
 
@@ -363,6 +383,7 @@
         <script src='/libraries/crossfilter.min.js'></script>
 
         <!-- ML viz -->
+        <script src="/assets/js/wine-model.js"></script>
         <script src="/libraries/sankey.js"></script>
         <script src="/libraries/d3.chart.min.js"></script>
         <script src="/libraries/d3.chart.sankey.min.js"></script>
