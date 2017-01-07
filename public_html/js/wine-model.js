@@ -1,3 +1,10 @@
+ // -------------------------------------------------------------------------
+ //     Created by Kate Willison in 2017. 
+ //     Feel free to remix & reuse under the CC licence terms described here:
+ //     https://creativecommons.org/licenses/by-sa/4.0/
+ // -------------------------------------------------------------------------
+
+
 $("#model-input").submit( function(event) {
 	event.preventDefault();
 

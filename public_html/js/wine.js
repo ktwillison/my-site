@@ -1,13 +1,17 @@
+ // -------------------------------------------------------------------------
+ //     Created by Kate Willison in 2017, based on visualizations attributed below. 
+ //     Feel free to remix & reuse under the MIT licence terms described here:
+ //     https://opensource.org/licenses/MIT
+ // -------------------------------------------------------------------------
+
+
 /**
 Data JSON format:
 
-{ "varietals" : [ ...,  {"name": "Barbera", "id":9,  "fruit":4,  "body":4,   "dryness":0,  "acidity":5, "alcohol":4,  "tannins":1,  "color":5, "aromas": [52, 54, 60, 61, 62, 71, 85, 88, 94, 112, 155, 157, 165, 166], "countries": [15, 30, 2] }, ... ], 
-
-"aromas": [ ...,  {"name": "Floral", "id":1}, ... ], 
-
-"colors": [ ...,  {"name": "color_straw", "id":2}, ...], 
-
-"countries": [  ...,  {"name": "Algeria", "id":1},  ... ]
+{ 	"varietals" : [ ...,  {"name": "Barbera", "id":9,  "fruit":4,  "body":4,   "dryness":0,  "acidity":5, "alcohol":4,  "tannins":1,  "color":5, "aromas": [52, 54, 60, 61, 62, 71, 85, 88, 94, 112, 155, 157, 165, 166], "countries": [15, 30, 2] }, ... ], 
+	"aromas": [ ...,  {"name": "Floral", "id":1}, ... ], 
+	"colors": [ ...,  {"name": "color_straw", "id":2}, ...], 
+	"countries": [  ...,  {"name": "Algeria", "id":1},  ... ]
 } 
 
 **/

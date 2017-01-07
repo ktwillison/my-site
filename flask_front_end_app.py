@@ -17,6 +17,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 # get root
 @app.route("/")
+@app.route("/wine-explorer")
+@app.route("/wine-model")
 def index():
 	return app.make_response(open('public_html/index.htm').read())
 

@@ -44,16 +44,6 @@ video {
     vertical-align: baseline
 }
 
-a {
-    background-color: transparent;
-    cursor: pointer;
-}
-
-a:active,
-a:hover {
-    outline: 0
-}
-
 b,
 strong {
     font-weight: bold
@@ -152,7 +142,14 @@ h4,
 
 a {
     color: #00CCD7;
-    text-decoration: none
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+a:active,
+a:hover {
+    outline: 0
 }
 
 p {

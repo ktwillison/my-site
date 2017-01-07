@@ -1,3 +1,11 @@
+ // -------------------------------------------------------------------------
+ //     Based on the Sankey chart : https://github.com/q-m/d3.chart.sankey
+ //     Adapted by Kate Willison in 2017. 
+ //     Feel free to remix & reuse under the MIT licence terms described here:
+ //     https://opensource.org/licenses/MIT
+ // -------------------------------------------------------------------------
+
+
 function renderMLChart() {
   var colors = {
     'barbera':         '#df2b5a',

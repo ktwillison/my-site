@@ -69,9 +69,9 @@
                                         <img src="/assets/images/less-screens.png" class="post-image" alt="Less for flexitarians screenshots">
                                     </a>
                                     
-                                    <h3> 
+                                    <a href="https://itunes.apple.com/us/app/less-a-tool-for-flexitarians/id1147139153?mt=8" target="_blank"><h3> 
                                         Less – a tool for flexitarians
-                                    </h3>
+                                    </h3></a>
                                     <p class="post-text">
                                         I built Less (available on the <a href="https://itunes.apple.com/us/app/less-a-tool-for-flexitarians/id1147139153?mt=8" target="_blank">App Store</a>) in order to help aspiring vegetarians and flexitarians track their meat consumption over time. While there are a range of benefits to eating less meat (from lower cholesterol to boasting rights over the smaller environmental impact of your diet), many people find it difficult to meaningfully cut down on meat consumption without adhering to a plan that robs the joy from their dining experiences. Did your friends plan an after-work BBQ on Wednesday? Too bad you only eat meat on the weekends! 
                                     <br/><br/>
@@ -84,9 +84,9 @@
                                 <div class="post">
                                     <a class="show-wine-explorer"><img src="/assets/images/aroma-wheel.png" class="post-image" alt="wine explorer preview"></a>
                                     
-                                    <h3> 
+                                    <a class="show-wine-explorer"><h3> 
                                         The Wine Explorer
-                                    </h3>
+                                    </h3></a>
                                     <p class="post-text">
                                         Originally the product of a final project for CME 161: Data Visualization at Stanford (which I then developed a bit further), <a class="show-wine-explorer">The Wine Explorer</a> is an interactive tool that leverages D3 and crossfilter.js in order to let users filter wine varietals by aroma, color, region, body, acidity etc. The end product is useful both in blind tasting (wherein you use the wine’s characteristics in order to guess its varietal, age and origin) as well as simply deciding what bottle to buy if you have a particular taste in mind.
                                     </p> 
@@ -97,11 +97,11 @@
                                 <div class="post">
                                     <a class="show-ML-page"><img src="/assets/images/ML-viz.png" class="post-image" alt="machine learning visualization preview"></a>
                                     
-                                    <h3> 
+                                    <a class="show-ML-page"><h3> 
                                         Machine Learning applied to Blind Tasting
-                                    </h3>
+                                    </h3></a>
                                     <p class="post-text">
-                                        As a final project for Stanford’s CS 229 course on Machine Learning, our team built a classification model for 23 common wine varietals based on the descriptors in a dataset of 30,000+ professional wine reviews. Our preliminary Naïve Bayes model exhibited high variance, which we chose to counter by simplifying the feature set, stemming the descriptors in each review (so that e.g. ‘jam’ and ‘jammy’ would map to the same feature), and then using (unsupervised) Latent Dirichlet Allocation to build a 20-category topic model in order to select the most relevant features across all categories. The learning curves from a 10-fold cross-validation indicated that the best balance between over and under-fitting the model was achieved by using the top 5,000 relevant features from the LDA analysis. 
+                                        As a final project for Stanford’s CS 229 course on Machine Learning, our team built a <a class="show-ML-page">classification model</a> for 23 common wine varietals based on the descriptors in a dataset of 30,000+ professional wine reviews. Our preliminary Naïve Bayes model exhibited high variance, which we chose to counter by simplifying the feature set, stemming the descriptors in each review (so that e.g. ‘jam’ and ‘jammy’ would map to the same feature), and then using (unsupervised) Latent Dirichlet Allocation to build a 20-category topic model in order to select the most relevant features across all categories. The learning curves from a 10-fold cross-validation indicated that the best balance between over and under-fitting the model was achieved by using the top 5,000 relevant features from the LDA analysis. 
                                     <br/><br/>
                                         The resulting Naïve Bayes model had a 68% testing accuracy for the 23 varietals in our dataset – rather impressive compared to the naïve baseline of 1/23 ≈ 4.3%. Additionally, the varietals present in the <a class="show-ML-page">categories created by the unsupervised LDA analysis</a>, as well as the salient descriptors for each, gives us a means to approximate varietal proximity, i.e. what wines are similar to each other and in what way (aroma, acidity, etc). All in all, it was a very exciting project to work on, in large part because it involved two of my favorite things: data and wine! Checkout the <a id="show-ML-pdf">writeup</a> for more juicy details.
                                     </p> 
@@ -194,7 +194,7 @@
                                 <article class="content">
                                     <h3>Predict a wine!</h3>
                                     <p>
-                                        You can use the form below to test out a version of the model that I built using <a href="http://scikit-learn.org/stable/" target="_blank">scikit-learn</a>: just type in a description of the wine you're looking for and the model will return its three best guesses 🤓
+                                        You can use the form below to test out a version of the model that I built using <a href="http://scikit-learn.org/stable/" target="_blank">scikit-learn</a>: just type in a description of the wine you're looking for and the model will return its three best guesses 🍷🤓
                                     </p>
                                     <form id="model-input" autocomplete="off">
                                         <input type="text" name="input-text" value="">
@@ -360,7 +360,7 @@
 
                     </div>
                     </div>
-                    <div id="attribution">Designed By Kate Willison © 2017</div>
+                    <div id="attribution">Designed & Implemented By Kate Willison © 2017</div>
                 </div>
             </div>
         </section>
