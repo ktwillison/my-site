@@ -28,7 +28,7 @@ function renderWineExplorer() {
 		// -------------------------------
 		// ----------Map setup
 		// -------------------------------
-		var wineMap = L.map('map');
+		var wineMap = L.map('wine-map');
 		var countryMarkers = new L.FeatureGroup();
 
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{map_id}/{z}/{x}/{y}.png?access_token={accessToken}', {

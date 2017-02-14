@@ -19,8 +19,6 @@
         <script src="https://use.fontawesome.com/967772353c.js"></script>
         <link rel="stylesheet" href="/assets/css/app.min.css">
 
-
-
 </head>
     <body cz-shortcut-listen="true">
         <section class="main-container">
@@ -50,6 +48,8 @@
                                 <a class="fa fa-twitter-square fa-2x block__social__link" href="https://twitter.com/ktwillison" target="_blank"></a>
                                 <a class="fa fa-spotify fa-2x block__social__link" href="https://play.spotify.com/user/katiewillison" target="_blank"></a>
                             </div>
+                            <br/>
+                            <div id="attribution">Designed &amp; Implemented By Kate Willison © 2017</div>
                         </div>
                     </div>
                 </div>
@@ -62,6 +62,19 @@
                             <div class="content--header">
                                 <h1 id="header-projects">PROJECTS</h1>
                             </div>
+
+                            <article class="content">
+                                <div class="post">
+                                    <a class="show-stockholm-apartments"><img src="/assets/images/sthlm.png" class="post-image" alt="stockholm apartment preview"></a>
+                                    
+                                    <a class="show-stockholm-apartments"><h3> 
+                                        Parsing Stockholm Apartment Data
+                                    </h3></a>
+                                    <p>
+                                        I'm currently in the market for a place in Stockholm, and happened to stumble upon <a href="https://www.booli.se/" target="_blank">Booli's</a> most excellent API, so just couldn't help throwing together some quick visualizations to help make a bit more sense of the market 🤓🏡  Check it out <a class="show-stockholm-apartments">here</a>! 
+                                    </p> 
+                                </div>
+                            </article>
 
                             <article class="content">
                                 <div class="post">
@@ -154,7 +167,7 @@
                                     <p class="post-text">
                                         Hi there! I’m Kate. Born and raised in the heart of Silicon Valley, California, it comes as no surprise that many of my favorite things are the best of what my home state has to offer: great hiking, great wine, and great user-centric mobile and web applications. I enjoy analyzing a dataset almost as much as I enjoy analyzing a good glass of Old-Vine Zinfandel, and where those two passions intersect is most definitely my happy place (which might be obvious from the ‘Projects’ section above). Apart from that I love to travel – not so much for relaxing as for adventuring, learning new languages and experiencing new cultures.
                                     <br/><br/>
-                                        In both my studies and my work I’ve aimed to balance crucial technical know-how with a strong user sensibility. I started learning humans and machines from the bottom up in my undergraduate years at UPenn, focusing on cognitive neuroscience and test-driven development. In my graduate education at Stanford, I built on this foundation by honing my design thinking skills at the Stanford d.School, as well as my technical toolkit through courses in machine learning, systems engineering, and iOS & web development. After earning my MS, I skipped town and decided to travel over-land from Stockholm to Saigon, through Estonia, Russia, Mongolia, China and Vietnam by train, bus, boat, and motorcycle. 4 months and 19,628 kilometers later, I’m heading back to Europe in search of my next adventure!
+                                        In both my studies and my work I’ve aimed to balance crucial technical know-how with a strong user sensibility. I started learning humans and machines from the bottom up in my undergraduate years at UPenn, focusing on cognitive neuroscience and test-driven development. In my graduate education at Stanford, I built on this foundation by honing my design thinking skills at the Stanford d.School, as well as my technical toolkit through courses in machine learning, systems engineering, and iOS &amp; web development. After earning my MS, I skipped town and decided to travel over-land from Stockholm to Saigon, through Estonia, Russia, Mongolia, China and Vietnam by train, bus, boat, and motorcycle. 4 months and 19,628 kilometers later, I’m heading back to Europe in search of my next adventure!
 
                                     </p> 
                                 </div>
@@ -278,7 +291,7 @@
                                             <a class="reset_wine_filters">Reset Filters</a>
                                           </div>
                                           <div style="width:100%; max-width:500px; height:250px; display:inline-block;">
-                                              <div id="map" class="chart"></div>
+                                              <div id="wine-map" class="chart map"></div>
                                           </div>
                                         </div>
 
@@ -376,13 +389,145 @@
                         </div>
 
 
+                        <div id="stockholm-apartments">
+                            <div class="content">
+
+                                <div class="content--header">
+                                    <h1>Stockholm Apartment Price Parser</h1>
+                                </div>
+
+                                <article class="content">
+                                    <div class="post" id="apartment-finder-size">
+                                        <p class="post-text">
+                                            Data below is for Söder and Midsommarkransen only (feel free to email me if you'd like me to add more areas), from the last 6 months of <a href="https://www.booli.se/" target="_blank">Booli</a> data on apartments sold in those areas. Select your parameters on the graphs below, and the histograms, maps and averages should update correspondingly. The visualizations themselves leverage <a href="https://square.github.io/crossfilter/" target="_blank">crossfilter.js</a>, <a href="https://dc-js.github.io/dc.js/" target="_blank">DC.js</a> and <a href="https://leafletjs.com/" target="_blank" >Leaflet</a>, and help answer questions like "how much can I expect a 50 sq.m apartment in Söder to increase in price during the bidding process?", or "whats the average difference in price per square meter between Söder and Midsommarkransen?" Enjoy!
+                                        </p> 
+
+                                        <!-- begin viz -->
+                                        <div class="row" id="data-count">
+                                            <h2>The Apartment Finder</h2>
+                                            <p>
+                                                <a class="filter-count" id="apartment-filter-count"></a> selected out of <a class="total-count">772</a> apartments |
+                                                <a class="reset_apartment_filters">Reset Filters</a>
+                                            </p>
+                                            
+                                        </div>
+
+                                        <div class="row">
+                                            <h3>Location</h3>
+                                            <div id="location_chart" class="chart"></div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="chart-container">
+                                              
+                                              <div class="float-chart">
+                                                <h3>List Price in SEK<br/>
+                                                    <small>Average: <span id="listPrice_avg"></span></small>
+                                                </h3>
+                                                <div id="listPrice_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h3>Sale Price in SEK<br/>
+                                                    <small>Average: <span id="soldPrice_avg"></span></small>
+                                                </h3>
+                                                <div id="soldPrice_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h3>Percent change in Price<br/>
+                                                    <small>Average: <span id="percentChangeInPrice_avg"></span></small>
+                                                </h3>
+                                                <div id="percentChangeInPrice_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h3>Sale Price per sq.m in SEK<br/>
+                                                    <small>Average: <span id="soldPricePerSqM_avg"></span></small>
+                                                </h3>
+                                                <div id="soldPricePerSqM_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h3>Living Area in sq.m<br/>
+                                                    <small>Average: <span id="livingArea_avg"></span></small>
+                                                </h3>
+                                                <div id="livingArea_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h3>Rent (Monthly) in SEK<br/>
+                                                    <small>Average: <span id="rent_avg"></span></small>
+                                                </h3>
+                                                <div id="rent_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h3>Rooms<br/>
+                                                    <small>Average: <span id="rooms_avg"></span></small>
+                                                </h3>
+                                                <div id="rooms_chart" class="chart"></div>
+                                              </div>
+
+                                              <div class="float-chart">
+                                                <h3>Floor<br/>
+                                                    <small>Average: <span id="floor_avg"></span></small>
+                                                </h3>
+                                                <div id="floor_chart" class="chart"></div>
+                                              </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                          <div style="width:100%; max-width:500px; height:250px; display:inline-block;">
+                                              <div id="apartment_map" class="chart map"></div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div>
+                                              <h3>Listing Details</h3>
+                                              <div style="margin-bottom: 10px;">
+                                                <a class="reset_apartment_filters">Reset Filters</a>
+                                              </div>
+                                              <table id="apartment-data-table">
+                                                <thead>
+                                                  <tr class="header">
+                                                    <th>Address</th>
+                                                    <th>List Price</th>
+                                                    <th>Sale Price</th>
+                                                    <th>% Change</th>
+                                                    <th>Sale Price per sq.m</th>
+                                                    <th>sq.m</th>
+                                                    <th>Rent</th>
+                                                    <th>Floor</th>
+                                                    <th>Rooms</th>
+                                                  </tr>
+                                                </thead>
+                                              </table>
+                                            </div>
+                                        </div>
+
+                                        <!-- end viz-->
+
+                                        <div class="row">
+                                            This visualization is powered by   
+                                            <a href="https://www.booli.se/" target="_blank"><img src="https://bcdn.se/images/resources/booli_logo.png" alt="Booli" height="21" width="59"></a>
+                                        </div>
+
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
                         <div style="text-align: center; margin-top: 25px;">
                             <a class="btn blue back-to-home">HOME</a>
                         </div>
 
                     </div>
                     </div>
-                    <div id="attribution">Designed & Implemented By Kate Willison © 2017</div>
                 </div>
             </div>
         </section>
@@ -396,13 +541,16 @@
         <script src="/assets/js/app.min.js"></script>
 
         <!-- Visualization Dependencies -->
+
         <!-- Wine explorer -->
         <script src='/libraries/d3.min.js'></script>
         <script src='/libraries/underscore-min.js'></script>
-        <script src='/libraries/leaflet-src.js'></script>
-        <script src='/libraries/leaflet.js'></script>
+        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
         <script src='/libraries/dc.js'></script>
         <script src='/libraries/crossfilter.min.js'></script>
+
+        <!-- Apartment parser -->
+        <script src='/assets/js/apartments.js'></script>
 
         <!-- ML viz -->
         <script src="/assets/js/wine-model.js"></script>
@@ -416,6 +564,7 @@
         <link href="/assets/css/dc.css" rel="stylesheet">
         <link href="/assets/css/leaflet.css" rel="stylesheet">
         <link rel="stylesheet" href="/assets/css/ML-viz.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
 
     <!-- Backup
         <script src="/assets/js/analytics.js"></script>
