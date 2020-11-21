@@ -3,8 +3,8 @@ Flask-Cors==2.1.2
 flask-restful==0.3.5
 requests==2.5.0
 Flask-Assets==0.11
-numpy==1.9.1
-scipy==0.13.3
+numpy==1.9.2
+scipy==0.15.1
 scikit-learn==0.15.2
 
 https://pypi.python.org/packages/58/85/8fa6f8c488507aab7d6234ce754bbbe61bfeb8382489785e2d764bf8f52a/nltk-3.2.1.tar.gz
