@@ -22,17 +22,17 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route("/civis-journey-map")
 @app.route("/stockholm-apartments")
 def index():
-	return app.make_response(open('public_html/index.htm').read())
+	return app.make_response(open('templates/index.html').read())
 
 # send assets (ex. assets/js/random_triangle_meshes/random_triangle_meshes.js)
 # blocks other requests, so your directories won't get listed (ex. assets/js will return "not found")
 @app.route('/assets/<path:path>')
 def send_assets(path):
-	return send_from_directory('public_html/', path)
+	return send_from_directory('assets/', path)
 
 @app.route('/libraries/<path:path>')
 def send_library(path):
-	return send_from_directory('public_html/libraries/', path)
+	return send_from_directory('libraries/', path)
 
 # @app.route('/wine/')
 # def get_wine_index():
