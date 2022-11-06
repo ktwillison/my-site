@@ -4,6 +4,9 @@ FROM python:2.7.18
 # Install dependencies
 RUN pip install gunicorn
 RUN pip install --upgrade google-cloud-logging
+# Specify Flask dependency;
+# See https://stackoverflow.com/questions/60131900/weird-is-xhr-error-when-deploying-flask-app-to-heroku
+RUN pip install Werkzeug==0.16.1
 RUN pip install Flask==0.10.1
 RUN pip install Flask-Cors==2.1.2
 RUN pip install flask-restful==0.3.5

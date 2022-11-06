@@ -153,7 +153,7 @@ def train_model(vectorizer):
 
 	# fit a Multinomial Naive Bayes model to the data
 	model = MultinomialNB()
-	model.fit(word_vectors.toarray(), wine_class)
+	model.fit(word_vectors, wine_class)
 
 	return model
 
