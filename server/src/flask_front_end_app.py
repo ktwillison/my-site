@@ -4,6 +4,8 @@ from flask import Flask, jsonify, request, send_from_directory, make_response
 from flask.ext.restful import Api, Resource, reqparse
 from flask.ext.cors import CORS, cross_origin
 
+import google.cloud.logging
+
 from nltk.stem.lancaster import LancasterStemmer
 from sklearn import datasets, metrics
 from sklearn.naive_bayes import MultinomialNB
@@ -14,6 +16,11 @@ app = Flask(__name__, static_url_path='')
 api = Api(app)
 cors = CORS(app) 
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+# Setup Google logging
+logging_client = google.cloud.logging.Client()
+# By default, this captures all logs at INFO level and higher
+logging_client.setup_logging()
 
 # get root
 @app.route("/")
