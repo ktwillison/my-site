@@ -29,7 +29,9 @@ logging_client.setup_logging()
 @app.route("/civis-journey-map")
 @app.route("/stockholm-apartments")
 def index():
-	return app.make_response(open('templates/index.html').read())
+	response = app.make_response(open('templates/index.html').read())
+	response.headers['Cache-Control'] = 'public, max-age=60000, s-maxage=60000'
+	return response
 
 # send assets (ex. assets/js/random_triangle_meshes/random_triangle_meshes.js)
 # blocks other requests, so your directories won't get listed (ex. assets/js will return "not found")
