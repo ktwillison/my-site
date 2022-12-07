@@ -46,7 +46,8 @@ video {
 
 b,
 strong {
-    font-weight: bold
+    font-weight: bold;
+    font-weight: 700
 }
 
 h1 {
@@ -86,7 +87,7 @@ th {
 }
 
 th {
-    background-color: #FFDB00;
+    background-color: #f4d200;
     color: white;
     font-style: bold;
     border-bottom: none;
@@ -503,7 +504,7 @@ img.logo-img {
     width: 170px;
     height: 170px;
     border-radius: 50%;
-    border: 9px solid #FFEE81
+    border: 9px solid #fff099
 }
 #prof-pic > a:hover img.logo-img,
 #prof-pic > a:focus img.logo-img {

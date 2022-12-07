@@ -1,1 +1,1 @@
-web: python flask_front_end_app.py
+web: python server/flask_front_end_app.py

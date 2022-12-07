@@ -4,6 +4,8 @@ from flask import Flask, jsonify, request, send_from_directory, make_response
 from flask.ext.restful import Api, Resource, reqparse
 from flask.ext.cors import CORS, cross_origin
 
+import google.cloud.logging
+
 from nltk.stem.lancaster import LancasterStemmer
 from sklearn import datasets, metrics
 from sklearn.naive_bayes import MultinomialNB
@@ -15,6 +17,11 @@ api = Api(app)
 cors = CORS(app) 
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+# Setup Google logging
+logging_client = google.cloud.logging.Client()
+# By default, this captures all logs at INFO level and higher
+logging_client.setup_logging()
+
 # get root
 @app.route("/")
 @app.route("/wine-explorer")
@@ -22,17 +29,19 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route("/civis-journey-map")
 @app.route("/stockholm-apartments")
 def index():
-	return app.make_response(open('public_html/index.htm').read())
+	response = app.make_response(open('templates/index.html').read())
+	response.headers['Cache-Control'] = 'public, max-age=60000, s-maxage=60000'
+	return response
 
 # send assets (ex. assets/js/random_triangle_meshes/random_triangle_meshes.js)
 # blocks other requests, so your directories won't get listed (ex. assets/js will return "not found")
 @app.route('/assets/<path:path>')
 def send_assets(path):
-	return send_from_directory('public_html/', path)
+	return send_from_directory('assets/', path)
 
 @app.route('/libraries/<path:path>')
 def send_library(path):
-	return send_from_directory('public_html/libraries/', path)
+	return send_from_directory('libraries/', path)
 
 # @app.route('/wine/')
 # def get_wine_index():
@@ -146,7 +155,7 @@ def train_model(vectorizer):
 
 	# fit a Multinomial Naive Bayes model to the data
 	model = MultinomialNB()
-	model.fit(word_vectors.toarray(), wine_class)
+	model.fit(word_vectors, wine_class)
 
 	return model
 
