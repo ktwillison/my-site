@@ -332,8 +332,10 @@ function renderApartmentExplorer() {
 			updateAggregates();
 			dc.renderAll(APARTMENT_CHART_GROUP);
 
-		}).catch(function(error) {
+		}, function(error) {
+			// Let the next visit to this page try again
 			console.error("Could not load the apartment data", error);
+			apartmentExplorerRendered = false;
 		});
 	}
 	apartmentExplorerRendered = true;

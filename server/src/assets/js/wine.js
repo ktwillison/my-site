@@ -646,8 +646,12 @@ function renderWineExplorer() {
 
 			dc.renderAll(WINE_CHART_GROUP);
 
-		}).catch(function(error) {
+		}, function(error) {
+			// Undo the setup done above so the next visit to this page tries again
 			console.error("Could not load the wine explorer data", error);
+			wineMap.remove();
+			d3.select("#aroma_wheel svg").remove();
+			wineExplorerRendered = false;
 		});
 	}
 
