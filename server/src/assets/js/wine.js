@@ -216,11 +216,6 @@ function renderWineExplorer() {
 				return d.aroma_id;
 			}
 			
-			function setBarColors(chart){
-				chart.selectAll('rect.bar').style("fill", function(d) {
-					return getChoroColor(d.x * 5);
-				});
-			}
 			
 
 			// -------------------------------
@@ -307,7 +302,10 @@ function renderWineExplorer() {
 					.x(d3.scaleLinear().domain([0.5, 5.5]))
 					.xUnits(dc.units.fp.precision(1))
 					.yAxisLabel('Count')
-					.on('renderlet', setBarColors);
+					// Colour each bar by its level (1-5). Set through dc so it lands in the
+					// `fill` attribute, which dc.css's grey `.deselected` rule can override.
+					.colorAccessor(function(d) { return d.key; }) // stacked charts default to the layer name
+					.colors(function(level) { return getChoroColor(level * 5); });
 				newChart.xAxis().ticks(5);
 				newChart.yAxis().ticks(5);
 				newChart.xAxis().tickFormat(function (v) { return xAxisLabels[v]; });
