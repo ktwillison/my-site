@@ -58,10 +58,9 @@ def index():
 # blocks other requests, so your directories won't get listed (ex. assets/js will return "not found")
 @app.route('/assets/<path:path>')
 def send_assets(path):
-	response = send_from_directory(ASSETS_DIR, path)
-	# Site scripts/styles keep their file names between deploys, so make browsers revalidate (cheap 304s)
-	response.headers['Cache-Control'] = 'no-cache'
-	return response
+	# Flask sends `Cache-Control: no-cache` here by default, so browsers revalidate site
+	# scripts/styles (cheap 304s) and always pick up a new deploy.
+	return send_from_directory(ASSETS_DIR, path)
 
 
 @app.route('/libraries/<path:path>')
