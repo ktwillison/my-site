@@ -21,9 +21,14 @@ Data JSON format:
 	// ----------------------------------------------------------------
 var wineExplorerRendered = false;
 var WINE_CHART_GROUP = "wine-explorer"; // dc.js chart group, so filtering here doesn't redraw the apartment charts
+var fitWineExplorerToWidth = null; // set once the explorer has loaded
 
 function renderWineExplorer() {
 	setAromaWheelPadding();
+	if (wineExplorerRendered && fitWineExplorerToWidth) {
+		// Already drawn: re-fit in case the window was resized while this page was hidden
+		fitWineExplorerToWidth();
+	}
 	if (!wineExplorerRendered) {
 
 		// -------------------------------
@@ -626,21 +631,22 @@ function renderWineExplorer() {
 				dc.renderAll(WINE_CHART_GROUP);
 			});
 
-			// Update chart widths on resize
+			// Fit the charts to the current page width (on resize, and when the page is shown again)
 			var bar_charts = [body_chart, acidity_chart, alcohol_chart, fruit_chart, dryness_chart, tannins_chart];
+			fitWineExplorerToWidth = function() {
+				var newWidth = document.getElementById("wine-explorer-size").offsetWidth;
+				if (!newWidth) { return; } // section is hidden
+				wineMap.invalidateSize(); // Leaflet can't measure its container while it's hidden
+				var new_chart_WL = get_chart_width(newWidth / 4);
+				if (new_chart_WL === chart_WL) { return; }
+				chart_WL = new_chart_WL;
+				bar_charts.forEach(function(chart) { chart.width(chart_WL).height(chart_WL); });
+				dc.renderAll(WINE_CHART_GROUP);
+			};
 			var resizeTimer;
 			window.addEventListener("resize", function() {
 				clearTimeout(resizeTimer);
-				resizeTimer = setTimeout(function() {
-					var newWidth = document.getElementById("wine-explorer-size").offsetWidth;
-					if (!newWidth) { return; } // section is hidden
-					var new_chart_WL = get_chart_width(newWidth / 4);
-					if (new_chart_WL === chart_WL) { return; }
-					chart_WL = new_chart_WL;
-					bar_charts.forEach(function(chart) { chart.width(chart_WL).height(chart_WL); });
-					dc.renderAll(WINE_CHART_GROUP);
-					wineMap.invalidateSize();
-				}, 150);
+				resizeTimer = setTimeout(fitWineExplorerToWidth, 150);
 			});
 
 

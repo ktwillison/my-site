@@ -35,8 +35,13 @@ Data JSON format:
 	// ----------------------------------------------------------------
 var apartmentExplorerRendered = false;
 var APARTMENT_CHART_GROUP = "apartment-explorer"; // dc.js chart group, kept separate from the wine explorer
+var fitApartmentExplorerToWidth = null; // set once the explorer has loaded
 
 function renderApartmentExplorer() {
+	if (apartmentExplorerRendered && fitApartmentExplorerToWidth) {
+		// Already drawn: re-fit in case the window was resized while this page was hidden
+		fitApartmentExplorerToWidth();
+	}
 	if (!apartmentExplorerRendered) {
 
 // ----------------------------------------------------------------
@@ -315,18 +320,20 @@ function renderApartmentExplorer() {
 				dc.renderAll(APARTMENT_CHART_GROUP);
 			});
 
-			// Update chart widths on resize
+			// Fit the charts to the current page width (on resize, and when the page is shown again)
+			fitApartmentExplorerToWidth = function() {
+				var newWidth = document.getElementById("apartment-finder-size").offsetWidth;
+				if (!newWidth) { return; } // section is hidden
+				apartmentMap.invalidateSize(); // Leaflet can't measure its container while it's hidden
+				if (newWidth === chartWidth) { return; }
+				chartWidth = newWidth;
+				bar_charts.forEach(function(chart) { chart.width(chartWidth).height(chartWidth/3); });
+				dc.renderAll(APARTMENT_CHART_GROUP);
+			};
 			var resizeTimer;
 			window.addEventListener("resize", function() {
 				clearTimeout(resizeTimer);
-				resizeTimer = setTimeout(function() {
-					var newWidth = document.getElementById("apartment-finder-size").offsetWidth;
-					if (!newWidth || newWidth === chartWidth) { return; } // hidden, or unchanged
-					chartWidth = newWidth;
-					bar_charts.forEach(function(chart) { chart.width(chartWidth).height(chartWidth/3); });
-					dc.renderAll(APARTMENT_CHART_GROUP);
-					apartmentMap.invalidateSize();
-				}, 150);
+				resizeTimer = setTimeout(fitApartmentExplorerToWidth, 150);
 			});
 
 			updateAggregates();
