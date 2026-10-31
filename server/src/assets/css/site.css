@@ -1,0 +1,14 @@
+/* Site-wide additions on top of app.min.css */
+
+/* Visually hidden, but still read by screen readers (Font Awesome 7 no longer ships .sr-only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

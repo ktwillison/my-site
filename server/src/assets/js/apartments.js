@@ -34,6 +34,7 @@ Data JSON format:
 	//       Set up map and wheel properties
 	// ----------------------------------------------------------------
 var apartmentExplorerRendered = false;
+var APARTMENT_CHART_GROUP = "apartment-explorer"; // dc.js chart group, kept separate from the wine explorer
 
 function renderApartmentExplorer() {
 	if (!apartmentExplorerRendered) {
@@ -42,14 +43,10 @@ function renderApartmentExplorer() {
 //       Load data
 // ----------------------------------------------------------------
 
-		d3.json("/api/v1.0/data/apartment_data", function(remote_json) {
+		d3.json("/api/v1.0/data/apartment_data/").then(function(remote_json) {
 			// First chuck of data is for midsommarkransen, second is for söder
-			for (d in remote_json[0].sold) {
-			  remote_json[0].sold[d].location.area = "Midsommarkransen";
-			}
-			for (d in remote_json[1].sold) {
-			  remote_json[1].sold[d].location.area = "Södermalm";
-			}
+			remote_json[0].sold.forEach(function(d) { d.location.area = "Midsommarkransen"; });
+			remote_json[1].sold.forEach(function(d) { d.location.area = "Södermalm"; });
 
 			var remote_json_validated = remote_json[0].sold.concat(remote_json[1].sold);
 			remote_json_validated = remote_json_validated.filter(function (d) {
@@ -80,7 +77,8 @@ function renderApartmentExplorer() {
 			var location = cf.dimension(function(d) { return d.location.area; });
 			var allDim = cf.dimension(function(d) { return d; });
 
-			var allDimGroup = allDim.group().reduce(
+			// Aggregates over every record that passes the current filters
+			var allRecords = cf.groupAll().reduce(
 				//add
 				function(p,v){
 					p.count++;
@@ -135,7 +133,7 @@ function renderApartmentExplorer() {
 				},
 
 				//init
-				function(p,v) {
+				function() {
 					return {count:0, listPriceSum:0, soldPriceSum:0, percentChangeInPriceSum:0, 
 						soldPricePerSqMSum:0, livingAreaSum:0, floorSum:0, roomsSum:0, rentSum:0,
 						listPriceAvg:0, soldPriceAvg:0, percentChangeInPriceAvg:0, soldPricePerSqMAvg:0, 
@@ -146,13 +144,13 @@ function renderApartmentExplorer() {
 
 
 			// Define number formatters
-			var percentFormatter = d3.format("+,%")	
+			var percentFormatter = d3.format("+,.0%") // d3 v4+ defaults to 6 decimals
 			var priceFormatter = d3.format(".3s")
 			var rentFormatter = d3.format(".2s")
 
 			// Fire on filter change
 			var updateAggregates = function() {
-				var result = allDimGroup.top(Infinity)[0].value;
+				var result = allRecords.value();
 				document.getElementById("apartment-filter-count").innerHTML = result.count;
 				document.getElementById("soldPrice_avg").innerHTML = priceFormatter(result.soldPriceAvg);
 				document.getElementById("rent_avg").innerHTML = rentFormatter(result.rentAvg);
@@ -175,13 +173,14 @@ function renderApartmentExplorer() {
 			// ----------Add Loction chart
 			// -------------------------------
 			var sum = 0;
-			var location_chart = dc.pieChart("#location_chart")
+			var location_chart = dc.pieChart("#location_chart", APARTMENT_CHART_GROUP)
 				.width(200)
 				.height(200)
 				.radius(100)
 				.innerRadius(50)
 				.dimension(location)
 				.group(location.group())
+				.ordering(function(d) { return d.key; }) // dc.js v3+ defaults to largest slice first
 				.renderLabel(true)
 				.on("filtered", updateAggregates);
 
@@ -193,26 +192,29 @@ function renderApartmentExplorer() {
 			// // Chart width helper
 			var chartWidth = document.getElementById("apartment-finder-size").offsetWidth;
 
+			var bar_charts = [];
+
 			// Chart creator-helper
-			function create_chart(elementID, dimension, value_range, formatter, bins = 30) {
+			function create_chart(elementID, dimension, value_range, formatter, bins) {
+				bins = bins || 30;
 				var bin_width = value_range/bins,
 					x_grouped = dimension.group(
 		            	function(d) {return Math.floor(d/bin_width)*bin_width;});
 
-				var newChart = dc.barChart("#".concat(elementID))
+				var newChart = dc.barChart("#".concat(elementID), APARTMENT_CHART_GROUP)
 					.width(chartWidth)
 					.height(chartWidth/3)
 					.dimension(dimension)
 					.group(x_grouped)
 					.centerBar(true)
-					.x(d3.scale.linear())
-					.xUnits(dc.units.fp.precision(.01))
+					.x(d3.scaleLinear())
 					.xUnits(function(){return bins;})
 					.elasticY(true)
         			.elasticX(true)
 					.yAxisLabel('Count')
 					.on("filtered", updateAggregates);
 				newChart.xAxis().tickFormat(formatter);
+				bar_charts.push(newChart);
 				return newChart
 			};
 
@@ -251,39 +253,28 @@ function renderApartmentExplorer() {
 			// ----------Add Map -------------
 			// -------------------------------
 			var apartmentMap = L.map('apartment_map').setView([59.311710, 18.053760], 12);
-			// var countryMarkers = new L.FeatureGroup();
 			var markerLayer = L.layerGroup().addTo(apartmentMap);
-			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-			    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			    maxZoom: 18,
-			    id: 'mapbox.light',
-			    accessToken: 'pk.eyJ1IjoiYmVua2hvbyIsImEiOiJjaW9uZTR2aGcwMDhzdWptNDRtYnNmdDN4In0.ipiruWri3qdAOb5C0TnSBw'
-			}).addTo(apartmentMap);
+			addBaseTiles(apartmentMap, { maxZoom: 18 });
 
 			function update_map_markers() {
 				markerLayer.remove();
 
-				var currentData = allDim.top(Infinity);
-				var newMarkers = [];		
-
-				for (i in currentData) {
-					var lon = currentData[i].location.position.latitude;
-					var lat = currentData[i].location.position.longitude;
-					var marker = L.marker([lon, lat])//.addTo(apartmentMap);
-					newMarkers.push(marker);
-				}
+				var newMarkers = allDim.top(Infinity).map(function(d) {
+					return L.marker([d.location.position.latitude, d.location.position.longitude]);
+				});
 				markerLayer = L.layerGroup(newMarkers).addTo(apartmentMap);
 			}
 
 			// -------------------------------
 			// ----------Add data table
 			// -------------------------------
-			var dataTable = dc.dataTable('#apartment-data-table')
+			var dataTable = dc.dataTable('#apartment-data-table', APARTMENT_CHART_GROUP)
 				.dimension(allDim)
 				.size(800)
-				.group(function(d) { return ''; })
+				.section(function(d) { return ''; })
+				.showSections(false)
 				.sortBy(function(d){ return d.location.address.streetAddress; })
-				.order(d3.descending)
+				.order(d3.ascending)
 				.columns([
 						function(d) { return d.location.address.streetAddress; },
 						function(d) { return priceFormatter(d.listPrice); },
@@ -321,18 +312,28 @@ function renderApartmentExplorer() {
 			// add reset all event when text is clicked
 			d3.selectAll('a.reset_apartment_filters').on('click', function() {
 				resetFilters();
-				dc.renderAll();
+				dc.renderAll(APARTMENT_CHART_GROUP);
 			});
 
 			// Update chart widths on resize
-			window.onresize = function(event) {
-				var chartWidth = document.getElementById("apartment-finder-size").offsetWidth;
-				dc.renderAll();
-			};
+			var resizeTimer;
+			window.addEventListener("resize", function() {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(function() {
+					var newWidth = document.getElementById("apartment-finder-size").offsetWidth;
+					if (!newWidth || newWidth === chartWidth) { return; } // hidden, or unchanged
+					chartWidth = newWidth;
+					bar_charts.forEach(function(chart) { chart.width(chartWidth).height(chartWidth/3); });
+					dc.renderAll(APARTMENT_CHART_GROUP);
+					apartmentMap.invalidateSize();
+				}, 150);
+			});
 
 			updateAggregates();
-			dc.renderAll();
+			dc.renderAll(APARTMENT_CHART_GROUP);
 
+		}).catch(function(error) {
+			console.error("Could not load the apartment data", error);
 		});
 	}
 	apartmentExplorerRendered = true;

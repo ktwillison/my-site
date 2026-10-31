@@ -20,6 +20,7 @@ Data JSON format:
 	//       Set up map and wheel properties
 	// ----------------------------------------------------------------
 var wineExplorerRendered = false;
+var WINE_CHART_GROUP = "wine-explorer"; // dc.js chart group, so filtering here doesn't redraw the apartment charts
 
 function renderWineExplorer() {
 	setAromaWheelPadding();
@@ -31,12 +32,10 @@ function renderWineExplorer() {
 		var wineMap = L.map('wine-map');
 		var countryMarkers = new L.FeatureGroup();
 
-		L.tileLayer('https://api.tiles.mapbox.com/v4/{map_id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-			"map_id": 'mapbox.light',
-			"accessToken": 'pk.eyJ1IjoiYmVua2hvbyIsImEiOiJjaW9uZTR2aGcwMDhzdWptNDRtYnNmdDN4In0.ipiruWri3qdAOb5C0TnSBw',
-			"maxZoom": 16,
-			"attribution": "Created for CME161"
-		}).addTo(wineMap);
+		addBaseTiles(wineMap, {
+			maxZoom: 16,
+			attribution: BASEMAP_ATTRIBUTION + ' | Created for CME161'
+		});
 
 		// Define color scale & legend
 		function getChoroColor(d) {
@@ -49,10 +48,6 @@ function renderWineExplorer() {
 				d > 1 ? '#FED976' :
 				'#FFEDA0';
 		};
-
-		var colorScale = d3.scale.linear()
-			.domain([0, 27])
-			.range(["blue", "red"]);
 
 		var selected_country_ids = [];
 		var choloStyle = function(d, id) {
@@ -94,8 +89,7 @@ function renderWineExplorer() {
 		// Sunburst graph adapted from http://bl.ocks.org/mbostock/4063423
 		var wheel_width = 500,
 			wheel_height = 500,
-			wheel_radius = Math.min(wheel_width, wheel_height) / 2,
-			wheel_color = d3.scale.category20c();
+			wheel_radius = Math.min(wheel_width, wheel_height) / 2;
 
 		var svg = d3.select("#aroma_wheel").insert("svg",":first-child") // .append("svg") // 
 			.attr("width", "100%")
@@ -121,48 +115,24 @@ function renderWineExplorer() {
 			.attr("id", "aroma_hover")
 			.text(" ");
 
-		var partition = d3.layout.partition()
-			.sort(null)
-			.size([2 * Math.PI, wheel_radius * wheel_radius])
-			.value(function(d) {
-				return 1;
-			});
+		// Each leaf aroma gets an equal slice; inner rings are the sum of their children.
+		// (Path data are d3.hierarchy nodes; the raw aroma objects are in node.data.)
+		var partition = d3.partition()
+			.size([2 * Math.PI, wheel_radius * wheel_radius]);
 
-		var arc = d3.svg.arc()
+		var arc = d3.arc()
 			.startAngle(function(d) {
-				return d.x;
+				return d.x0;
 			})
 			.endAngle(function(d) {
-				return d.x + d.dx;
+				return d.x1;
 			})
 			.innerRadius(function(d) {
-				return Math.sqrt(d.y);
+				return Math.sqrt(d.y0);
 			})
 			.outerRadius(function(d) {
-				return Math.sqrt(d.y + d.dy);
+				return Math.sqrt(d.y1);
 			});
-
-		// Stash the old values for transition.
-		function stash(d) {
-			d.x0 = d.x;
-			d.dx0 = d.dx;
-		}
-
-		// Interpolate the arcs in data space.
-		function arcTween(a) {
-			var i = d3.interpolate({
-				x: a.x0,
-				dx: a.dx0
-			}, a);
-			return function(t) {
-				var b = i(t);
-				a.x0 = b.x;
-				a.dx0 = b.dx;
-				return arc(b);
-			};
-		}
-
-		d3.select(self.frameElement).style("height", wheel_height + "px");
 
 
 
@@ -170,8 +140,7 @@ function renderWineExplorer() {
 //       Load data
 // ----------------------------------------------------------------
 
-		d3.json("/api/v1.0/data/wine_finder_data/", function(remote_json) {
-			window.remote_json = remote_json;
+		d3.json("/api/v1.0/data/wine_finder_data/").then(function(remote_json) {
 
 			// ----------------------------------------------------------------
 			//       Crossfilter setup
@@ -214,8 +183,10 @@ function renderWineExplorer() {
 			// ----------Add aroma wheel
 			// -------------------------------
 			var aroma_map_root = remote_json.aroma_map;
-			var path = svg.datum(aroma_map_root).selectAll("path")
-				.data(partition.nodes)
+			var aroma_hierarchy = d3.hierarchy(aroma_map_root)
+				.sum(function(d) { return d.children ? 0 : 1; });
+			var path = svg.selectAll("path")
+				.data(partition(aroma_hierarchy).descendants())
 				.enter().append("path")
 				.attr("display", function(d) {
 					return d.depth ? null : "none";
@@ -223,16 +194,16 @@ function renderWineExplorer() {
 				.attr("d", arc)
 				.style("stroke", "#fff")
 				.style("fill", function(d) {
-					var id = getChildAromaId(d);
+					var id = getChildAromaId(d.data);
 					return getChoroColor(30*id/177);
 				})
 				.style("fill-rule", "evenodd")
+				.style("cursor", "pointer")
 				.on("mouseover", wheel_mouseover)
 				.on("click", wheel_click)
 				.on("mouseout", function() {
 					d3.select("#aroma_hover").text(" ");
-				})
-				.each(stash);
+				});
 			
 			// Chart width helper
 			var width = document.getElementById("wine-explorer-size").offsetWidth;
@@ -246,10 +217,10 @@ function renderWineExplorer() {
 			}
 			
 			function setBarColors(chart){
-				chart.selectAll('rect.bar').each(function(d){
-					d3.select(this).attr("style", "fill: " + getChoroColor(d.x * 5));
+				chart.selectAll('rect.bar').style("fill", function(d) {
+					return getChoroColor(d.x * 5);
 				});
-			}  
+			}
 			
 
 			// -------------------------------
@@ -262,23 +233,20 @@ function renderWineExplorer() {
 					.top(Infinity)
 					.forEach(function(d, i) {
 						if (d.value > 0) {
-							var location = dict[d.key - 1];
+							var countryID = d.key;
+							var location = dict[countryID - 1];
 							var name = location.name;
-							var marker = L.geoJson(location.geojson, {
-								style: choloStyle(d.value, d.key)
+							var marker = L.geoJSON(location.geojson, {
+								style: choloStyle(d.value, countryID)
 							});
-							marker.icon = L.divIcon({id: d.key, name: name});
-							marker.on("click", function (d) {
-								var countryID = d.target.icon.options.id;
+							marker.on("click", function () {
 								set_country_selection(countryID);
 							});
-							marker.on("mouseover", function (d) {
-								var name = d.target.icon.options.name;
+							marker.on("mouseover", function () {
 								$("#region_hover").text(name);
 							});
-							marker.on("mouseout", function (d) {
+							marker.on("mouseout", function () {
 								update_selected_country_text();
-								// $("#region_hover").html("&nbsp");
 							});
 
 							map_markers.addLayer(marker);
@@ -295,7 +263,7 @@ function renderWineExplorer() {
 			// ----------Add pie chart
 			// -------------------------------
 			var sum = 0;
-			var color_chart = dc.pieChart("#color_chart")
+			var color_chart = dc.pieChart("#color_chart", WINE_CHART_GROUP)
 				.width(200)
 				.height(200)
 				.radius(100)
@@ -314,14 +282,13 @@ function renderWineExplorer() {
 					};
 					return order[d.key];
 				})
-				.colors(["#F7C938", "#F2D780", "#DEE0A1",
+				.ordinalColors(["#F7C938", "#F2D780", "#DEE0A1",
 					"#943543", "#791925", "#66023C"
 				])
 				.label(function(d) {
-					var string = d.data.key;
+					var string = d.key;
 					return string.charAt(0).toUpperCase() + string.slice(1);
-				})
-				.renderLabel(true);
+				});
 
 
 			// -------------------------------
@@ -331,17 +298,18 @@ function renderWineExplorer() {
 
 			// Chart creator-helper
 			function create_chart(elementID, dimension, group) {
-				var newChart = dc.barChart("#".concat(elementID))
+				var newChart = dc.barChart("#".concat(elementID), WINE_CHART_GROUP)
 					.width(chart_WL)
 					.height(chart_WL)
 					.dimension(dimension)
 					.group(group)
 					.centerBar(true)
-					.x(d3.scale.linear().domain([0.5, 5.5]))
+					.x(d3.scaleLinear().domain([0.5, 5.5]))
 					.xUnits(dc.units.fp.precision(1))
 					.yAxisLabel('Count')
-					.renderlet( setBarColors );
+					.on('renderlet', setBarColors);
 				newChart.xAxis().ticks(5);
+				newChart.yAxis().ticks(5);
 				newChart.xAxis().tickFormat(function (v) { return xAxisLabels[v]; });
 				return newChart
 			};
@@ -357,12 +325,13 @@ function renderWineExplorer() {
 			// -------------------------------
 			// ----------Add data table
 			// -------------------------------
-			var dataTable = dc.dataTable('#wine-data-table')
+			var dataTable = dc.dataTable('#wine-data-table', WINE_CHART_GROUP)
 				.dimension(allDim)
 				.size(100)
-				.group(function(d) { return ''; })
+				.section(function(d) { return ''; })
+				.showSections(false)
 				.sortBy(function(d){ return d.name; })
-				.order(d3.descending)
+				.order(d3.ascending)
 				.columns([
 						function(d) { return d.name; },
 						function(d) { return getNameForId(remote_json.colors, d.color); },
@@ -373,9 +342,7 @@ function renderWineExplorer() {
 						function(d) { return xAxisLabels[d.dryness]; },
 						function(d) { return xAxisLabels[d.tannins]; }
 				])
-				.renderlet(function(table) {
-					// remove unnecessary row rendered
-					table.select('tr.dc-table-group').remove();
+				.on('renderlet', function(table) {
 					updateCount(allDim.top(Infinity));
 					drawMap(country_sum, remote_json.countries, countryMarkers);
 					createColorSwatches();
@@ -399,13 +366,14 @@ function renderWineExplorer() {
 			function createColorSwatches() {
 				$(".dc-table-column._1").each(function(index, thisCell) {
 					var color = thisCell.innerText || thisCell.textContent;
-					var div = document.createElement("div"); 
-					div.style.width = "10px"; 
-					div.style.height = "10px"; 
+					var div = document.createElement("div");
+					div.style.width = "10px";
+					div.style.height = "10px";
 					div.style.background = swatchColors[color];
 					div.style.display = "inline-block";
+					div.title = color;
 					thisCell.innerHTML = '';
-					thisCell.append(div);
+					thisCell.appendChild(div);
 				});
 			}
 
@@ -421,7 +389,7 @@ function renderWineExplorer() {
 				update_selected_aroma_text();
 				svg.selectAll("path")
 					.style("opacity", function(d) {
-						if (d.selected || selected_aroma_ids.length === 0) {
+						if (d.data.selected || selected_aroma_ids.length === 0) {
 							return 1;
 						}
 						return 0.2
@@ -448,13 +416,13 @@ function renderWineExplorer() {
 			function select_aromas_from_array(arr) {
 				selected_aroma_ids = arr;
 				svg.selectAll("path").each(function(d) {
-					d.selected = (selected_aroma_ids.indexOf(d.aroma_id) > -1);
+					d.data.selected = (selected_aroma_ids.indexOf(d.data.aroma_id) > -1);
 				});
 			}
 
 			// Update selected aroma text from svg properties
 			function update_selected_aroma_text() {
-				var aroma_text = update_selected_aroma_text_helper(svg.data()[0]);
+				var aroma_text = update_selected_aroma_text_helper(aroma_map_root);
 				d3.select("#aroma_selection").text(aroma_text);
 			}
 
@@ -472,8 +440,8 @@ function renderWineExplorer() {
 			}
 
 			// Set explanation on wheel mouseover
-			function wheel_mouseover(d) {
-				d3.select("#aroma_hover").text(d.name);
+			function wheel_mouseover(event, d) {
+				d3.select("#aroma_hover").text(d.data.name);
 			}
 
 			// --------------------------------------
@@ -488,7 +456,7 @@ function renderWineExplorer() {
 					  	return selected_country_ids.indexOf(c.id) > -1; 
 					});
 
-					selected_country_text = selected_countries.map(function(c){ return c.name; }).join(", ");
+					var selected_country_text = selected_countries.map(function(c){ return c.name; }).join(", ");
 					$("#region_hover").text(selected_country_text);
 				}
 			}
@@ -541,8 +509,8 @@ function renderWineExplorer() {
 
 			// Update aroma filter on click
 			var selected_aroma_ids = [];
-			function wheel_click(d) {
-				set_node_selection(d, !d.selected);			// svg data
+			function wheel_click(event, d) {
+				set_node_selection(d.data, !d.data.selected);	// svg data
 				if(selected_aroma_ids.length === 0) {
 					reset_aroma_selection();
 				} else {
@@ -551,12 +519,12 @@ function renderWineExplorer() {
 				}
 				// sync_node_selection_view();					// view
 				// sync_aroma_filter();						// Crossfilter
-				dc.redrawAll();
+				dc.redrawAll(WINE_CHART_GROUP);
 			}
-			
+
 			function reset_aroma_selection() {
 				selected_aroma_ids = [];
-				set_node_selection(svg.data()[0], false);   // svg data
+				set_node_selection(aroma_map_root, false);   // svg data
 				sync_node_selection_view();					// view
 				aromas.filter(null);						// crossfilter
 			}
@@ -591,9 +559,9 @@ function renderWineExplorer() {
 				} else {
 					country.filterFunction(function(d) { 
 						return selected_country_ids.indexOf(d) > -1; 
-					}); 
+					});
 				}
-				dc.redrawAll();
+				dc.redrawAll(WINE_CHART_GROUP);
 			}
 
 			function resetCountrySelection() {
@@ -619,7 +587,7 @@ function renderWineExplorer() {
 					}); 
 
 					// select this varietal's aromas
-					varietal_data = remote_json.varietals.filter(function(d) { 
+					var varietal_data = remote_json.varietals.filter(function(d) { 
 						return selected_varietal == d.name; 
 					}); 
 					select_aromas_from_array(varietal_data[0].aromas);	
@@ -627,7 +595,7 @@ function renderWineExplorer() {
 					// sync wheel view with data model
 					sync_aroma_selection();
 				}
-				dc.redrawAll();
+				dc.redrawAll(WINE_CHART_GROUP);
 			}
 
 			function reset_varietal_selection() {
@@ -657,19 +625,31 @@ function renderWineExplorer() {
 			// add reset all event when text is clicked
 			d3.selectAll('a.reset_wine_filters').on('click', function() {
 				filterAll();
-				dc.renderAll();
+				dc.renderAll(WINE_CHART_GROUP);
 			});
 
 			// Update chart widths on resize
-			window.onresize = function(event) {
-				var newWidth = document.getElementById("wine-explorer-size").offsetWidth;
-				var chart_WL = get_chart_width(newWidth / 4);
-				dc.renderAll();
-			};
+			var bar_charts = [body_chart, acidity_chart, alcohol_chart, fruit_chart, dryness_chart, tannins_chart];
+			var resizeTimer;
+			window.addEventListener("resize", function() {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(function() {
+					var newWidth = document.getElementById("wine-explorer-size").offsetWidth;
+					if (!newWidth) { return; } // section is hidden
+					var new_chart_WL = get_chart_width(newWidth / 4);
+					if (new_chart_WL === chart_WL) { return; }
+					chart_WL = new_chart_WL;
+					bar_charts.forEach(function(chart) { chart.width(chart_WL).height(chart_WL); });
+					dc.renderAll(WINE_CHART_GROUP);
+					wineMap.invalidateSize();
+				}, 150);
+			});
 
 
-			dc.renderAll();
+			dc.renderAll(WINE_CHART_GROUP);
 
+		}).catch(function(error) {
+			console.error("Could not load the wine explorer data", error);
 		});
 	}
 
@@ -679,5 +659,7 @@ function renderWineExplorer() {
 function setAromaWheelPadding(){
 		var $aromaWheel = $("#aroma_wheel.svg-container");
 		var width = parseInt($aromaWheel.css("width"), 10);
-		$aromaWheel.css("padding-bottom", width + 20);
+		if (!isNaN(width)) {
+			$aromaWheel.css("padding-bottom", (width + 20) + "px");
+		}
 };

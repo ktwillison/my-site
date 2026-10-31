@@ -15,13 +15,17 @@
         <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
         <!-- Fonts & CSS -->
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-        <script src="https://use.fontawesome.com/967772353c.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+        <link rel="stylesheet" href="/libraries/fontawesome@7.3.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="/libraries/fontawesome@7.3.1/css/brands.min.css">
+        <link rel="stylesheet" href="/libraries/fontawesome@7.3.1/css/solid.min.css">
         <link rel="stylesheet" href="/assets/css/app.min.css">
+        <link rel="stylesheet" href="/assets/css/site.css">
 
 </head>
-    <body cz-shortcut-listen="true">
+    <body>
         <section class="main-container">
             <div class="blocks">
                 <div class="block block--left">
@@ -44,10 +48,10 @@
                             <a class="btn scrolling back-to-home" href="#header-contact">Contact</a>
                             
                             <div class="block__social">
-                                <a class="fa fa-linkedin-square fa-2x block__social__link" href="https://www.linkedin.com/in/kwillison" target="_blank"></a>
-                                <a class="fa fa-github-square fa-2x block__social__link" href="https://github.com/ktwillison" target="_blank"></a>
-                                <a class="fa fa-twitter-square fa-2x block__social__link" href="https://twitter.com/ktwillison" target="_blank"></a>
-                                <a class="fa fa-spotify fa-2x block__social__link" href="https://play.spotify.com/user/katiewillison" target="_blank"></a>
+                                <a class="fa-brands fa-linkedin fa-2x block__social__link" href="https://www.linkedin.com/in/kwillison" target="_blank" aria-label="LinkedIn"></a>
+                                <a class="fa-brands fa-square-github fa-2x block__social__link" href="https://github.com/ktwillison" target="_blank" aria-label="GitHub"></a>
+                                <a class="fa-brands fa-square-twitter fa-2x block__social__link" href="https://twitter.com/ktwillison" target="_blank" aria-label="Twitter"></a>
+                                <a class="fa-brands fa-spotify fa-2x block__social__link" href="https://open.spotify.com/user/katiewillison" target="_blank" aria-label="Spotify"></a>
                             </div>
                             <br/>
                             <div id="attribution">Designed &amp; Implemented By Kate (Willison) Jonason © 2017</div>
@@ -217,7 +221,7 @@
 
 <!-- Project-specific pages -->
                     <div class="block-content hidden" id="article-specific-pages">
-                        <a class="back-to-home"> <div class="fa fa-arrow-left"></div> back</a>
+                        <a class="back-to-home"> <div class="fa-solid fa-arrow-left"></div> back</a>
 
                         <div class="hidden" id="ML-pdf-section">
                             <div class="content">
@@ -235,7 +239,7 @@
                                         <input type="submit" value="Run the model!">
                                     </form> 
                                     <div id="model-results-loading" class="hidden">
-                                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                        <i class="fa-solid fa-spinner fa-spin-pulse fa-3x fa-fw" aria-hidden="true"></i>
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                     <div id="model-result"></div>
@@ -573,67 +577,29 @@
           }
         </script>
 
-        <!-- Initialize JS Plugins/Shims -->
-        <script src="/libraries/jquery.js"></script>
-        <script src="/libraries/CSSRulePlugin.min.js"></script>
-        <script src="/libraries/TweenMax.min.js"></script>
-        <script src="/libraries/jquery.shorten.1.0.js"></script>
-        <script src="/assets/js/app.min.js"></script>
-
-        <!-- Visualization Dependencies -->
-
-        <!-- Wine explorer -->
-        <script src='/libraries/d3.min.js'></script>
-        <script src='/libraries/underscore-min.js'></script>
-        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-        <script src='/libraries/dc.js'></script>
-        <script src='/libraries/crossfilter.min.js'></script>
-
-        <!-- Apartment parser -->
-        <script src='/assets/js/apartments.js'></script>
-
-        <!-- ML viz -->
-        <script src="/assets/js/wine-model.js"></script>
-        <script src="/libraries/sankey.js"></script>
-        <script src="/libraries/d3.chart.min.js"></script>
-        <script src="/libraries/d3.chart.sankey.min.js"></script>
-        <script src="/assets/js/ML-viz.js"></script>
-
-
         <!-- Visualization style dependencies -->
-        <link href="/assets/css/dc.css" rel="stylesheet">
-        <link href="/assets/css/leaflet.css" rel="stylesheet">
+        <link rel="stylesheet" href="/libraries/dc@4.2.7/dc.min.css">
+        <link rel="stylesheet" href="/libraries/leaflet@1.9.4/leaflet.css">
         <link rel="stylesheet" href="/assets/css/ML-viz.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
 
-    <!-- Backup
-        <script src="/assets/js/analytics.js"></script>
-        <script src="/assets/js/jquery.js"></script>
-        <script src="/assets/js/CSSRulePlugin.min.js"></script>
-        <script src="/assets/js/TweenMax.min.js"></script>
-        <script src="https://viralpatel.net/blogs/demo/jquery/jquery.shorten.1.0.js"></script>
-        <script src="/assets/js/app.min.js"></script>
+        <!-- Site & animation dependencies (installed via npm, copied here by `npm run vendor`) -->
+        <script src="/libraries/jquery@4.0.0/jquery.min.js"></script>
+        <script src="/libraries/gsap@3.15.0/gsap.min.js"></script>
+        <script src="/libraries/jquery.shorten.1.0.js"></script>
 
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet-src.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/dc/1.7.1/dc.js'></script>
-        <script src='https://rawgit.com/crossfilter/crossfilter/master/crossfilter.min.js'></script>
+        <!-- Visualization dependencies -->
+        <script src="/libraries/d3@7.9.0/d3.min.js"></script>
+        <script src="/libraries/d3-sankey@0.12.3/d3-sankey.min.js"></script>
+        <script src="/libraries/crossfilter2@1.5.4/crossfilter.min.js"></script>
+        <script src="/libraries/dc@4.2.7/dc.min.js"></script>
+        <script src="/libraries/leaflet@1.9.4/leaflet.js"></script>
 
-
-        <script src="https://rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
-        <script src="https://rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
-        <script src="https://rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
+        <!-- Site scripts -->
+        <script src="/assets/js/viz-config.js"></script>
+        <script src="/assets/js/wine.js"></script>
+        <script src="/assets/js/apartments.js"></script>
+        <script src="/assets/js/wine-model.js"></script>
         <script src="/assets/js/ML-viz.js"></script>
-
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/dc/1.7.5/dc.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/css/ML-viz.css">
-    -->
-        
-        <!-- Scripts: -->
-        <script src='/assets/js/wine.js'></script>
-
+        <script src="/assets/js/app.min.js"></script>
 
 </body></html>
