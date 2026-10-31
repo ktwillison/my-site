@@ -47,7 +47,10 @@ setup_logging()
 def index():
 	with open(INDEX_PATH, encoding='utf-8') as index_file:
 		response = app.make_response(index_file.read())
-	response.headers['Cache-Control'] = 'public, max-age=60000, s-maxage=60000'
+	# Browsers revalidate the page after 5 minutes, so after a deploy nobody keeps an old page that
+	# points at library versions that no longer exist. The Firebase CDN may keep it longer
+	# (s-maxage); its cache is purged whenever a new Hosting release goes out.
+	response.headers['Cache-Control'] = 'public, max-age=300, s-maxage=60000'
 	return response
 
 
