@@ -68,6 +68,9 @@ node_modules/
 # DS store
 .DS_Store
 
-# Python
-__pycache__/
+# Python bytecode
 *.pyc
+__pycache__/
+
+# IDE settings
+.idea/
