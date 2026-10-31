@@ -8,6 +8,16 @@
 
 
 var mlChartData = null;
+var mlChartWidth = null; // width of the chart currently drawn
+
+// Redraw only if the chart's width changed (mobile browsers fire resize events
+// just from the address bar showing/hiding while scrolling)
+function resizeMLChart() {
+  var width = document.getElementById("ML-chart").clientWidth;
+  if (width && width !== mlChartWidth) {
+    renderMLChart();
+  }
+}
 
 function renderMLChart() {
   var colors = {
@@ -67,6 +77,7 @@ function renderMLChart() {
         unselectedOpacity = 0.2;
 
     if (width <= 0 || height <= 0) { return; } // section is hidden
+    mlChartWidth = outerWidth;
 
     // d3-sankey mutates its input, so lay out a copy of the data
     var graph = d3.sankey()
