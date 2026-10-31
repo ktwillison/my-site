@@ -556,8 +556,24 @@
             </div>
         </section>
 
+        <!-- Analytics: the old Universal Analytics property (UA-86148936-3) stopped collecting
+             data in July 2023. To turn tracking back on, create a GA4 property and put its
+             measurement ID (G-XXXXXXXXXX) below. Until then, gtag() calls are harmless no-ops. -->
+        <script>
+          window.GA_MEASUREMENT_ID = '';
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { window.dataLayer.push(arguments); }
+          if (window.GA_MEASUREMENT_ID) {
+            var gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
+            document.head.appendChild(gaScript);
+            gtag('js', new Date());
+            gtag('config', window.GA_MEASUREMENT_ID);
+          }
+        </script>
+
         <!-- Initialize JS Plugins/Shims -->
-        <script src="/libraries/analytics.js"></script>
         <script src="/libraries/jquery.js"></script>
         <script src="/libraries/CSSRulePlugin.min.js"></script>
         <script src="/libraries/TweenMax.min.js"></script>
@@ -619,15 +635,5 @@
         <!-- Scripts: -->
         <script src='/assets/js/wine.js'></script>
 
-        <!-- Google Analytics code -->
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-86148936-3', 'auto');
-          ga('send', 'pageview');
-        </script>
 
 </body></html>
