@@ -22,3 +22,18 @@ cd server
 docker build -t my-site .
 docker run -p 8080:8080 my-site
 ```
+
+Or without Docker (Python 3.14):
+
+```bash
+cd server/src
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python flask_front_end_app.py   # http://localhost:5050
+```
+
+## Updating dependencies
+
+- **Python**: versions are pinned in `server/src/requirements.txt`; the Docker image installs from it.
+- **Browser libraries** (d3, dc.js, crossfilter, Leaflet, jQuery, GSAP, Font Awesome): versions are pinned in `package.json`. After changing them, run `npm install && npm run vendor`. That copies each library's browser build into `server/src/libraries/<package>@<version>/` and updates the paths in `server/src/templates/index.html`. The copied files are committed, because the Docker image only contains `server/src`.
+- `npm outdated` lists libraries with newer releases, and `npm run check:es` checks that all shipped JavaScript still runs in browsers that support ES2017.

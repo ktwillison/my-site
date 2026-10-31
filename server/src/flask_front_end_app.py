@@ -1,26 +1,42 @@
-#!/usr/bin/python 
-import os, copy, json, collections, io, re
-from flask import Flask, jsonify, request, send_from_directory, make_response
-from flask.ext.restful import Api, Resource, reqparse
-from flask.ext.cors import CORS, cross_origin
+#!/usr/bin/env python3
+import json
+import logging
+import os
+import re
+import threading
 
-import google.cloud.logging
-
+from flask import Flask, jsonify, request, send_from_directory
+from flask_cors import CORS, cross_origin
 from nltk.stem.lancaster import LancasterStemmer
-from sklearn import datasets, metrics
-from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import CountVectorizer
-import numpy as np
+from sklearn.naive_bayes import MultinomialNB
 
-app = Flask(__name__, static_url_path='')
-api = Api(app)
-cors = CORS(app) 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ASSETS_DIR = os.path.join(BASE_DIR, 'assets')
+LIBRARIES_DIR = os.path.join(BASE_DIR, 'libraries')
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+MODEL_DIR = os.path.join(BASE_DIR, 'model')
+INDEX_PATH = os.path.join(BASE_DIR, 'templates', 'index.html')
+
+app = Flask(__name__, static_folder=None)
+cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-# Setup Google logging
-logging_client = google.cloud.logging.Client()
-# By default, this captures all logs at INFO level and higher
-logging_client.setup_logging()
+
+def setup_logging():
+	"""Send logs to Google Cloud Logging when running on GCP; fall back to stderr locally."""
+	try:
+		import google.cloud.logging
+		logging_client = google.cloud.logging.Client()
+		# By default, this captures all logs at INFO level and higher
+		logging_client.setup_logging()
+	except Exception as error:  # e.g. no GCP credentials when running locally
+		logging.basicConfig(level=logging.INFO)
+		logging.getLogger(__name__).info('Google Cloud Logging not configured (%s); logging to stderr', error)
+
+
+setup_logging()
+
 
 # get root
 @app.route("/")
@@ -29,87 +45,86 @@ logging_client.setup_logging()
 @app.route("/civis-journey-map")
 @app.route("/stockholm-apartments")
 def index():
-	response = app.make_response(open('templates/index.html').read())
-	response.headers['Cache-Control'] = 'public, max-age=60000, s-maxage=60000'
+	with open(INDEX_PATH, encoding='utf-8') as index_file:
+		response = app.make_response(index_file.read())
+	# Browsers revalidate the page after 5 minutes, so after a deploy nobody keeps an old page that
+	# points at library versions that no longer exist. The Firebase CDN may keep it longer
+	# (s-maxage); its cache is purged whenever a new Hosting release goes out.
+	response.headers['Cache-Control'] = 'public, max-age=300, s-maxage=60000'
 	return response
+
 
 # send assets (ex. assets/js/random_triangle_meshes/random_triangle_meshes.js)
 # blocks other requests, so your directories won't get listed (ex. assets/js will return "not found")
 @app.route('/assets/<path:path>')
 def send_assets(path):
-	return send_from_directory('assets/', path)
+	# Flask sends `Cache-Control: no-cache` here by default, so browsers revalidate site
+	# scripts/styles (cheap 304s) and always pick up a new deploy.
+	return send_from_directory(ASSETS_DIR, path)
+
 
 @app.route('/libraries/<path:path>')
 def send_library(path):
-	return send_from_directory('libraries/', path)
+	response = send_from_directory(LIBRARIES_DIR, path)
+	# Third-party libraries live in versioned folders (e.g. d3@7.9.0/), so they never change in place
+	if '@' in path.split('/')[0]:
+		response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
+	return response
 
-# @app.route('/wine/')
-# def get_wine_index():
-# 	return app.make_response(open('public_html/html/wine.html').read())
 
 @app.route('/api/v1.0/data/<filename>/', methods=['GET'])
-@cross_origin(origin='http://www.katewillison.com/', headers=['Content-Type','Authorization'])
+@cross_origin(origins=['http://www.katewillison.com', 'https://www.katewillison.com'],
+			  allow_headers=['Content-Type', 'Authorization'])
 def get_data(filename):
-	with open('data/' + filename + '.json') as data_file:
-		return json.dumps(json.load(data_file))
-
+	return send_from_directory(DATA_DIR, filename + '.json', mimetype='application/json')
 
 
 # Route for wine model API
-class WineModelAPI(Resource):
-    def __init__(self):
-        self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('input_text', type = str, required = True,
-            help = 'No input text provided', location = 'json')
-        super(WineModelAPI, self).__init__()
+@app.route('/api/v1.0/winemodel/', methods=['POST'], endpoint='wine-model')
+def wine_model():
+	payload = request.get_json(silent=True)
+	input_text = payload.get('input_text') if isinstance(payload, dict) else None
+	if input_text is None:
+		return jsonify({'message': {'input_text': 'No input text provided'}}), 400
 
-    def post(self):
-		args = self.reqparse.parse_args()
+	# First check if input text is valid
+	cleaned_text = clean_text(str(input_text))
+	if cleaned_text != "":
+		# Use the (trained once, then cached) model to create a classification mapping
+		model, vectorizer = get_model()
+		prediction_mapping = predict_class(cleaned_text, model, vectorizer)
+		return jsonify({'prediction': json.dumps(prediction_mapping)})
 
-		# First check if input text is valid
-		cleaned_text = clean_text(args['input_text'])
-		if cleaned_text != "":
-			# Define a vectorizer, then train the model
-			vectorizer = CountVectorizer(token_pattern=r'\w+(?:-\w+)?', binary=True)
-			model = train_model(vectorizer)
-
-			# Use the model to create a classification mapping
-			prediction_mapping = predict_class(cleaned_text, model, vectorizer)
-			return { 'prediction': json.dumps(prediction_mapping) }
-
-		# If not, return an error code
-		else:
-			response = jsonify({
-				'status': 412,
-				'message': "The input text didn't contain any words that are included in the model -- put your wine-reviewer hat on and try again!",
-			})
-			response.status_code = 412
-			return response
-
-
-
-api.add_resource(WineModelAPI, '/api/v1.0/winemodel/', endpoint = 'wine-model')
+	# If not, return an error code
+	response = jsonify({
+		'status': 412,
+		'message': "The input text didn't contain any words that are included in the model -- put your wine-reviewer hat on and try again!",
+	})
+	response.status_code = 412
+	return response
 
 
 # Methods for wine-model-building:
 lancaster = LancasterStemmer()
-included_words = []
-ngram_words = []
 
-category_filter = ["Sangiovese", "Pinot Noir", "Semillon", "Nebbiolo", 
-			"Rhone Blends", "Shiraz/Syrah", "Merlot", "Chardonnay", 
-			"Tempranillo", "Cabernet Sauvignon and Blends", "Riesling", 
+category_filter = ["Sangiovese", "Pinot Noir", "Semillon", "Nebbiolo",
+			"Rhone Blends", "Shiraz/Syrah", "Merlot", "Chardonnay",
+			"Tempranillo", "Cabernet Sauvignon and Blends", "Riesling",
 			"Zinfandel", "Grenache", "Sauvignon Blanc", "Malbec", "Cabernet Franc",
-			"Chenin Blanc", "Petite Sirah", "Mourvedre", "Pinot Gris", "Viognier", 
+			"Chenin Blanc", "Petite Sirah", "Mourvedre", "Pinot Gris", "Viognier",
 			"Gruner Veltliner", "Gewurztraminer"]
 
-def set_word_lists():
-	global included_words, ngram_words, lancaster
-	with open('model/model_words.json') as data_file:    
-	    data = json.load(data_file)#.encode("utf8")
-	    included_words = data["included_words"]
-	    included_words = [lancaster.stem(i) for i in included_words]
-	    ngram_words = data["ngram_words"]
+
+def load_word_lists():
+	with open(os.path.join(MODEL_DIR, 'model_words.json'), encoding='utf-8') as data_file:
+		data = json.load(data_file)
+	included_words = set(lancaster.stem(i) for i in data["included_words"])
+	ngram_words = set(data["ngram_words"])
+	return included_words, ngram_words
+
+
+included_words, ngram_words = load_word_lists()
+
 
 # Create ngrams from the list of ngram words in the format [modifier]_[ngram word]
 def find_ngrams(input_list, n):
@@ -120,9 +135,8 @@ def find_ngrams(input_list, n):
 			ngrams_filtered.append(g1+"_"+g2)
 	return ngrams_filtered
 
+
 def clean_text(text_to_clean):
-	global included_words, ngram_words, lancaster
-	set_word_lists()
 	words_raw = [word.lower() for word in re.findall(r'\w+(?:-\w+)?', text_to_clean)]
 	words = [k for k in words_raw if not k.split('-')[0].isdigit()]
 	ngrams = find_ngrams(words, 2)
@@ -131,20 +145,22 @@ def clean_text(text_to_clean):
 	words += ngrams
 	return " ".join(words)
 
+
 def predict_class(cleaned_text, model, vectorizer):
 	cleaned_vectorized_text = vectorizer.transform([cleaned_text]).toarray()
-	prediction = model.predict_proba(cleaned_vectorized_text)[0]#.toList()
+	prediction = model.predict_proba(cleaned_vectorized_text)[0]
 	classes = model.classes_
 
 	prediction_mapping = []
 	for i in range(0, len(prediction)):
-		prediction_mapping.append({"name": classes[i], "p":prediction[i]*100})
+		prediction_mapping.append({"name": str(classes[i]), "p": float(prediction[i]) * 100})
 	prediction_mapping.sort(key=lambda x: x["p"], reverse=True)
 	return prediction_mapping
 
+
 def train_model(vectorizer):
-	# Create the Gaussian Naive Bayes model
-	with open('model/training_data.txt') as training_data_file:  
+	# Create the Multinomial Naive Bayes model
+	with open(os.path.join(MODEL_DIR, 'training_data.txt'), encoding='utf-8') as training_data_file:
 		training_data = json.load(training_data_file)
 
 	keywords = [i["keywords"] for i in training_data]
@@ -160,10 +176,22 @@ def train_model(vectorizer):
 	return model
 
 
+_model_lock = threading.Lock()
+_model_cache = None
+
+
+def get_model():
+	"""Train the model on first use and reuse it afterwards (the training data never changes)."""
+	global _model_cache
+	with _model_lock:
+		if _model_cache is None:
+			vectorizer = CountVectorizer(token_pattern=r'\w+(?:-\w+)?', binary=True)
+			_model_cache = (train_model(vectorizer), vectorizer)
+		return _model_cache
+
 
 if __name__ == "__main__":
 	port = int(os.environ.get("PORT", 5050))
+	# set debug=True if you want to have auto-reload on changes
+	# this is great for developing
 	app.run(host='0.0.0.0', port=port, debug=True)
-
-# set debug=True if you want to have auto-reload on changes
-# this is great for developing
