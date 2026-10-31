@@ -566,7 +566,10 @@
 
         <!-- Analytics: the old Universal Analytics property (UA-86148936-3) stopped collecting
              data in July 2023. To turn tracking back on, create a GA4 property and put its
-             measurement ID (G-XXXXXXXXXX) below. Until then, gtag() calls are harmless no-ops. -->
+             measurement ID (G-XXXXXXXXXX) below. Until then, gtag() calls are harmless no-ops.
+             Page views, including in-page navigation to the project pages, are recorded by GA4
+             automatically (Enhanced Measurement > "Page changes based on browser history events",
+             on by default), so the site only sends its own custom events. -->
         <script>
           window.GA_MEASUREMENT_ID = '';
           window.dataLayer = window.dataLayer || [];
