@@ -67,3 +67,7 @@ node_modules/
 
 # DS store
 .DS_Store
+
+# Python
+__pycache__/
+*.pyc
