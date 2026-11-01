@@ -13,7 +13,7 @@ It's an older personal project, kept online mostly for posterity, so the code re
 
 - `server/`: a Flask app that serves the page, the data files and the wine-model API. It's packaged with a `Dockerfile` and runs on Google Cloud Run.
 - `static/`: the Firebase Hosting root. Anything not found here is forwarded to the Cloud Run service (see `firebase.json`).
-- `.github/workflows/`: deploys Firebase Hosting on pushes to `master`.
+- `.github/workflows/`: on pushes to `master`, deploys `server/` to Cloud Run and then releases Firebase Hosting.
 
 To run it locally:
 
